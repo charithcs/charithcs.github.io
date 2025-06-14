@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between">
-        <a href="#" className="text-lg font-bold font-heading">
+        <a href="https://drive.google.com/file/d/1kQGyNZ3_qA3VV5vH78xic-B-EV0VliQQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-lg font-bold font-heading">
           <Button variant="outline">View Resume</Button>
         </a>
         <nav className="hidden md:flex items-center gap-6">

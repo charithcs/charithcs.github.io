@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div className="container mx-auto relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in-down">
-          CHARITH S
+          CHARITH.S
         </h1>
         <p className="text-lg md:text-xl text-primary mb-6 font-semibold animate-fade-in-up">
           Incident Response | Blue Team Operations | SOC Analyst

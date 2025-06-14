@@ -1,23 +1,39 @@
 
+import { Badge } from "@/components/ui/badge";
+
 const experienceData = [
   {
-    date: "2022 - Present",
-    role: "Sr. SOC Analyst",
-    company: "CyberCorp Inc.",
-    description: "Lead security incident investigations, mentor junior analysts, and develop new detection rules for the SIEM.",
+    role: "Cyber Security Analyst",
+    company: "Skillmine Technology (Deployed at Autodesk)",
+    date: "May 2023 - Present",
+    location: "Bengaluru",
+    type: "Full-time",
+    achievements: [
+      "Led security monitoring and incident response across enterprise and M&A cloud environments, adhering to NIST 800-61 lifecycle",
+      "Triage and analyzed 100+ weekly alerts across endpoint, network, and cloud layers using Splunk, QRadar, SentinelOne, CrowdStrike, and FortiSOAR",
+      "Performed host forensics & malware analysis using Falcon Forensics and Belkasoft to uncover persistence techniques and infection vectors",
+      "Automated SOAR playbooks in FortiSOAR, reducing credential alert remediation time by 40% through intelligent user notification and case routing",
+      "Identified & remediated cloud misconfigurations in AWS and Azure environments using CloudTrail, Azure Logs, Wiz, and Orca",
+      "Reduced false positives by 20% via correlation of Active Directory, proxy, firewall, and Windows logs—streamlining SOC analyst workflows",
+      "Worked with Threat Intelligence & Threat Hunting teams to operationalize IOCs, detect APT behaviors, and secure 5,000+ endpoints globally"
+    ],
+    technologies: ["Splunk ES", "IBM QRadar", "CrowdStrike Falcon", "SentinelOne XDR", "FortiSOAR", "Microsoft Sentinel", "AWS CloudTrail", "Azure AD", "Wiz", "Orca Security"]
   },
   {
-    date: "2020 - 2022",
-    role: "Incident Responder",
-    company: "SecureNet Solutions",
-    description: "Part of the Blue Team, focused on containing and eradicating threats, and performing forensic analysis.",
-  },
-  {
-    date: "2019 - 2020",
-    role: "Jr. Security Analyst",
-    company: "DataProtect LLC",
-    description: "Monitored security alerts, managed firewalls, and contributed to vulnerability assessment reports.",
-  },
+    role: "Information Security Consultant",
+    company: "Tech Mahindra",
+    date: "Sep 2021 - Apr 2023",
+    location: "Hyderabad",
+    type: "Full-time",
+    achievements: [
+      "Monitored and analyzed security events 24/7 across enterprise network using SIEM and EDR platforms, enhancing threat detection and response capabilities",
+      "Investigated and remediated DLP and CASB alerts, successfully preventing data exfiltration attempts and maintaining data integrity",
+      "Enhanced email security through O365 Defender and Proofpoint implementation, contributing to 20% reduction in email-borne threats",
+      "Performed comprehensive log analysis across Windows Event Logs, firewall logs, and proxy logs for threat identification",
+      "Collaborated with cross-functional teams to implement security controls and improve overall security posture"
+    ],
+    technologies: ["Microsoft Defender", "Rapid 7", "O365 Defender", "Proofpoint", "DLP Tools", "CASB Solutions"]
+  }
 ];
 
 const Experience = () => {
@@ -25,21 +41,23 @@ const Experience = () => {
     <section id="experience" className="section-padding">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Work Experience</h2>
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-border"></div>
-          
+        <div className="relative max-w-4xl mx-auto">
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border -ml-px"></div>
           {experienceData.map((item, index) => (
-            <div key={index} className={`flex items-center w-full mb-8 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-              <div className="w-1/2 px-4">
-                <div className={`p-4 rounded-lg border bg-card text-card-foreground shadow-sm ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                  <p className="text-sm text-primary font-semibold">{item.date}</p>
-                  <h3 className="text-lg font-bold mt-1">{item.role}</h3>
-                  <p className="text-sm text-muted-foreground mb-2">{item.company}</p>
-                  <p className="text-sm">{item.description}</p>
+            <div key={index} className="mb-10 pl-12 relative">
+              <div className="absolute left-6 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+              <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm bg-card/50">
+                <p className="text-sm text-primary font-semibold">{item.date}</p>
+                <h3 className="text-xl font-bold mt-1">{item.role}</h3>
+                <p className="text-md text-muted-foreground">{item.company}</p>
+                <p className="text-sm text-muted-foreground mb-4">{item.location} &middot; {item.type}</p>
+                <ul className="space-y-2 text-sm list-disc list-inside mb-4 text-muted-foreground">
+                  {item.achievements.map((ach, i) => <li key={i}><span>{ach}</span></li>)}
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {item.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
                 </div>
               </div>
-              <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
             </div>
           ))}
         </div>
