@@ -1,6 +1,5 @@
-
 // All lucide-react icons used here
-import { Shield, Network, UserShield, CircleCheck, Mail, Server, Cloud, Globe, Search } from "lucide-react";
+import { Shield, Network, User, CircleCheck, Mail, Server, Cloud, Globe, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const mainCategories = [
@@ -110,7 +109,7 @@ const mainCategories = [
 
 // Chosen a set of relevant lucide-react icons for the orbit visualization:
 const categoryIcons = [
-  <UserShield key="UserShield" />,
+  <User key="User" />,
   <CircleCheck key="CircleCheck" />,
   <Network key="Network" />,
   <Server key="Server" />,
