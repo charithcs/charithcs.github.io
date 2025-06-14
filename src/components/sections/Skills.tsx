@@ -24,15 +24,6 @@ const mainCategories = [
         ],
       },
       {
-        label: "Incident Response",
-        items: [
-          "Triage",
-          "Containment",
-          "RCA",
-          "Recovery (NIST 800-61)",
-        ],
-      },
-      {
         label: "Log Analysis",
         items: [
           "Azure AD Logs",
@@ -58,7 +49,7 @@ const mainCategories = [
         label: "Digital Forensics Tools",
         items: [
           "Falcon Forensics Collector",
-          "Belkasoft",
+          "Belkasoft, Autopsy",
         ],
       },
     ],
@@ -124,7 +115,7 @@ const Skills = () => (
       {/* Center circle + orbit icons */}
       <div className="flex flex-col md:flex-row items-center justify-center w-full mb-12 gap-7">
         <div className="hidden md:block md:flex-1" />
-        <OrbitWheel label="Security & Cloud Tools" />
+        <OrbitWheel label="Tools" />
         <div className="hidden md:block md:flex-1" />
       </div>
 
