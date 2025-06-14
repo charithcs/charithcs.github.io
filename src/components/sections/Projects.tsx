@@ -3,15 +3,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { icons } from "lucide-react";
 
+// Use valid lucide-react icon names only
 const iconLookup: Record<string, keyof typeof icons> = {
-  "ELK Stack": "data-science",
-  "Logstash": "data-science",
-  "Kibana": "data-science",
-  "AlienVault OTX": "data-science",
-  "VirusTotal": "data-science",
-  "AbuseIPDB": "data-science",
-  "Tor": "networking",
-  "OSINT": "networking",
+  "ELK Stack": "database",
+  "Logstash": "database",
+  "Kibana": "database",
+  "Security Onion": "shield",
+  "AlienVault OTX": "shield",
+  "VirusTotal": "shield",
+  "AbuseIPDB": "shield",
+  "Tor": "globe",
+  "OSINT": "search",
 };
 
 const projectsData = [
