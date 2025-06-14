@@ -1,11 +1,7 @@
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const skillsData = [
   {
@@ -42,43 +38,51 @@ const skillsData = [
   },
 ];
 
+const allCategories = ['All', ...skillsData.map(data => data.category)];
+
 const Skills = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const filteredSkills = useMemo(() => {
+    if (selectedCategory === 'All') {
+      const uniqueSkills = new Set(skillsData.flatMap(category => category.skills));
+      return Array.from(uniqueSkills);
+    }
+    return skillsData.find(cat => cat.category === selectedCategory)?.skills || [];
+  }, [selectedCategory]);
+
   return (
     <section id="skills" className="section-padding">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Technical Skills</h2>
-        <div className="w-full max-w-4xl mx-auto">
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full space-y-4"
-            defaultValue={skillsData[0].category}
-          >
-            {skillsData.map((categoryData) => (
-              <AccordionItem
-                value={categoryData.category}
-                key={categoryData.category}
-                className="border-b-0 rounded-lg bg-card/50 backdrop-blur-lg border border-border/30 px-6 transition-all duration-300 hover:border-primary/30 data-[state=open]:border-primary/50"
-              >
-                <AccordionTrigger className="py-6 text-lg font-semibold hover:no-underline [&[data-state=open]>svg]:text-primary">
-                  {categoryData.category}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="flex flex-wrap gap-3 pt-2 pb-2">
-                    {categoryData.skills.map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="px-4 py-2 text-base font-medium cursor-default transition-colors hover:bg-primary hover:text-primary-foreground"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <h2 className="text-3xl font-bold text-center mb-8">Technical Skills</h2>
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Here's a showcase of my technical skills. Use the filters to explore different areas of my expertise.
+        </p>
+
+        <div className="flex justify-center flex-wrap gap-2 mb-12 animate-fade-in">
+          {allCategories.map(category => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? 'default' : 'secondary'}
+              onClick={() => setSelectedCategory(category)}
+              className="transition-all duration-300 rounded-full"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        <div key={selectedCategory} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {filteredSkills.map((skill, index) => (
+            <Badge
+              key={skill}
+              variant="secondary"
+              className="text-center justify-center px-4 py-3 text-sm font-medium cursor-pointer transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:scale-105 animate-fade-in whitespace-normal h-auto"
+              style={{ animationDelay: `${index * 30}ms`, animationFillMode: 'backwards' }}
+            >
+              {skill}
+            </Badge>
+          ))}
         </div>
       </div>
     </section>
