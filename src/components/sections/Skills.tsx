@@ -119,8 +119,8 @@ const Skills = () => (
         <div className="hidden md:block md:flex-1" />
       </div>
 
-      {/* Skill category cards */}
-      <div className="flex flex-wrap justify-center gap-7 mt-2 w-full max-w-6xl">
+      {/* Skill category groups */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mt-2 w-full max-w-6xl">
         {mainCategories.map((cat) => (
           <SkillCategoryCard key={cat.title} title={cat.title} tools={cat.tools} />
         ))}
