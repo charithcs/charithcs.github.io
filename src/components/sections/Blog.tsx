@@ -32,20 +32,20 @@ const Blog = () => {
 
   const renderSkeletons = () => {
     return Array.from({ length: 3 }).map((_, index) => (
-      <Card key={index} className="flex flex-col">
+      <Card key={index} className="flex flex-col unified-card">
         <CardHeader>
-          <Skeleton className="h-6 w-3/4" />
+          <Skeleton className="h-6 w-3/4 bg-muted" />
         </CardHeader>
         <CardContent className="flex-grow">
-          <Skeleton className="h-4 w-1/2 mb-4" />
+          <Skeleton className="h-4 w-1/2 mb-4 bg-muted" />
           <div className="space-y-2">
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-2/3" />
+            <Skeleton className="h-4 w-full bg-muted" />
+            <Skeleton className="h-4 w-full bg-muted" />
+            <Skeleton className="h-4 w-2/3 bg-muted" />
           </div>
         </CardContent>
         <CardFooter>
-          <Skeleton className="h-5 w-28" />
+          <Skeleton className="h-5 w-28 bg-muted" />
         </CardFooter>
       </Card>
     ));
@@ -56,9 +56,11 @@ const Blog = () => {
   }
 
   return (
-    <section id="blog" className="section-padding">
+    <section id="blog" className="section-padding unified-section-bg">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">From my Blog</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white drop-shadow-none">
+          From my Blog
+        </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {isLoading ? (
             renderSkeletons()
@@ -66,22 +68,22 @@ const Blog = () => {
             <p className="text-destructive text-center col-span-3">Failed to load blog posts.</p>
           ) : (
             posts?.slice(0, 3).map((post, index) => (
-              <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+              <Card key={index} className="flex flex-col unified-card transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
-                  <CardTitle>{post.title}</CardTitle>
+                  <CardTitle className="text-white">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-white/70 mb-4">
                     {new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </p>
                   <div
-                    className="text-muted-foreground line-clamp-3 text-sm"
+                    className="text-white/80 line-clamp-3 text-sm"
                     dangerouslySetInnerHTML={{ __html: cleanDescription(post.description) }}
                   />
                 </CardContent>
                 <CardFooter>
-                  <Button variant="link" asChild className="p-0">
-                    <a href={post.link} target="_blank" rel="noopener noreferrer">
+                  <Button variant="link" asChild className="p-0 text-primary">
+                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="underline">
                       Read More on Medium
                     </a>
                   </Button>

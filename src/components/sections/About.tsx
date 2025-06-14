@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section id="about" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-none tracking-tight">
           About Me
         </h2>
         <div className="grid md:grid-cols-3 gap-8 text-center">

@@ -42,7 +42,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-none tracking-tight">
           Featured Projects
         </h2>
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">

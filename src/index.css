@@ -1,90 +1,72 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
+/* Universal Apple-inspired black-to-grey gradient & high-contrast theme */
 @layer base {
   :root {
-    --background: 250 251 252;
-    --foreground: 15 23 42;
+    --background: 10 10 10;
+    --foreground: 255 255 255;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --card: 34 34 36;
+    --card-foreground: 255 255 255;
+    --popover: 24 24 28;
+    --popover-foreground: 255 255 255;
 
-    --primary: 29 78 216;
-    --primary-foreground: 255 255 255;
+    --primary: 255 255 255;
+    --primary-foreground: 34 34 34;
+    --secondary: 60 60 64;
+    --secondary-foreground: 255 255 255;
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 51 65 85;
+    --muted: 40 40 45;
+    --muted-foreground: 180 180 188;
 
-    --muted: 248 250 252;
-    --muted-foreground: 71 85 105;
-
-    --accent: 239 246 255;
-    --accent-foreground: 29 78 216;
+    --accent: 55 56 60;
+    --accent-foreground: 255 255 255;
 
     --destructive: 220 38 38;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 29 78 216;
+    --border: 60 60 65;
+    --input: 60 60 65;
+    --ring: 120 120 128;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 51 65 85;
-    --sidebar-primary: 29 78 216;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 241 245 249;
-    --sidebar-accent-foreground: 51 65 85;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 29 78 216;
-    --gradient-start: 255 255 255;
-    --gradient-end: 248 250 252;
-    --elegant-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    --hero-gradient: linear-gradient(135deg, #111112 0%, #3A3B3C 80%, #ececec 100%);
+    --gradient-start: 0 0 0;
+    --gradient-end: 72 72 79;
+    --elegant-gradient: linear-gradient(135deg, #17171a 0%, #232428 100%);
+    --hero-gradient: linear-gradient(135deg, #111112 0%, #232325 90%, #d1d1d180 100%);
   }
 
   .dark {
-    --background: 2 8 23;
-    --foreground: 248 250 252;
-    --card: 15 23 42;
-    --card-foreground: 248 250 252;
-    --popover: 15 23 42;
-    --popover-foreground: 248 250 252;
-    --primary: 59 130 246;
-    --primary-foreground: 15 23 42;
-    --secondary: 30 41 59;
-    --secondary-foreground: 203 213 225;
-    --muted: 30 41 59;
-    --muted-foreground: 148 163 184;
-    --accent: 30 41 59;
-    --accent-foreground: 59 130 246;
+    --background: 8 8 8;
+    --foreground: 255 255 255;
+    --card: 28 29 32;
+    --card-foreground: 255 255 255;
+    --popover: 22 23 27;
+    --popover-foreground: 255 255 255;
+    --primary: 255 255 255;
+    --primary-foreground: 14 14 14;
+    --secondary: 64 65 70;
+    --secondary-foreground: 230 230 230;
+    --muted: 33 33 37;
+    --muted-foreground: 170 170 180;
+    --accent: 45 46 50;
+    --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-    --border: 51 65 85;
-    --input: 30 41 59;
-    --ring: 59 130 246;
-    --sidebar-background: 15 23 42;
-    --sidebar-foreground: 203 213 225;
-    --sidebar-primary: 59 130 246;
-    --sidebar-primary-foreground: 15 23 42;
-    --sidebar-accent: 30 41 59;
-    --sidebar-accent-foreground: 203 213 225;
-    --sidebar-border: 51 65 85;
-    --sidebar-ring: 59 130 246;
-    --gradient-start: 2 8 23;
-    --gradient-end: 15 23 42;
-    --elegant-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-    --hero-gradient: linear-gradient(135deg, #000000 0%, #383b40 80%, #ececec 100%);
+    --destructive-foreground: 255 255 255;
+    --border: 80 80 85;
+    --input: 70 70 77;
+    --ring: 180 180 188;
+    --gradient-start: 0 0 0;
+    --gradient-end: 50 50 55;
+    --elegant-gradient: linear-gradient(135deg, #111113 0%, #232326 100%);
+    --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #232325 90%, #212124 100%);
   }
 }
 
+/* Global body and background improvements */
 @layer base {
   * {
     @apply border-border;
@@ -98,162 +80,204 @@
     @apply text-foreground bg-background;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     min-height: 100vh;
-    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    background: linear-gradient(135deg, #000 0%, #232325 100%);
+    color: #fff;
     position: relative;
   }
 
   body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
+    display: none; /* Remove any background overlays */
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold;
-    color: hsl(var(--foreground));
-    text-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    letter-spacing: -0.02em;
+    color: #fff;
+    text-shadow: none;
+    letter-spacing: -0.01em;
   }
 
   .section-padding {
     @apply py-20 md:py-24;
   }
 
-  /* Custom animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-  }
-
-  @keyframes subtle-glow {
-    0%, 100% { box-shadow: 0 0 8px hsl(var(--primary) / 0.09); }
-    50% { box-shadow: 0 0 16px hsl(var(--primary) / 0.14); }
-  }
-
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .animate-subtle-glow {
-    animation: subtle-glow 3s ease-in-out infinite;
-  }
-
-  /* Enhanced glass effect, more clarity */
-  .glass-effect {
-    background: linear-gradient(135deg, hsl(var(--card) / 0.87) 0%, hsl(var(--card) / 0.82) 100%);
-    backdrop-filter: blur(14px);
-    border: 1px solid hsl(var(--border) / 0.19);
-    box-shadow: 0 6px 24px hsl(var(--foreground) / 0.07), inset 0 1px 0 hsl(var(--border) / 0.09);
-  }
-
-  /* Section backgrounds for a unified design */
-  .section-alt {
-    background: linear-gradient(135deg, hsl(var(--muted) / 0.15) 0%, hsl(var(--accent) / 0.13) 100%);
-    backdrop-filter: blur(3px);
-  }
-  .unified-section-bg {
-    background: var(--hero-gradient);
-    @apply glass-effect;
-  }
-
-  /* Unified Card style */
-  .unified-card {
-    @apply rounded-xl border border-border/40 shadow-lg;
-    background: linear-gradient(120deg, hsl(var(--card) / 0.87) 70%, hsl(var(--muted) / 0.9) 100%);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px hsl(var(--foreground) / 0.09);
-    transition: box-shadow .3s, border-color .3s, transform .3s, background .3s;
-  }
-  .unified-card:hover {
-    border-color: hsl(var(--primary) / 0.32);
-    box-shadow: 0 8px 26px hsl(var(--primary) / 0.12);
-    background: linear-gradient(135deg, hsl(var(--card) / 0.94) 60%, hsl(var(--muted) / 0.93) 100%);
-    transform: translateY(-2px) scale(1.01);
-  }
-
-  /* HERO SECTION: gradient, text styling, interactivity */
+  /* HERO SECTION: black-grey gradient, white text, Apple-style subtle focus */
   .hero-bg-gradient {
-    background: var(--hero-gradient);
+    background: linear-gradient(135deg, #111112 0%, #232325 90%, #232325 100%);
     min-height: 100vh;
   }
   .hero-title {
     color: #fff;
-    text-shadow: 0 3px 14px rgba(0,0,0,.30);
+    text-shadow: 0 3px 14px rgba(0,0,0,.18);
     transition: 
       text-shadow 0.18s cubic-bezier(0.4,0,0.2,1), 
       filter 0.18s cubic-bezier(0.4,0,0.2,1),
-      transform 0.20s cubic-bezier(0.4,0,0.2,1);
+      transform 0.18s cubic-bezier(0.4,0,0.2,1);
   }
   .hero-title:hover,
   .hero-title:focus {
-    text-shadow: 0 3px 19px #fff, 0 0 0.3em #00f3fd33;
-    filter: brightness(1.09) drop-shadow(0 0 5px #fff8);
-    transform: scale(1.025);
+    text-shadow: 0 3px 19px #fff, 0 0 0.3em #fff3;
+    filter: brightness(1.04);
+    transform: scale(1.01);
     outline: none;
   }
   .hero-section:hover .hero-title,
   .hero-section:focus-within .hero-title {
-    text-shadow: 0 3px 22px #fff, 0 0 0.6em #4fc3ff4d;
-    filter: brightness(1.11) drop-shadow(0 0 7px #fff);
+    text-shadow: 0 3px 16px #fff, 0 0 0.4em #eee4;
+    filter: brightness(1.07);
   }
-
-  /* Reduced/controlled subtitle "glow" effect */
   .hero-section:hover .hero-subtitle,
   .hero-section:focus-within .hero-subtitle {
-    filter: brightness(1.11) drop-shadow(0 0 4px #fff) contrast(1.06);
+    filter: brightness(1.03);
   }
   .hero-subtitle {
     color: #fff;
-    text-shadow: 0 2px 6px #1e293ba3;
-    transition: filter 0.24s, text-shadow 0.2s;
+    text-shadow: none;
     font-weight: 600;
+    filter: none;
   }
 
-  /* Navbar glass background & shadow for clarity */
+  /* NAVIGATION BAR */
   .header-glass {
-    background: linear-gradient(120deg, hsl(var(--card) / 0.93) 90%, hsl(var(--background) / 0.90) 100%);
-    backdrop-filter: blur(14px);
-    border-bottom: 1.5px solid hsl(var(--border) / 0.38);
-    box-shadow: 0 1px 8px hsl(var(--foreground) / 0.04);
-    z-index: 40;
+    background: linear-gradient(100deg, #161617cc 95%, #232325e3 100%);
+    backdrop-filter: blur(18px);
+    border-bottom: 1.5px solid #232325cc;
+    box-shadow: 0 1px 10px #0008;
+    z-index: 49;
   }
 
-  /* Standardized Button styles for visibility */
+  .header-glass nav a,
+  .header-glass nav .btn-unified,
+  .header-glass nav .btn-glass {
+    color: #fff !important;
+  }
+
+  /* BUTTONS */
   .btn-unified {
     color: #fff !important;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    border: 1.5px solid hsl(var(--primary) / 0.30);
-    box-shadow: 0 2px 16px hsl(var(--primary) / 0.13);
-    transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s, transform .16s;
+    background: linear-gradient(135deg, #232325 70%, #44444a 100%);
+    border: 1.5px solid #36363a;
+    box-shadow: 0 2px 14px #23232522;
+    transition: background 0.23s, color 0.17s, border 0.19s, box-shadow 0.21s, transform .13s;
   }
-  .btn-unified:hover {
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.93), hsl(var(--primary) / 0.95) 70%, hsl(var(--accent) / 0.94) 100%);
+  .btn-unified:hover,
+  .btn-unified:focus {
+    background: linear-gradient(133deg, #313135 80%, #393940 100%);
     color: #fff !important;
-    border-color: hsl(var(--primary) / 0.64);
-    box-shadow: 0 4px 20px hsl(var(--primary) / 0.24);
-    transform: scale(1.03);
+    border-color: #52525e;
+    box-shadow: 0 4px 20px #23232588;
+    transform: scale(1.02);
   }
+
   .btn-glass {
     color: #fff !important;
-    background: linear-gradient(120deg, hsl(var(--primary) / 0.6), hsl(var(--background) / 0.1));
-    border: 1.5px solid hsl(var(--primary) / 0.24);
+    background: linear-gradient(120deg, #39394099 80%, #23232550 100%);
+    border: 1.5px solid #44444a71;
     backdrop-filter: blur(3px);
-    box-shadow: 0 3px 14px hsl(var(--primary) / 0.08);
-    transition: background 0.2s, border 0.2s, box-shadow 0.2s, color .2s, transform .18s;
+    box-shadow: 0 3px 16px #11111208;
+    transition: background 0.15s, border 0.14s, color .17s, transform .13s;
   }
-  .btn-glass:hover {
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.82) 60%, hsl(var(--background) / 0.18) 100%);
+  .btn-glass:hover,
+  .btn-glass:focus {
+    background: linear-gradient(120deg, #414147cc 90%, #23232599 100%);
     color: #fff !important;
-    border-color: hsl(var(--primary) / 0.50);
-    box-shadow: 0 4px 18px hsl(var(--primary) / 0.13);
-    transform: scale(1.025);
+    border-color: #fff2;
+    box-shadow: 0 4px 18px #38384224;
+    transform: scale(1.014);
   }
+
+  /* CARDS: unify glass look for all cards */
+  .unified-card {
+    background: linear-gradient(120deg, #28282c 87%, #232325 100%);
+    border: 1.5px solid #36363b88;
+    color: #fff;
+    box-shadow: 0 4px 16px #23232521;
+    transition: box-shadow .22s, border-color .17s, transform .18s, background .19s;
+  }
+  .unified-card:hover {
+    border-color: #fff2;
+    box-shadow: 0 8px 32px #44444a1e;
+    background: linear-gradient(135deg, #2f2f32 85%, #323236 100%);
+    transform: translateY(-2px) scale(1.012);
+  }
+
+  /* Section backgrounds: glass black/grey, ensure readable contrast */
+  .unified-section-bg {
+    background: linear-gradient(135deg, #151516 60%, #242427 100%);
+    @apply glass-effect;
+  }
+  .section-alt {
+    background: linear-gradient(135deg, #141416 0%, #222225 100%);
+    backdrop-filter: blur(2px);
+  }
+  .glass-effect {
+    background: linear-gradient(120deg, #1b1b1fbb 0%, #26262aaa 100%);
+    backdrop-filter: blur(17px);
+    border: 1px solid #23232528;
+    box-shadow: 0 6px 24px #0005, inset 0 1px 0 #29292a15;
+  }
+
+  /* Misc: chromeless skeletons, inputs, etc */
+  input,
+  textarea {
+    background: #1a1a1d;
+    color: #fff !important;
+    border: 1.5px solid #222225b8;
+    outline: none;
+    transition: border .2s;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: #fff9;
+  }
+
+  /* Scrollbars: subtle on dark */
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: #161617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2f2f33;
+    border-radius: 4px;
+  }
+
+  /* Hide default subtitle glow, tidy for minimal look */
+  .animate-subtle-glow {
+    animation: none !important;
+  }
+}
+
+/* Responsive adjustments remain the same */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes subtle-glow {
+  0%, 100% { box-shadow: 0 0 8px hsl(var(--primary) / 0.09); }
+  50% { box-shadow: 0 0 16px hsl(var(--primary) / 0.14); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }

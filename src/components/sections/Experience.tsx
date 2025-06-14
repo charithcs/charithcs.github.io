@@ -41,7 +41,7 @@ const Experience = () => {
   return (
     <section id="experience" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-none tracking-tight">
           Work Experience
         </h2>
         <div className="relative max-w-5xl mx-auto">
@@ -67,7 +67,7 @@ const Experience = () => {
                   </ul>
                   <div className={`flex flex-wrap gap-2 ${isRight ? 'md:justify-end' : 'justify-start'}`}>
                     {item.technologies.map(tech => (
-                      <Badge key={tech} variant="secondary" className="bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary">
+                      <Badge key={tech} variant="secondary" className="bg-muted text-white hover:bg-primary/10">
                         {tech}
                       </Badge>
                     ))}

@@ -14,7 +14,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="header-glass fixed top-0 left-0 right-0 z-50">
+    <header className="header-glass fixed top-0 left-0 right-0 z-50 text-white">
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
         <a 
           href="https://drive.google.com/file/d/1kQGyNZ3_qA3VV5vH78xic-B-EV0VliQQ/view?usp=sharing" 
@@ -24,7 +24,7 @@ const Header = () => {
         >
           <Button 
             variant="default" 
-            className="btn-unified shadow-md hover:shadow-lg transition-all duration-300"
+            className="btn-unified shadow-md"
           >
             View Resume
           </Button>
@@ -34,10 +34,10 @@ const Header = () => {
             <a 
               key={link.title} 
               href={link.href} 
-              className="text-sm font-semibold text-foreground/90 transition-all duration-300 hover:text-primary hover:scale-105 relative group"
+              className="text-sm font-semibold text-white hover:text-primary hover:scale-105 relative group transition-all duration-300"
             >
               {link.title}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           <a href="#connect">
@@ -51,7 +51,7 @@ const Header = () => {
             variant="ghost" 
             size="icon" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="hover:bg-muted"
+            className="hover:bg-muted text-white"
           >
             {isMenuOpen ? <X /> : <Menu />}
           </Button>
@@ -64,7 +64,7 @@ const Header = () => {
               <a 
                 key={link.title} 
                 href={link.href} 
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors duration-300" 
+                className="text-base font-semibold text-white hover:text-primary transition-colors duration-300" 
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.title}

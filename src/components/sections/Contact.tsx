@@ -13,7 +13,7 @@ const Contact = () => {
   return (
     <section id="connect" className="section-padding unified-section-bg">
       <div className="container mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-none tracking-tight">
           Let's Connect
         </h2>
         <p className="text-white/80 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
@@ -73,20 +73,20 @@ const Contact = () => {
                   name="name" 
                   placeholder="Your Name" 
                   required 
-                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white"
                 />
                 <Input 
                   type="email" 
                   name="email" 
                   placeholder="Your Email" 
                   required 
-                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white"
                 />
                 <Textarea 
                   name="message" 
                   placeholder="Your Message" 
                   required 
-                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 min-h-[120px] text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 min-h-[120px] text-white"
                 />
                 <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
                 <Button 
