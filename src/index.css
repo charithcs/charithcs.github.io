@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +48,7 @@
     --gradient-start: 255 255 255;
     --gradient-end: 248 250 252;
     --elegant-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    --hero-gradient: linear-gradient(135deg, #111112 0%, #3A3B3C 80%, #ececec 100%);
   }
 
   .dark {
@@ -82,6 +82,7 @@
     --gradient-start: 2 8 23;
     --gradient-end: 15 23 42;
     --elegant-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    --hero-gradient: linear-gradient(135deg, #000000 0%, #383b40 80%, #ececec 100%);
   }
 }
 
@@ -157,5 +158,45 @@
   /* Section backgrounds for better content separation */
   .section-alt {
     background: linear-gradient(135deg, hsl(var(--muted) / 0.3) 0%, hsl(var(--accent) / 0.1) 100%);
+  }
+
+  /* HERO SECTION: gradient, text styling, interactivity */
+  .hero-bg-gradient {
+    background: var(--hero-gradient);
+    min-height: 100vh;
+  }
+
+  .hero-title {
+    color: #fff;
+    text-shadow: 0 4px 18px rgba(0,0,0,.45);
+    transition: 
+      text-shadow 0.3s cubic-bezier(0.4,0,0.2,1), 
+      filter 0.3s cubic-bezier(0.4,0,0.2,1),
+      transform 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .hero-title:hover,
+  .hero-title:focus {
+    text-shadow: 0 6px 32px #fff, 0 0 0.5em #00f3fd66;
+    filter: brightness(1.3) drop-shadow(0 0 8px #fff8);
+    transform: scale(1.04);
+    outline: none;
+  }
+
+  .hero-section:hover .hero-title,
+  .hero-section:focus-within .hero-title {
+    text-shadow: 0 6px 32px #fff, 0 0 1em #4fc3ffc7;
+    filter: brightness(1.3) drop-shadow(0 0 12px #fff);
+  }
+  /* Sub text hover/focus for increased readability */
+  .hero-section:hover .hero-subtitle,
+  .hero-section:focus-within .hero-subtitle {
+    filter: brightness(1.2) drop-shadow(0 0 6px #fff) contrast(1.1);
+  }
+
+  .hero-subtitle {
+    color: #fff;
+    text-shadow: 0 2px 6px #232323a3;
+    transition: filter 0.3s, text-shadow 0.3s;
   }
 }

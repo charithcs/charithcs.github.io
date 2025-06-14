@@ -5,12 +5,21 @@ import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <section
+      id="hero"
+      className="hero-bg-gradient hero-section relative min-h-screen flex items-center justify-center text-center overflow-hidden transition-colors"
+      tabIndex={-1} // enables focus styles for a11y
+    >
+      {/* Remove overlay if the new bg gradient is strong enough */}
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div> */}
       <div className="container mx-auto relative z-10 px-6">
         <div className="animate-float">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent leading-tight">
-            CHARITH.S
+          <h1
+            className="hero-title text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight cursor-pointer outline-none"
+            tabIndex={0}
+            aria-label="CHARITH S"
+          >
+            CHARITH&nbsp;S
           </h1>
         </div>
         <TypeAnimation
@@ -24,10 +33,10 @@ const Hero = () => {
           ]}
           wrapper="p"
           speed={50}
-          className="text-xl md:text-2xl text-primary mb-8 font-medium animate-subtle-glow"
+          className="hero-subtitle text-xl md:text-2xl font-semibold mb-8 animate-subtle-glow"
           repeat={Infinity}
         />
-        <p className="max-w-4xl mx-auto text-muted-foreground mb-12 text-lg leading-relaxed">
+        <p className="max-w-4xl mx-auto text-white/90 mb-12 text-lg leading-relaxed transition-all duration-300">
           Cybersecurity professional with 4+ years of experience in safeguarding digital infrastructures, 
           analyzing threats, and leading incident response efforts across enterprise environments.
         </p>
@@ -35,7 +44,7 @@ const Hero = () => {
           <Button 
             variant="default" 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className="bg-white/10 text-white border border-white/40 shadow-lg hover:bg-white/30 hover:text-black hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold backdrop-blur-[2px]"
           >
             Discover More <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
