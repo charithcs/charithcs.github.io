@@ -40,21 +40,21 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding section-alt">
+    <section id="projects" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg tracking-tight">
           Featured Projects
         </h2>
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
-            <Card key={index} className="flex flex-col group hover:border-primary/30">
+            <Card key={index} className="unified-card flex flex-col group">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+                <CardTitle className="text-2xl text-white group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <ul className="mb-8 list-disc pl-6 text-muted-foreground space-y-4 leading-relaxed">
+                <ul className="mb-8 list-disc pl-6 text-white/80 space-y-4 leading-relaxed">
                   {project.bullets.map((bullet, idx) => (
                     <li key={idx} className="text-sm">{bullet}</li>
                   ))}

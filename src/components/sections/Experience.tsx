@@ -39,9 +39,9 @@ const experienceData = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg tracking-tight">
           Work Experience
         </h2>
         <div className="relative max-w-5xl mx-auto">
@@ -50,15 +50,15 @@ const Experience = () => {
             const isRight = index % 2 !== 0;
 
             const card = (
-              <Card className={`transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'md:text-right' : 'md:text-left'} text-left`}>
+              <Card className={`unified-card transition-all duration-300 group hover:scale-[1.02] ${isRight ? 'md:text-right' : 'md:text-left'} text-left`}>
                 <CardContent className="pt-6">
                   <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-3">
                     {item.date}
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{item.role}</h3>
+                  <h3 className="text-2xl font-bold mb-2 text-white">{item.role}</h3>
                   <p className="text-lg text-primary font-medium mb-1">{item.company}</p>
-                  <p className="text-sm text-muted-foreground mb-6">{item.location} • {item.type}</p>
-                  <ul className={`space-y-3 text-sm mb-6 text-muted-foreground ${isRight ? 'md:list-inside md:ml-auto' : 'list-inside'} list-disc`}>
+                  <p className="text-sm text-white/60 mb-6">{item.location} • {item.type}</p>
+                  <ul className={`space-y-3 text-sm mb-6 text-white/80 ${isRight ? 'md:list-inside md:ml-auto' : 'list-inside'} list-disc`}>
                     {item.achievements.map((ach, i) => (
                       <li key={i} className="leading-relaxed">
                         <span>{ach}</span>

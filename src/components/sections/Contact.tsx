@@ -11,12 +11,12 @@ const GITHUB = "https://github.com/charithtest";
 
 const Contact = () => {
   return (
-    <section id="connect" className="section-padding section-alt">
+    <section id="connect" className="section-padding unified-section-bg">
       <div className="container mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg tracking-tight">
           Let's Connect
         </h2>
-        <p className="text-muted-foreground max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
+        <p className="text-white/80 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
           Interested in cybersecurity collaboration, have a question, or want to discuss a project? 
           Reach out—I'm always happy to connect and explore new opportunities!
         </p>
@@ -29,7 +29,7 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 shadow-md border-border"
+              className="btn-unified shadow-md hover:shadow-lg"
             >
               <Mail className="mr-2 h-5 w-5" /> Email
             </Button>
@@ -42,7 +42,7 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 shadow-md border-border"
+              className="btn-unified shadow-md hover:shadow-lg"
             >
               <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
             </Button>
@@ -55,14 +55,14 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="bg-card hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 shadow-md border-border"
+              className="btn-unified shadow-md hover:shadow-lg"
             >
               <Github className="mr-2 h-5 w-5" /> GitHub
             </Button>
           </a>
         </div>
         <div className="max-w-2xl mx-auto">
-          <Card className="bg-card border-border shadow-lg">
+          <Card className="unified-card border border-border/50 shadow-lg">
             <CardContent className="p-8">
               <form
                 className="text-left space-y-6"
@@ -73,25 +73,25 @@ const Contact = () => {
                   name="name" 
                   placeholder="Your Name" 
                   required 
-                  className="bg-background border-border focus:border-primary transition-all duration-300"
+                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 text-white"
                 />
                 <Input 
                   type="email" 
                   name="email" 
                   placeholder="Your Email" 
                   required 
-                  className="bg-background border-border focus:border-primary transition-all duration-300"
+                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 text-white"
                 />
                 <Textarea 
                   name="message" 
                   placeholder="Your Message" 
                   required 
-                  className="bg-background border-border focus:border-primary transition-all duration-300 min-h-[120px]"
+                  className="bg-background bg-opacity-10 border-border focus:border-primary transition-all duration-300 min-h-[120px] text-white"
                 />
                 <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] py-6"
+                  className="w-full btn-glass shadow-md hover:shadow-xl py-6 font-semibold"
                 >
                   Send Message
                 </Button>

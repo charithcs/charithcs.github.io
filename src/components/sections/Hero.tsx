@@ -10,8 +10,6 @@ const Hero = () => {
       className="hero-bg-gradient hero-section relative min-h-screen flex items-center justify-center text-center overflow-hidden transition-colors"
       tabIndex={-1} // enables focus styles for a11y
     >
-      {/* Remove overlay if the new bg gradient is strong enough */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div> */}
       <div className="container mx-auto relative z-10 px-6">
         <div className="animate-float">
           <h1
@@ -44,7 +42,7 @@ const Hero = () => {
           <Button 
             variant="default" 
             size="lg" 
-            className="bg-white/10 text-white border border-white/40 shadow-lg hover:bg-white/30 hover:text-black hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold backdrop-blur-[2px]"
+            className="btn-glass font-semibold"
           >
             Discover More <ArrowDown className="ml-2 h-5 w-5" />
           </Button>
