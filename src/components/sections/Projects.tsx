@@ -1,6 +1,18 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { icons } from "lucide-react";
+
+const iconLookup: Record<string, keyof typeof icons> = {
+  "ELK Stack": "data-science",
+  "Logstash": "data-science",
+  "Kibana": "data-science",
+  "AlienVault OTX": "data-science",
+  "VirusTotal": "data-science",
+  "AbuseIPDB": "data-science",
+  "Tor": "networking",
+  "OSINT": "networking",
+};
 
 const projectsData = [
   {
@@ -47,9 +59,9 @@ const Projects = () => {
         </h2>
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
-            <Card key={index} className="unified-card flex flex-col group">
+            <Card key={index} className="unified-card flex flex-col group hover:scale-[1.012] border border-[#10ff67]/20 shadow-md transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl text-white group-hover:text-primary transition-colors duration-300">
+                <CardTitle className="text-2xl text-white group-hover:text-[#10ff67] transition-colors duration-300">
                   {project.title}
                 </CardTitle>
               </CardHeader>
@@ -60,14 +72,19 @@ const Projects = () => {
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-3">
-                  {project.tech.map(tag => (
-                    <Badge 
-                      key={tag} 
-                      className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-all duration-300 px-3 py-1 text-xs font-medium"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
+                  {project.tech.map(tag => {
+                    const iconName = iconLookup[tag];
+                    const Icon = iconName ? icons[iconName] : undefined;
+                    return (
+                      <Badge 
+                        key={tag} 
+                        className="bg-[#10ff67]/20 border border-[#10ff67]/30 flex items-center gap-2 text-[#10ff67] shadow-xl px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-[#10ff67]/30 uppercase"
+                      >
+                        {Icon && <Icon className="w-4 h-4" />}
+                        {tag}
+                      </Badge>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

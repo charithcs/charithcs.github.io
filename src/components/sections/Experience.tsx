@@ -45,12 +45,12 @@ const Experience = () => {
           Work Experience
         </h2>
         <div className="relative max-w-5xl mx-auto">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-1/2 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#15ff67] via-primary/60 to-transparent -translate-x-1/2 md:block rounded-full z-0"></div>
           {experienceData.map((item, index) => {
             const isRight = index % 2 !== 0;
 
             const card = (
-              <Card className={`unified-card transition-all duration-300 group hover:scale-[1.02] ${isRight ? 'md:text-right' : 'md:text-left'} text-left`}>
+              <Card className={`unified-card transition-all duration-300 group hover:scale-[1.02] relative md:mb-16 shadow-xl ${isRight ? 'md:text-right' : 'md:text-left'} text-left z-10`}>
                 <CardContent className="pt-6">
                   <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-3">
                     {item.date}
@@ -67,9 +67,16 @@ const Experience = () => {
                   </ul>
                   <div className={`flex flex-wrap gap-2 ${isRight ? 'md:justify-end' : 'justify-start'}`}>
                     {item.technologies.map(tech => (
-                      <Badge key={tech} variant="secondary" className="bg-muted text-white hover:bg-primary/10">
+                      <span
+                        key={tech}
+                        className="inline-block bg-[#10FF67]/20 text-[#10ff67] border border-[#10FF67]/30 rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-[#10ff67]/25 mb-1"
+                        style={{
+                          letterSpacing: ".04em",
+                          fontFamily: "Rajdhani, sans-serif",
+                        }}
+                      >
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
                 </CardContent>
@@ -78,7 +85,7 @@ const Experience = () => {
 
             return (
               <div key={index} className="mb-12 relative">
-                <div className="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-10"></div>
+                <div className="absolute left-1/2 -translate-x-1/2 top-8 w-5 h-5 rounded-full bg-[#10ff67] border-4 border-card z-10 shadow-lg" />
                 <div className="grid md:grid-cols-2 gap-x-8">
                   {isRight ? <div className="hidden md:block" /> : card}
                   {isRight ? card : <div className="hidden md:block" />}
