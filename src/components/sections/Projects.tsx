@@ -1,21 +1,40 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const projectsData = [
   {
-    title: "Real-time Threat Dashboard",
-    description: "A web application to visualize live cyber threats and security alerts from various sources.",
-    tags: ["SIEM", "React", "WebSockets"],
+    title: "Advanced SIEM for Threat Detection & Hunting",
+    bullets: [
+      "Engineered and deployed a scalable SIEM solution leveraging the ELK Stack and Security Onion, simulating robust, enterprise-grade security monitoring across endpoints, network, and authentication systems.",
+      "Orchestrated ingestion and normalization of logs from both Windows and Linux environments via Logstash, enabling a unified and insightful data pipeline for comprehensive threat visibility.",
+      "Developed interactive Kibana dashboards to visualize user login anomalies, identify network traffic spikes, and highlight potential threat sources for swift incident response.",
+      "Enriched alerts with threat intelligence from AlienVault OTX, VirusTotal, and AbuseIPDB, enhancing threat hunting capabilities and supporting the proactive discovery of known malicious indicators."
+    ],
+    tech: [
+      "ELK Stack",
+      "Security Onion",
+      "Logstash",
+      "Kibana",
+      "AlienVault OTX",
+      "VirusTotal",
+      "AbuseIPDB"
+    ],
   },
   {
-    title: "Automated Malware Sandbox",
-    description: "Developed a system to automatically analyze suspicious files in an isolated environment.",
-    tags: ["Python", "Cuckoo", "Virtualization"],
-  },
-  {
-    title: "Phishing Email Analyzer",
-    description: "A tool to dissect phishing emails, extract indicators of compromise (IOCs), and report them.",
-    tags: ["Machine Learning", "NLP", "API"],
+    title: "Proactive Dark Web Threat Intelligence & Monitoring with ELK Stack",
+    bullets: [
+      "Built an automated system to cross-reference public Tor exit node lists with live threat intelligence data, surfacing patterns in malicious activity such as DDoS origins and C2 infrastructure.",
+      "Performed advanced OSINT investigations on darknet forums, uncovering leaked credentials, emerging exploits, and new adversary tools by ethically exploring .onion services.",
+      "Integrated dark web intelligence feeds into the ELK Stack to enable real-time trend analysis, anomaly detection, and automated alerting on suspicious activity."
+    ],
+    tech: [
+      "ELK Stack",
+      "Tor",
+      "OSINT",
+      "Logstash",
+      "Kibana"
+    ],
   },
 ];
 
@@ -24,21 +43,26 @@ const Projects = () => {
     <section id="projects" className="section-padding">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projectsData.map((project, index) => (
             <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map(tag => <span key={tag} className="text-xs font-semibold inline-block py-1 px-2.5 uppercase rounded-full text-primary-foreground bg-primary/80">{tag}</span>)}
+                <ul className="mb-4 list-disc pl-5 text-muted-foreground space-y-2">
+                  {project.bullets.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map(tag => (
+                    <Badge key={tag} className="bg-muted/60 text-foreground font-medium px-3 py-1.5 rounded shadow">
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
-              <div className="p-6 pt-0">
-                <Button variant="outline">View Project</Button>
-              </div>
             </Card>
           ))}
         </div>
