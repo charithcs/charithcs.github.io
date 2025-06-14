@@ -29,7 +29,7 @@ const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-white/80 leading-relaxed">
-                I specialize in blue team operations, incident response, and security operations, 
+                I specialize in blue team operations, incident response, and cloud defense operations, 
                 ensuring robust defense mechanisms and proactive threat mitigation.
               </p>
             </CardContent>
