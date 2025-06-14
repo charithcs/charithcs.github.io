@@ -1,4 +1,3 @@
-
 import { Shield, Network, User, CircleCheck, Mail, Server, Cloud, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useRef, useEffect } from "react";
@@ -124,6 +123,7 @@ const centralCircleColor = "#fff";
 
 const Skills = () => {
   const wheelRef = useRef<HTMLDivElement>(null);
+
   // Animation: incremental rotation (uses a ref because React state would be overkill and not as smooth)
   useEffect(() => {
     let animationFrame: number;
@@ -184,27 +184,30 @@ const Skills = () => {
               }}
             >
               {categoryIcons.map((IconEl, i) => {
-                const angle = (i / categoryIcons.length) * (2 * Math.PI);
-                const r = 105;
+                // ICON SIZE = 34, padding ~4px, dashed border radius = 115
+                // Use an orbit radius that positions icons right inside the dashed border:
+                const orbitRadius = 92; // fits nicely within dashed border of 115
                 const center = 115;
-                const x = center + r * Math.cos(angle);
-                const y = center + r * Math.sin(angle);
+                const angle = (i / categoryIcons.length) * (2 * Math.PI);
+                const x = center + orbitRadius * Math.cos(angle);
+                const y = center + orbitRadius * Math.sin(angle);
                 return (
                   <div
                     key={i}
-                    className="absolute flex items-center justify-center shadow-lg"
+                    className="absolute flex items-center justify-center"
                     style={{
-                      left: x - 25,
-                      top: y - 25,
-                      width: 50,
-                      height: 50,
+                      left: x - 20,
+                      top: y - 20,
+                      width: 40,
+                      height: 40,
                       borderRadius: "50%",
-                      background: "#10110F",
-                      boxShadow: "0 4px 14px #fff3",
+                      background: "#151516",
+                      boxShadow: "0 2px 18px #fff2",
+                      border: "1.5px solid #232325",
                     }}
                   >
                     <span
-                      className="text-[1.65rem]"
+                      className="text-[1.42rem]"
                       style={{ color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}
                     >
                       {IconEl}
@@ -217,18 +220,25 @@ const Skills = () => {
             <div
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-center rounded-full shadow-lg font-extrabold"
               style={{
-                width: 85,
-                height: 85,
+                width: 80,
+                height: 80,
                 background: "#fff",
                 color: "#151516",
-                fontSize: "2rem",
-                letterSpacing: "0.03em",
+                fontSize: "1.13rem",
+                letterSpacing: "0.01em",
                 border: "3px solid #fff",
                 zIndex: 20,
-                boxShadow: "0 0 10px #fff7",
+                boxShadow: "0 0 10px #fff6",
+                padding: "0 8px",
+                textWrap: "balance",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                lineHeight: "1.14"
               }}
             >
-              FOSS
+              Security & Cloud Tools
             </div>
           </div>
           <div className="hidden md:block md:flex-1" />
