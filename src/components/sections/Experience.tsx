@@ -65,11 +65,12 @@ const Experience = () => {
                       </li>
                     ))}
                   </ul>
+                  {/* Capsule Styling Change */}
                   <div className={`flex flex-wrap gap-2 ${isRight ? 'md:justify-end' : 'justify-start'}`}>
                     {item.technologies.map(tech => (
                       <span
                         key={tech}
-                        className="inline-block bg-[#10FF67]/20 text-[#10ff67] border border-[#10FF67]/30 rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-[#10ff67]/25 mb-1"
+                        className="inline-block border border-white bg-white text-black rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 mb-1"
                         style={{
                           letterSpacing: ".04em",
                           fontFamily: "Rajdhani, sans-serif",

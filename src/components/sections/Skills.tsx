@@ -1,6 +1,7 @@
-// All lucide-react icons used here
-import { Shield, Network, User, CircleCheck, Mail, Server, Cloud, Globe, Search } from "lucide-react";
+
+import { Shield, Network, User, CircleCheck, Mail, Server, Cloud, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import React, { useRef, useEffect } from "react";
 
 const mainCategories = [
   {
@@ -108,7 +109,6 @@ const mainCategories = [
 ];
 
 // Chosen a set of relevant lucide-react icons for the orbit visualization:
-// Only use valid Lucide icons — UserShield is NOT valid, so we use User instead.
 const categoryIcons = [
   <User key="User" />,
   <CircleCheck key="CircleCheck" />,
@@ -120,9 +120,25 @@ const categoryIcons = [
   <Mail key="Mail" />,
 ];
 
-const centralCircleColor = "#10ff67";
+const centralCircleColor = "#fff";
 
 const Skills = () => {
+  const wheelRef = useRef<HTMLDivElement>(null);
+  // Animation: incremental rotation (uses a ref because React state would be overkill and not as smooth)
+  useEffect(() => {
+    let animationFrame: number;
+    let degree = 0;
+    const animate = () => {
+      if (wheelRef.current) {
+        degree = (degree + 0.15) % 360;
+        wheelRef.current.style.transform = `rotate(${degree}deg)`;
+      }
+      animationFrame = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
   return (
     <section
       id="skills"
@@ -132,9 +148,9 @@ const Skills = () => {
       <div className="container mx-auto flex flex-col items-center">
         {/* Header */}
         <h2 className="font-extrabold text-3xl md:text-4xl mb-3 text-center" style={{ color: "#fff" }}>
-          Technologies & Tools
+          Tools Radar
         </h2>
-        <span className="block mx-auto w-16 h-1 rounded-full bg-[#10ff67] mb-10" />
+        <span className="block mx-auto w-16 h-1 rounded-full bg-white mb-10" />
 
         {/* Center circle + orbit icons */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full mb-12 gap-7">
@@ -148,7 +164,7 @@ const Skills = () => {
                 width: 230,
                 height: 230,
                 borderRadius: "50%",
-                border: "2.5px dashed #13ff67cc",
+                border: "2.5px dashed #fff9",
                 inset: 0,
                 left: "50%",
                 top: "50%",
@@ -157,48 +173,59 @@ const Skills = () => {
               }}
             />
             {/* Orbiting Icons */}
-            {categoryIcons.map((IconEl, i) => {
-              const angle = (i / categoryIcons.length) * (2 * Math.PI);
-              const r = 105;
-              const center = 115;
-              const x = center + r * Math.cos(angle);
-              const y = center + r * Math.sin(angle);
-              return (
-                <div
-                  key={i}
-                  className="absolute flex items-center justify-center shadow-lg"
-                  style={{
-                    left: x - 25,
-                    top: y - 25,
-                    width: 50,
-                    height: 50,
-                    borderRadius: "50%",
-                    background: "#10110F",
-                    boxShadow: "0 4px 14px #10ff6744",
-                  }}
-                >
-                  <span
-                    className="text-[1.65rem]"
-                    style={{ color: centralCircleColor }}
+            <div
+              ref={wheelRef}
+              className="absolute left-1/2 top-1/2"
+              style={{
+                width: 230,
+                height: 230,
+                transform: "translate(-50%, -50%)",
+                willChange: "transform",
+              }}
+            >
+              {categoryIcons.map((IconEl, i) => {
+                const angle = (i / categoryIcons.length) * (2 * Math.PI);
+                const r = 105;
+                const center = 115;
+                const x = center + r * Math.cos(angle);
+                const y = center + r * Math.sin(angle);
+                return (
+                  <div
+                    key={i}
+                    className="absolute flex items-center justify-center shadow-lg"
+                    style={{
+                      left: x - 25,
+                      top: y - 25,
+                      width: 50,
+                      height: 50,
+                      borderRadius: "50%",
+                      background: "#10110F",
+                      boxShadow: "0 4px 14px #fff3",
+                    }}
                   >
-                    {IconEl}
-                  </span>
-                </div>
-              );
-            })}
+                    <span
+                      className="text-[1.65rem]"
+                      style={{ color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}
+                    >
+                      {IconEl}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
             {/* Central circle */}
             <div
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-center rounded-full shadow-lg font-extrabold"
               style={{
                 width: 85,
                 height: 85,
-                background: centralCircleColor,
-                color: "#121916",
+                background: "#fff",
+                color: "#151516",
                 fontSize: "2rem",
                 letterSpacing: "0.03em",
-                border: "3px solid #13ff67e6",
+                border: "3px solid #fff",
                 zIndex: 20,
-                boxShadow: "0 0 10px #10ff6799",
+                boxShadow: "0 0 10px #fff7",
               }}
             >
               FOSS
@@ -209,26 +236,26 @@ const Skills = () => {
 
         {/* Three/four category cards - in a flex wrap, centered */}
         <div className="flex flex-wrap justify-center gap-7 mt-2 w-full max-w-6xl">
-          {mainCategories.map((cat, idx) => (
+          {mainCategories.map((cat) => (
             <div
               key={cat.title}
-              className="bg-[#10ff67]/[.07] border border-[#10ff67]/30 rounded-[32px] px-7 py-6 min-w-[270px] max-w-xs shadow-2xl backdrop-blur-md flex flex-col items-center"
+              className="bg-white/[.06] border border-white/25 rounded-[32px] px-7 py-6 min-w-[270px] max-w-xs shadow-2xl backdrop-blur-md flex flex-col items-center"
               style={{
-                boxShadow: "0 8px 40px #10ff6740",
+                boxShadow: "0 8px 40px #fff0",
               }}
             >
-              <div className="text-lg font-extrabold text-[#10ff67] mb-3 tracking-wider text-center" style={{letterSpacing: "0.02em"}}>
+              <div className="text-lg font-extrabold text-white mb-3 tracking-wider text-center" style={{letterSpacing: "0.02em"}}>
                 {cat.title}
               </div>
               <div className="flex flex-col gap-2 w-full">
                 {cat.tools.map((group) => (
                   <div key={group.label} className="mb-2 w-full flex flex-col items-center">
-                    <span className="font-bold text-[.96em] text-[#10ff67ed] tracking-wide text-center mb-1">{group.label}</span>
+                    <span className="font-bold text-[.96em] text-white tracking-wide text-center mb-1">{group.label}</span>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {group.items.map((item) => (
                         <Badge
                           key={item}
-                          className="bg-[#10ff67]/20 border border-[#10ff67]/50 text-[#10ff67] font-semibold px-3 py-1 rounded-full shadow transition-colors hover:bg-[#10ff67]/30 text-xs uppercase"
+                          className="bg-transparent border border-white/60 text-white font-semibold px-3 py-1 rounded-full shadow transition-colors hover:bg-white/10 text-xs uppercase"
                           style={{
                             letterSpacing: "0.01em",
                             fontFamily: "Rajdhani, sans-serif",
