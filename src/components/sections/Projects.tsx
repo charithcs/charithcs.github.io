@@ -1,7 +1,14 @@
-
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { icons } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 // Use valid lucide-react icon names only (capitalize!)
 // See https://lucide.dev/icons and lucide-react docs
@@ -54,6 +61,8 @@ const projectsData = [
 ];
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<(typeof projectsData)[0] | null>(null);
+
   return (
     <section id="projects" className="section-padding unified-section-bg">
       <div className="container mx-auto px-6">
@@ -62,26 +71,33 @@ const Projects = () => {
         </h2>
         <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
-            <Card key={index} className="unified-card flex flex-col group hover:scale-[1.012] border border-[#10ff67]/20 shadow-md transition-all duration-300">
+            <Card 
+              key={index} 
+              onClick={() => setSelectedProject(project)}
+              className="unified-card flex flex-col group hover:scale-[1.012] border border-white/20 shadow-md transition-all duration-300 cursor-pointer"
+            >
               <CardHeader>
-                <CardTitle className="text-2xl text-white group-hover:text-[#10ff67] transition-colors duration-300">
+                <CardTitle className="text-2xl text-white">
                   {project.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow">
-                <ul className="mb-8 list-disc pl-6 text-white/80 space-y-4 leading-relaxed">
-                  {project.bullets.map((bullet, idx) => (
+              <CardContent className="flex-grow flex flex-col">
+                <ul className="mb-8 list-disc pl-6 text-white/80 space-y-4 leading-relaxed flex-grow">
+                  {project.bullets.slice(0, 2).map((bullet, idx) => (
                     <li key={idx} className="text-sm">{bullet}</li>
                   ))}
+                  {project.bullets.length > 2 && (
+                    <li className="text-sm text-white/60 list-none pl-0 pt-2">... Click to read more</li>
+                  )}
                 </ul>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 mt-auto">
                   {project.tech.map(tag => {
                     const iconName = iconLookup[tag];
                     const Icon = iconName ? icons[iconName] : undefined;
                     return (
                       <Badge 
                         key={tag} 
-                        className="bg-[#10ff67]/20 border border-[#10ff67]/30 flex items-center gap-2 text-[#10ff67] shadow-xl px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-[#10ff67]/30 uppercase"
+                        className="bg-white/10 border border-white/20 flex items-center gap-2 text-white shadow-xl px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-white/20 uppercase"
                       >
                         {Icon && <Icon className="w-4 h-4" />}
                         {tag}
@@ -94,6 +110,40 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={!!selectedProject} onOpenChange={(isOpen) => { if (!isOpen) setSelectedProject(null); }}>
+        <DialogContent className="unified-card border-white/20 sm:max-w-3xl">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-white mb-4">{selectedProject.title}</DialogTitle>
+                <DialogDescription asChild>
+                  <ul className="list-disc pl-5 text-white/80 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-4">
+                    {selectedProject.bullets.map((bullet, idx) => (
+                      <li key={idx} className="text-sm">{bullet}</li>
+                    ))}
+                  </ul>
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex flex-wrap gap-3 mt-6">
+                {selectedProject.tech.map(tag => {
+                  const iconName = iconLookup[tag];
+                  const Icon = iconName ? icons[iconName] : undefined;
+                  return (
+                    <Badge 
+                      key={tag} 
+                      className="bg-white/10 border border-white/20 flex items-center gap-2 text-white shadow-xl px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-white/20 uppercase"
+                    >
+                      {Icon && <Icon className="w-4 h-4" />}
+                      {tag}
+                    </Badge>
+                  );
+                })}
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
