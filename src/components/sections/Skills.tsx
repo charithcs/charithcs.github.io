@@ -44,7 +44,7 @@ const Skills = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Technical Skills</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {skillsData.map((categoryData) => (
-            <Card key={categoryData.category} className="bg-card/50">
+            <Card key={categoryData.category} className="bg-card/50 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
               <CardHeader>
                 <CardTitle>{categoryData.category}</CardTitle>
               </CardHeader>
@@ -67,3 +67,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

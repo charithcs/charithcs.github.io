@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
@@ -10,9 +11,20 @@ const Hero = () => {
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in-down">
           CHARITH.S
         </h1>
-        <p className="text-lg md:text-xl text-primary mb-6 font-semibold animate-fade-in-up">
-          Incident Response | Blue Team Operations | SOC Analyst
-        </p>
+        <TypeAnimation
+          sequence={[
+            "Incident Response",
+            1500,
+            "Blue Team Operations",
+            1500,
+            "SOC Analyst",
+            1500,
+          ]}
+          wrapper="p"
+          speed={50}
+          className="text-lg md:text-xl text-primary mb-6 font-semibold animate-fade-in-up"
+          repeat={Infinity}
+        />
         <p className="max-w-3xl mx-auto text-muted-foreground mb-8 animate-fade-in-up animation-delay-300">
           Cybersecurity professional with 4+ years of experience in safeguarding digital infrastructures, analyzing threats, and leading incident response efforts.
         </p>
@@ -27,3 +39,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

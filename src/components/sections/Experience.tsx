@@ -42,24 +42,35 @@ const Experience = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Work Experience</h2>
         <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border -ml-px"></div>
-          {experienceData.map((item, index) => (
-            <div key={index} className="mb-10 pl-12 relative">
-              <div className="absolute left-6 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
-              <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm bg-card/50">
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2"></div>
+          {experienceData.map((item, index) => {
+            const isRight = index % 2 !== 0;
+
+            const card = (
+              <div className={`p-6 rounded-lg border bg-card/50 text-card-foreground shadow-sm transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'text-right' : 'text-left'}`}>
                 <p className="text-sm text-primary font-semibold">{item.date}</p>
                 <h3 className="text-xl font-bold mt-1">{item.role}</h3>
                 <p className="text-md text-muted-foreground">{item.company}</p>
                 <p className="text-sm text-muted-foreground mb-4">{item.location} &middot; {item.type}</p>
-                <ul className="space-y-2 text-sm list-disc list-inside mb-4 text-muted-foreground">
+                <ul className={`space-y-2 text-sm list-disc mb-4 text-muted-foreground ${isRight ? 'list-inside ml-auto' : 'list-inside'}`}>
                   {item.achievements.map((ach, i) => <li key={i}><span>{ach}</span></li>)}
                 </ul>
-                <div className="flex flex-wrap gap-2">
+                <div className={`flex flex-wrap gap-2 ${isRight ? 'justify-end' : 'justify-start'}`}>
                   {item.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return (
+              <div key={index} className="mb-10 relative">
+                <div className="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+                <div className="grid grid-cols-2 gap-x-8">
+                  {isRight ? <div /> : card}
+                  {isRight ? card : <div />}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
