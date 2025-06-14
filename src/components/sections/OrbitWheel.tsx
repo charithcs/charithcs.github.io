@@ -26,7 +26,7 @@ const OrbitWheel: React.FC<OrbitWheelProps> = ({ label = "Security & Cloud Tools
     const animate = () => {
       if (wheelRef.current) {
         degree = (degree + 0.15) % 360;
-        wheelRef.current.style.transform = `rotate(${degree}deg)`;
+        wheelRef.current.style.transform = `translate(-50%, -50%) rotate(${degree}deg)`;
       }
       animationFrame = requestAnimationFrame(animate);
     };
@@ -64,7 +64,7 @@ const OrbitWheel: React.FC<OrbitWheelProps> = ({ label = "Security & Cloud Tools
       >
         {categoryIcons.map((IconEl, i) => {
           const iconSize = 32;
-          const orbitRadius = 75; // Reduced from 95 to keep icons inside the dashed circle
+          const orbitRadius = 95;
           const containerCenter = 115;
           const angle = (i / categoryIcons.length) * (2 * Math.PI);
           const x = containerCenter + orbitRadius * Math.cos(angle);
