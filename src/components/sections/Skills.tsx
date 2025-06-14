@@ -19,8 +19,8 @@ const categories = [
     category: "Threat Intelligence & Digital Forensics",
     icon: <Search className="stroke-[1.7]" />,
     skills: [
-      "Threat Intel: Recorded Future, VirusTotal",
-      "Forensics: Falcon Collector, Belkasoft",
+      "Threat Intel: Recorded Future, VirusTotal, Alienvault OTX",
+      "Forensics: Falcon Collector, Belkasoft, Autopsy",
     ],
   },
   {
@@ -36,7 +36,7 @@ const categories = [
     icon: <Cloud className="stroke-[1.7]" />,
     skills: [
       "AWS: CloudTrail, GuardDuty",
-      "Azure: Sentinel, AD",
+      "Azure: MS-Sentinel, Active Directory",
       "SaaS Tools: Orca, Wiz, AppOmni",
     ],
   },
