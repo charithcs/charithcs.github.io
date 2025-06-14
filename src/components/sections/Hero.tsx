@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
@@ -6,7 +5,6 @@ import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div className="container mx-auto relative z-10">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 animate-fade-in-down">
           CHARITH.S
@@ -39,4 +37,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

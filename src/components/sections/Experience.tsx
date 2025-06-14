@@ -1,5 +1,6 @@
 
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
 const experienceData = [
   {
@@ -47,18 +48,20 @@ const Experience = () => {
             const isRight = index % 2 !== 0;
 
             const card = (
-              <div className={`p-6 rounded-lg border bg-card/50 text-card-foreground shadow-sm transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'text-right' : 'text-left'}`}>
-                <p className="text-sm text-primary font-semibold">{item.date}</p>
-                <h3 className="text-xl font-bold mt-1">{item.role}</h3>
-                <p className="text-md text-muted-foreground">{item.company}</p>
-                <p className="text-sm text-muted-foreground mb-4">{item.location} &middot; {item.type}</p>
-                <ul className={`space-y-2 text-sm list-disc mb-4 text-muted-foreground ${isRight ? 'list-inside ml-auto' : 'list-inside'}`}>
-                  {item.achievements.map((ach, i) => <li key={i}><span>{ach}</span></li>)}
-                </ul>
-                <div className={`flex flex-wrap gap-2 ${isRight ? 'justify-end' : 'justify-start'}`}>
-                  {item.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
-                </div>
-              </div>
+              <Card className={`transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'text-right' : 'text-left'}`}>
+                <CardContent className="pt-6">
+                  <p className="text-sm text-primary font-semibold">{item.date}</p>
+                  <h3 className="text-xl font-bold mt-1">{item.role}</h3>
+                  <p className="text-md text-muted-foreground">{item.company}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{item.location} &middot; {item.type}</p>
+                  <ul className={`space-y-2 text-sm list-disc mb-4 text-muted-foreground ${isRight ? 'list-inside ml-auto' : 'list-inside'}`}>
+                    {item.achievements.map((ach, i) => <li key={i}><span>{ach}</span></li>)}
+                  </ul>
+                  <div className={`flex flex-wrap gap-2 ${isRight ? 'justify-end' : 'justify-start'}`}>
+                    {item.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
+                  </div>
+                </CardContent>
+              </Card>
             );
 
             return (

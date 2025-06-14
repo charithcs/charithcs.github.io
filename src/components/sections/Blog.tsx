@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -67,7 +66,7 @@ const Blog = () => {
             <p className="text-destructive text-center col-span-3">Failed to load blog posts.</p>
           ) : (
             posts?.slice(0, 3).map((post, index) => (
-              <Card key={index} className="bg-background/50 flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+              <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
                   <CardTitle>{post.title}</CardTitle>
                 </CardHeader>

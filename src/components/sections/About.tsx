@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { User, ShieldCheck, Briefcase } from "lucide-react";
 
@@ -8,7 +7,7 @@ const About = () => {
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
         <div className="grid md:grid-cols-3 gap-8 text-center">
-            <Card className="bg-background/50 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
                     <User className="mx-auto h-10 w-10 text-primary mb-4" />
                     <CardTitle>Who I Am</CardTitle>
@@ -17,7 +16,7 @@ const About = () => {
                     <p className="text-muted-foreground">I'm Charith S, a dedicated cybersecurity analyst passionate about protecting digital environments from evolving threats.</p>
                 </CardContent>
             </Card>
-            <Card className="bg-background/50 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
                     <ShieldCheck className="mx-auto h-10 w-10 text-primary mb-4" />
                     <CardTitle>What I Do</CardTitle>
@@ -26,7 +25,7 @@ const About = () => {
                     <p className="text-muted-foreground">I specialize in blue team operations, incident response, and security operations, ensuring robust defense mechanisms.</p>
                 </CardContent>
             </Card>
-            <Card className="bg-background/50 transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
                     <Briefcase className="mx-auto h-10 w-10 text-primary mb-4" />
                     <CardTitle>My Experience</CardTitle>
