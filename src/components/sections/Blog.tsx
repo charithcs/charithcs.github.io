@@ -57,7 +57,7 @@ const Blog = () => {
   }
 
   return (
-    <section id="blog" className="section-padding bg-secondary/50">
+    <section id="blog" className="section-padding">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">From my Blog</h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -67,7 +67,7 @@ const Blog = () => {
             <p className="text-destructive text-center col-span-3">Failed to load blog posts.</p>
           ) : (
             posts?.slice(0, 3).map((post, index) => (
-              <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+              <Card key={index} className="bg-background/50 flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
                   <CardTitle>{post.title}</CardTitle>
                 </CardHeader>

@@ -22,12 +22,12 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-secondary/50">
+    <section id="projects" className="section-padding">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
-            <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card key={index} className="bg-background/50 flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
               </CardHeader>

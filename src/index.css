@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,6 +52,8 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --gradient-start: 0 0% 100%;
+    --gradient-end: 220 13% 91%;
   }
 
   .dark {
@@ -89,6 +92,8 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --gradient-start: 222.2 84% 4.9%;
+    --gradient-end: 240 20% 12%;
   }
 }
 
@@ -102,9 +107,12 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'Rajdhani', sans-serif;
     min-height: 100vh;
+    background-color: hsl(var(--gradient-start));
+    background-image: linear-gradient(160deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
