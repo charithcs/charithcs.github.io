@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 // Use valid lucide-react icon names only (capitalize!)
 // See https://lucide.dev/icons and lucide-react docs
@@ -74,7 +75,10 @@ const Projects = () => {
             <Card 
               key={index} 
               onClick={() => setSelectedProject(project)}
-              className="unified-card flex flex-col group hover:scale-[1.012] border border-white/20 shadow-md transition-all duration-300 cursor-pointer"
+              className={cn(
+                "unified-card flex flex-col group border border-white/20 shadow-md transition-all duration-300 cursor-pointer",
+                !selectedProject && "hover:scale-[1.012]"
+              )}
             >
               <CardHeader>
                 <CardTitle className="text-2xl text-white">
@@ -87,7 +91,7 @@ const Projects = () => {
                     <li key={idx} className="text-sm">{bullet}</li>
                   ))}
                   {project.bullets.length > 2 && (
-                    <li className="text-sm text-white/60 list-none pl-0 pt-2">... Click to read more</li>
+                    <li className="text-sm text-white/60 list-none pl-0 pt-2 underline">... Click to read more</li>
                   )}
                 </ul>
                 <div className="flex flex-wrap gap-3 mt-auto">
