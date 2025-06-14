@@ -3,17 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { icons } from "lucide-react";
 
-// Use valid lucide-react icon names only
+// Use valid lucide-react icon names only (capitalize!)
+// See https://lucide.dev/icons and lucide-react docs
 const iconLookup: Record<string, keyof typeof icons> = {
-  "ELK Stack": "database",
-  "Logstash": "database",
-  "Kibana": "database",
-  "Security Onion": "shield",
-  "AlienVault OTX": "shield",
-  "VirusTotal": "shield",
-  "AbuseIPDB": "shield",
-  "Tor": "globe",
-  "OSINT": "search",
+  "ELK Stack": "Database",
+  "Logstash": "Database",
+  "Kibana": "Database",
+  "Security Onion": "Shield",
+  "AlienVault OTX": "Shield",
+  "VirusTotal": "Shield",
+  "AbuseIPDB": "Shield",
+  "Tor": "Globe",
+  "OSINT": "Search",
 };
 
 const projectsData = [

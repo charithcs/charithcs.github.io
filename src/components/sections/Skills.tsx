@@ -1,8 +1,6 @@
 
-import { SiSplunk, SiIbm, SiCrowdstrike, SiMicrosoft, SiAzuredevops, SiFalcon, SiWazuh, SiAmazonaws, SiProofpoint, SiWiz, SiAppsignal, SiWindows11, SiAlienware } from "react-icons/si";
-import { FaNetworkWired, FaUserShield } from "react-icons/fa";
-import { RiShieldCheckFill } from "react-icons/ri";
-import { MdOutlineEmail } from "react-icons/md";
+// All lucide-react icons used here
+import { Shield, Network, UserShield, CircleCheck, Mail, Server, Cloud, Globe, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const mainCategories = [
@@ -110,15 +108,16 @@ const mainCategories = [
   },
 ];
 
+// Chosen a set of relevant lucide-react icons for the orbit visualization:
 const categoryIcons = [
-  <FaUserShield />,
-  <RiShieldCheckFill />,
-  <FaNetworkWired />,
-  <SiAzuredevops />,
-  <SiFalcon />,
-  <SiWazuh />,
-  <SiAmazonaws />,
-  <MdOutlineEmail />,
+  <UserShield key="UserShield" />,
+  <CircleCheck key="CircleCheck" />,
+  <Network key="Network" />,
+  <Server key="Server" />,
+  <Shield key="Shield" />,
+  <Cloud key="Cloud" />,
+  <Globe key="Globe" />,
+  <Mail key="Mail" />,
 ];
 
 const centralCircleColor = "#10ff67";
@@ -139,7 +138,6 @@ const Skills = () => {
 
         {/* Center circle + orbit icons */}
         <div className="flex flex-col md:flex-row items-center justify-center w-full mb-12 gap-7">
-          {/* Left empty for symmetry on big screens */}
           <div className="hidden md:block md:flex-1" />
           {/* Central Icon Wheel */}
           <div className="relative flex items-center justify-center min-h-[300px] min-w-[330px]">
@@ -206,7 +204,6 @@ const Skills = () => {
               FOSS
             </div>
           </div>
-          {/* Right empty for symmetry on big screens */}
           <div className="hidden md:block md:flex-1" />
         </div>
 
@@ -253,4 +250,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
