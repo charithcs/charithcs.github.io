@@ -49,7 +49,8 @@ const mainCategories = [
         label: "Digital Forensics Tools",
         items: [
           "Falcon Forensics Collector",
-          "Belkasoft, Autopsy",
+          "Belkasoft",
+          "Autopsy",
         ],
       },
     ],
