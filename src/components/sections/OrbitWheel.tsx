@@ -63,8 +63,8 @@ const OrbitWheel: React.FC<OrbitWheelProps> = ({ label = "Security & Cloud Tools
         }}
       >
         {categoryIcons.map((IconEl, i) => {
-          const iconSize = 34;
-          const orbitRadius = 95;
+          const iconSize = 32;
+          const orbitRadius = 75; // Reduced from 95 to keep icons inside the dashed circle
           const containerCenter = 115;
           const angle = (i / categoryIcons.length) * (2 * Math.PI);
           const x = containerCenter + orbitRadius * Math.cos(angle);
@@ -79,7 +79,7 @@ const OrbitWheel: React.FC<OrbitWheelProps> = ({ label = "Security & Cloud Tools
                 width: iconSize,
                 height: iconSize,
                 borderRadius: "50%",
-                boxShadow: "0 0 16px 4px #fff7, 0 3px 10px #232325aa",
+                boxShadow: "0 0 12px 3px #fff6, 0 2px 8px #232325aa",
                 background: "rgba(17,18,19,0.95)",
                 border: "1.5px solid #232325",
               }}
@@ -88,9 +88,9 @@ const OrbitWheel: React.FC<OrbitWheelProps> = ({ label = "Security & Cloud Tools
                 className="flex items-center justify-center"
                 style={{
                   color: "#fff",
-                  fontSize: "1.42rem",
-                  width: iconSize - 6,
-                  height: iconSize - 6,
+                  fontSize: "1.2rem",
+                  width: iconSize - 4,
+                  height: iconSize - 4,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
