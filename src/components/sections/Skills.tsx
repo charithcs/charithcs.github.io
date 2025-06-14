@@ -108,6 +108,7 @@ const mainCategories = [
 ];
 
 // Chosen a set of relevant lucide-react icons for the orbit visualization:
+// Only use valid Lucide icons — UserShield is NOT valid, so we use User instead.
 const categoryIcons = [
   <User key="User" />,
   <CircleCheck key="CircleCheck" />,
