@@ -17,7 +17,7 @@ const Hero = () => {
             tabIndex={0}
             aria-label="CHARITH.S"
           >
-            CHARITH .&nbsp;S
+            CHARITH.S
           </h1>
         </div>
         <TypeAnimation
