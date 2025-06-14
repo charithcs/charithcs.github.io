@@ -11,7 +11,7 @@ const experienceData = [
     type: "Full-time",
     achievements: [
       "Led security monitoring and incident response across enterprise and M&A cloud environments, adhering to NIST 800-61 lifecycle",
-      "Triage and analyzed 100+ weekly alerts across endpoint, network, and cloud layers using Splunk, QRadar, SentinelOne, CrowdStrike, and FortiSOAR",
+      "Triaged and analyzed 100+ weekly alerts across endpoint, network, and cloud layers using Splunk, QRadar, SentinelOne, CrowdStrike, and FortiSOAR",
       "Performed host forensics & malware analysis using Falcon Forensics and Belkasoft to uncover persistence techniques and infection vectors",
       "Automated SOAR playbooks in FortiSOAR, reducing credential alert remediation time by 40% through intelligent user notification and case routing",
       "Identified & remediated cloud misconfigurations in AWS and Azure environments using CloudTrail, Azure Logs, Wiz, and Orca",
@@ -40,36 +40,48 @@ const experienceData = [
 const Experience = () => {
   return (
     <section id="experience" className="section-padding">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Work Experience</h2>
-        <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2"></div>
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+          Work Experience
+        </h2>
+        <div className="relative max-w-5xl mx-auto">
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block"></div>
           {experienceData.map((item, index) => {
             const isRight = index % 2 !== 0;
 
             const card = (
-              <Card className={`transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'text-right' : 'text-left'}`}>
+              <Card className={`transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:scale-[1.02] ${isRight ? 'md:text-right' : 'md:text-left'} text-left`}>
                 <CardContent className="pt-6">
-                  <p className="text-sm text-primary font-semibold">{item.date}</p>
-                  <h3 className="text-xl font-bold mt-1">{item.role}</h3>
-                  <p className="text-md text-muted-foreground">{item.company}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{item.location} &middot; {item.type}</p>
-                  <ul className={`space-y-2 text-sm list-disc mb-4 text-muted-foreground ${isRight ? 'list-inside ml-auto' : 'list-inside'}`}>
-                    {item.achievements.map((ach, i) => <li key={i}><span>{ach}</span></li>)}
+                  <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-3">
+                    {item.date}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">{item.role}</h3>
+                  <p className="text-lg text-primary font-medium mb-1">{item.company}</p>
+                  <p className="text-sm text-muted-foreground mb-6">{item.location} • {item.type}</p>
+                  <ul className={`space-y-3 text-sm mb-6 text-muted-foreground ${isRight ? 'md:list-inside md:ml-auto' : 'list-inside'} list-disc`}>
+                    {item.achievements.map((ach, i) => (
+                      <li key={i} className="leading-relaxed">
+                        <span>{ach}</span>
+                      </li>
+                    ))}
                   </ul>
-                  <div className={`flex flex-wrap gap-2 ${isRight ? 'justify-end' : 'justify-start'}`}>
-                    {item.technologies.map(tech => <Badge key={tech} variant="secondary">{tech}</Badge>)}
+                  <div className={`flex flex-wrap gap-2 ${isRight ? 'md:justify-end' : 'justify-start'}`}>
+                    {item.technologies.map(tech => (
+                      <Badge key={tech} variant="secondary" className="bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary">
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
             );
 
             return (
-              <div key={index} className="mb-10 relative">
-                <div className="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
-                <div className="grid grid-cols-2 gap-x-8">
-                  {isRight ? <div /> : card}
-                  {isRight ? card : <div />}
+              <div key={index} className="mb-12 relative">
+                <div className="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-10"></div>
+                <div className="grid md:grid-cols-2 gap-x-8">
+                  {isRight ? <div className="hidden md:block" /> : card}
+                  {isRight ? card : <div className="hidden md:block" />}
                 </div>
               </div>
             );

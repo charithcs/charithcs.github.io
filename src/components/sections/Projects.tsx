@@ -40,28 +40,30 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-gradient-to-b from-muted/20 to-transparent">
+    <section id="projects" className="section-padding section-alt">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-          Projects
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+          Featured Projects
         </h2>
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
-            <Card key={index} className="flex flex-col group">
+            <Card key={index} className="flex flex-col group hover:border-primary/30">
               <CardHeader>
-                <CardTitle className="text-2xl">{project.title}</CardTitle>
+                <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <ul className="mb-6 list-disc pl-6 text-muted-foreground space-y-3 leading-relaxed">
+                <ul className="mb-8 list-disc pl-6 text-muted-foreground space-y-4 leading-relaxed">
                   {project.bullets.map((bullet, idx) => (
-                    <li key={idx}>{bullet}</li>
+                    <li key={idx} className="text-sm">{bullet}</li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-3">
                   {project.tech.map(tag => (
                     <Badge 
                       key={tag} 
-                      className="bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-primary/20 hover:from-primary/20 hover:to-primary/10 transition-all duration-300 px-4 py-2 text-sm font-medium"
+                      className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-all duration-300 px-3 py-1 text-xs font-medium"
                     >
                       {tag}
                     </Badge>
