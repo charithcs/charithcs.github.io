@@ -104,8 +104,6 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Rajdhani', sans-serif;
-    background: linear-gradient(to bottom, hsl(var(--background)), hsl(220, 40%, 10%));
-    background-attachment: fixed;
     min-height: 100vh;
   }
 
