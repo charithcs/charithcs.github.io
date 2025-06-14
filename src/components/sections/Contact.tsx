@@ -5,9 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github } from "lucide-react";
 
-const EMAIL = "charithcs9@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/in/charith/";
-const GITHUB = "https://github.com/charithtest";
+const EMAIL = "charithsighakollu@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/in/charith-sighakollu/";
+const GITHUB = "https://github.com/Securedsoul99";
 
 const Contact = () => {
   return (
