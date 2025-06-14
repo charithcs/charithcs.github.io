@@ -30,7 +30,7 @@ const SkillCategoryCard: React.FC<SkillCategoryCardProps> = ({ title, tools }) =
             {group.items.map((item) => (
               <Badge
                 key={item}
-                className="bg-transparent border border-white/60 text-white font-normal px-3 py-1 rounded-full shadow-sm transition-colors hover:bg-white/10 text-[13px] tracking-wide"
+                className="bg-transparent border border-white/60 text-white font-normal px-3 py-1 rounded-full shadow-sm transition-colors duration-200 cursor-pointer hover:bg-white hover:text-black active:bg-white active:text-black text-[13px] tracking-wide"
                 style={{
                   fontFamily: "Rajdhani, sans-serif",
                 }}
