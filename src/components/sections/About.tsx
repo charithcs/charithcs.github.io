@@ -1,37 +1,40 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { User, ShieldCheck, Briefcase } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="section-padding">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
+    <section id="about" className="section-padding bg-gradient-to-b from-transparent to-muted/20">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          About Me
+        </h2>
         <div className="grid md:grid-cols-3 gap-8 text-center">
-            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="group">
                 <CardHeader>
-                    <User className="mx-auto h-10 w-10 text-primary mb-4" />
-                    <CardTitle>Who I Am</CardTitle>
+                    <User className="mx-auto h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
+                    <CardTitle className="text-xl">Who I Am</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground">I'm Charith S, a dedicated cybersecurity analyst passionate about protecting digital environments from evolving threats.</p>
+                    <p className="text-muted-foreground leading-relaxed">I'm Charith S, a dedicated cybersecurity analyst passionate about protecting digital environments from evolving threats.</p>
                 </CardContent>
             </Card>
-            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="group">
                 <CardHeader>
-                    <ShieldCheck className="mx-auto h-10 w-10 text-primary mb-4" />
-                    <CardTitle>What I Do</CardTitle>
+                    <ShieldCheck className="mx-auto h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
+                    <CardTitle className="text-xl">What I Do</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground">I specialize in blue team operations, incident response, and security operations, ensuring robust defense mechanisms.</p>
+                    <p className="text-muted-foreground leading-relaxed">I specialize in blue team operations, incident response, and security operations, ensuring robust defense mechanisms.</p>
                 </CardContent>
             </Card>
-            <Card className="transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card className="group">
                 <CardHeader>
-                    <Briefcase className="mx-auto h-10 w-10 text-primary mb-4" />
-                    <CardTitle>My Experience</CardTitle>
+                    <Briefcase className="mx-auto h-12 w-12 text-primary mb-6 group-hover:scale-110 transition-transform duration-300" />
+                    <CardTitle className="text-xl">My Experience</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground">With over 4 years in the field, I've honed my skills in threat detection, analysis, and mitigation across various industries.</p>
+                    <p className="text-muted-foreground leading-relaxed">With over 4 years in the field, I've honed my skills in threat detection, analysis, and mitigation across various industries.</p>
                 </CardContent>
             </Card>
         </div>

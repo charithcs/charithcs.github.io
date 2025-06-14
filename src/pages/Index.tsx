@@ -8,12 +8,10 @@ import Skills from "@/components/sections/Skills";
 import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import { Toaster } from "@/components/ui/sonner";
-import { Textarea } from "@/components/ui/textarea";
-
 
 const Index = () => {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <Header />
       <main>
         <Hero />
@@ -24,8 +22,10 @@ const Index = () => {
         <Blog />
         <Contact />
       </main>
-      <footer className="py-6 text-center text-sm text-muted-foreground border-t">
-        © {new Date().getFullYear()} CHARITH S. All Rights Reserved.
+      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border/20 glass-effect">
+        <div className="container mx-auto px-6">
+          © {new Date().getFullYear()} CHARITH S. All Rights Reserved.
+        </div>
       </footer>
       <Toaster />
     </div>

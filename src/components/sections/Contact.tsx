@@ -6,25 +6,30 @@ import { Mail, Linkedin, Github } from "lucide-react";
 
 const EMAIL = "your.email@example.com";
 const LINKEDIN = "https://www.linkedin.com/in/charith/";
-const GITHUB = "https://github.com/charithtest"; // Update as needed
+const GITHUB = "https://github.com/charithtest";
 
 const Contact = () => {
   return (
-    <section id="connect" className="section-padding">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+    <section id="connect" className="section-padding bg-gradient-to-b from-transparent to-muted/20">
+      <div className="container mx-auto text-center px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          Let's Connect
+        </h2>
+        <p className="text-muted-foreground max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
           Interested in cybersecurity collaboration, have a question, or want to discuss a project? Reach out—I'm always happy to connect!
         </p>
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        <div className="flex justify-center gap-6 mb-16 flex-wrap">
           <a
             href={`mailto:${EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"
           >
-            <Button variant="outline">
-              <Mail className="mr-2 h-4 w-4" /> Email
+            <Button 
+              variant="outline" 
+              className="glass-effect hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 shadow-lg border-primary/20"
+            >
+              <Mail className="mr-2 h-5 w-5" /> Email
             </Button>
           </a>
           <a
@@ -33,8 +38,11 @@ const Contact = () => {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <Button variant="outline">
-              <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
+            <Button 
+              variant="outline" 
+              className="glass-effect hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 shadow-lg border-primary/20"
+            >
+              <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
             </Button>
           </a>
           <a
@@ -43,23 +51,50 @@ const Contact = () => {
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <Button variant="outline">
-              <Github className="mr-2 h-4 w-4" /> GitHub
+            <Button 
+              variant="outline" 
+              className="glass-effect hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 shadow-lg border-primary/20"
+            >
+              <Github className="mr-2 h-5 w-5" /> GitHub
             </Button>
           </a>
         </div>
-        <form
-          className="max-w-xl mx-auto text-left space-y-4"
-          action="https://formspree.io/f/xrbkqvpz"
-          method="POST"
-        >
-          <Input name="name" placeholder="Your Name" required />
-          <Input type="email" name="email" placeholder="Your Email" required />
-          <Textarea name="message" placeholder="Your Message" required />
-          {/* anti-spam */}
-          <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
-          <Button type="submit" className="w-full">Send Message</Button>
-        </form>
+        <div className="max-w-2xl mx-auto">
+          <div className="glass-effect rounded-2xl p-8">
+            <form
+              className="text-left space-y-6"
+              action="https://formspree.io/f/xrbkqvpz"
+              method="POST"
+            >
+              <Input 
+                name="name" 
+                placeholder="Your Name" 
+                required 
+                className="bg-background/50 border-border/20 focus:border-primary/50 transition-all duration-300"
+              />
+              <Input 
+                type="email" 
+                name="email" 
+                placeholder="Your Email" 
+                required 
+                className="bg-background/50 border-border/20 focus:border-primary/50 transition-all duration-300"
+              />
+              <Textarea 
+                name="message" 
+                placeholder="Your Message" 
+                required 
+                className="bg-background/50 border-border/20 focus:border-primary/50 transition-all duration-300 min-h-[120px]"
+              />
+              <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] py-6"
+              >
+                Send Message
+              </Button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );

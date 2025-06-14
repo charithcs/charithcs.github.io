@@ -40,24 +40,29 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+    <section id="projects" className="section-padding bg-gradient-to-b from-muted/20 to-transparent">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          Projects
+        </h2>
+        <div className="grid md:grid-cols-2 gap-10">
           {projectsData.map((project, index) => (
-            <Card key={index} className="flex flex-col transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
+            <Card key={index} className="flex flex-col group">
               <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
+                <CardTitle className="text-2xl">{project.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <ul className="mb-4 list-disc pl-5 text-muted-foreground space-y-2">
+                <ul className="mb-6 list-disc pl-6 text-muted-foreground space-y-3 leading-relaxed">
                   {project.bullets.map((bullet, idx) => (
                     <li key={idx}>{bullet}</li>
                   ))}
                 </ul>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.tech.map(tag => (
-                    <Badge key={tag} className="bg-muted/60 text-foreground font-medium px-3 py-1.5 rounded shadow">
+                    <Badge 
+                      key={tag} 
+                      className="bg-gradient-to-r from-primary/10 to-primary/5 text-primary border-primary/20 hover:from-primary/20 hover:to-primary/10 transition-all duration-300 px-4 py-2 text-sm font-medium"
+                    >
                       {tag}
                     </Badge>
                   ))}
