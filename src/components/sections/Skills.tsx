@@ -1,3 +1,4 @@
+
 import { Shield, Network, User, CircleCheck, Mail, Server, Cloud, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import React, { useRef, useEffect } from "react";
@@ -184,31 +185,45 @@ const Skills = () => {
               }}
             >
               {categoryIcons.map((IconEl, i) => {
-                // ICON SIZE = 34, padding ~4px, dashed border radius = 115
-                // Use an orbit radius that positions icons right inside the dashed border:
-                const orbitRadius = 92; // fits nicely within dashed border of 115
-                const center = 115;
+                // ICON SIZE
+                const iconSize = 34;
+                // Real center and orbit radius
+                const orbitRadius = 95; // puts icon center on the dashed border circle
+                const containerCenter = 115; // because diameter is 230
                 const angle = (i / categoryIcons.length) * (2 * Math.PI);
-                const x = center + orbitRadius * Math.cos(angle);
-                const y = center + orbitRadius * Math.sin(angle);
+
+                // Calculate center of icon on the orbit
+                const x = containerCenter + orbitRadius * Math.cos(angle);
+                const y = containerCenter + orbitRadius * Math.sin(angle);
+
                 return (
                   <div
                     key={i}
                     className="absolute flex items-center justify-center"
                     style={{
-                      left: x - 20,
-                      top: y - 20,
-                      width: 40,
-                      height: 40,
+                      left: x - iconSize / 2,
+                      top: y - iconSize / 2,
+                      width: iconSize,
+                      height: iconSize,
                       borderRadius: "50%",
-                      background: "#151516",
-                      boxShadow: "0 2px 18px #fff2",
+                      // Glow behind the icon for modern look
+                      boxShadow: "0 0 16px 4px #fff7, 0 3px 10px #232325aa",
+                      background: "rgba(17,18,19,0.95)",
                       border: "1.5px solid #232325",
                     }}
                   >
                     <span
-                      className="text-[1.42rem]"
-                      style={{ color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}
+                      className="flex items-center justify-center"
+                      style={{
+                        color: "#fff",
+                        fontSize: "1.42rem",
+                        width: iconSize - 6,
+                        height: iconSize - 6,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        margin: 0
+                      }}
                     >
                       {IconEl}
                     </span>
@@ -244,30 +259,37 @@ const Skills = () => {
           <div className="hidden md:block md:flex-1" />
         </div>
 
-        {/* Three/four category cards - in a flex wrap, centered */}
+        {/* Skill category cards */}
         <div className="flex flex-wrap justify-center gap-7 mt-2 w-full max-w-6xl">
           {mainCategories.map((cat) => (
             <div
               key={cat.title}
-              className="bg-white/[.06] border border-white/25 rounded-[32px] px-7 py-6 min-w-[270px] max-w-xs shadow-2xl backdrop-blur-md flex flex-col items-center"
+              className="bg-white/[.06] border border-white/25 rounded-[32px] px-5 py-5 min-w-[260px] max-w-xs shadow-2xl backdrop-blur-md flex flex-col items-center"
               style={{
                 boxShadow: "0 8px 40px #fff0",
+                minHeight: 295,
+                justifyContent: "flex-start"
               }}
             >
-              <div className="text-lg font-extrabold text-white mb-3 tracking-wider text-center" style={{letterSpacing: "0.02em"}}>
+              <div className="text-base font-extrabold text-white mb-2 tracking-wider text-center" style={{letterSpacing: "0.01em", minHeight: 44, display: "flex", alignItems: "center", justifyContent: "center"}}>
                 {cat.title}
               </div>
-              <div className="flex flex-col gap-2 w-full">
-                {cat.tools.map((group) => (
-                  <div key={group.label} className="mb-2 w-full flex flex-col items-center">
-                    <span className="font-bold text-[.96em] text-white tracking-wide text-center mb-1">{group.label}</span>
-                    <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-col gap-1 w-full">
+                {cat.tools.map((group, idx) => (
+                  <div
+                    key={group.label}
+                    className={`w-full flex flex-col items-center mb-1 ${idx === cat.tools.length - 1 ? "pb-1" : ""}`}
+                  >
+                    <span className="font-semibold text-xs text-white/90 tracking-wide text-center mb-1" style={{textTransform:"uppercase", letterSpacing: "0.01em"}}>
+                      {group.label}
+                    </span>
+                    <div className="flex flex-wrap gap-1 justify-center">
                       {group.items.map((item) => (
                         <Badge
                           key={item}
-                          className="bg-transparent border border-white/60 text-white font-semibold px-3 py-1 rounded-full shadow transition-colors hover:bg-white/10 text-xs uppercase"
+                          className="bg-transparent border border-white/70 text-white font-medium px-2.5 py-1 rounded-full shadow transition-colors hover:bg-white/10 text-[0.80em] tracking-wider"
                           style={{
-                            letterSpacing: "0.01em",
+                            letterSpacing: "0.03em",
                             fontFamily: "Rajdhani, sans-serif",
                           }}
                         >
@@ -287,3 +309,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
