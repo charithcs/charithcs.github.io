@@ -15,7 +15,7 @@ const Hero = () => {
           <h1
             className="hero-title text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight cursor-pointer outline-none"
             tabIndex={0}
-            aria-label="CHARITH S"
+            aria-label="CHARITH.S"
           >
             CHARITH&nbsp;S
           </h1>
