@@ -1,178 +1,207 @@
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 // Define unique color classes for each category
-const categoryColors: Record<string, { button: string; badge: string; text: string }> = {
+const categoryColors: Record<string, { badge: string; text: string; border: string }> = {
   "Security Operations & Incident Response": {
-    button: "bg-blue-600 hover:bg-blue-700 text-white",
     badge: "bg-blue-100 text-blue-800",
     text: "text-blue-700",
+    border: "border-blue-600",
   },
   "Threat Intelligence & Digital Forensics": {
-    button: "bg-purple-600 hover:bg-purple-700 text-white",
     badge: "bg-purple-100 text-purple-800",
     text: "text-purple-700",
+    border: "border-purple-600",
   },
   "Network & Email Security": {
-    button: "bg-teal-600 hover:bg-teal-700 text-white",
     badge: "bg-teal-100 text-teal-800",
     text: "text-teal-700",
+    border: "border-teal-600",
   },
   "Cloud & SaaS Security": {
-    button: "bg-amber-600 hover:bg-amber-700 text-white",
     badge: "bg-amber-100 text-amber-800",
     text: "text-amber-700",
+    border: "border-amber-600",
   },
-  // Fallback for 'All' or unknown
-  "All": {
-    button: "bg-gray-800 hover:bg-gray-700 text-white",
+  // fallback
+  All: {
     badge: "bg-gray-100 text-gray-800",
     text: "text-gray-700",
-  }
+    border: "border-gray-600",
+  },
 };
 
-const skillsData = [
-  {
-    category: 'Security Operations & Incident Response',
-    skills: [
-      'SIEM Tools: Splunk ES, IBM QRadar',
-      'SOAR Platforms: FortiSOAR, Microsoft Sentinel',
-      'EDR/XDR Platforms: CrowdStrike Falcon, SentinelOne XDR, Microsoft Defender for Endpoint',
-      'Incident Response: Triage, containment, RCA, recovery (NIST 800-61)',
-      'Log Analysis: Azure AD Logs, Windows Event Logs, Firewall Logs, Proxy Logs',
-    ],
-  },
-  {
-    category: 'Threat Intelligence & Digital Forensics',
-    skills: [
-      'Threat Intelligence Platforms: Recorded Future, VirusTotal Intelligence, AlienVault OTX',
-      'Digital Forensics Tools: Falcon Forensics Collector, Belkasoft',
-    ],
-  },
-  {
-    category: 'Network & Email Security',
-    skills: [
-      'Network Security Tools: Wireshark',
-      'Email Security Solutions: Microsoft Defender for Office 365, Proofpoint',
-    ],
-  },
-  {
-    category: 'Cloud & SaaS Security',
-    skills: [
-      'AWS Security: AWS CloudTrail, AWS GuardDuty',
-      'Azure Security: Microsoft Sentinel, Azure AD',
-      'SaaS Security Tools: Orca Security, Wiz, AppOmni',
-    ],
-  },
+// Categories (rows)
+const categories = [
+  "Security Operations & Incident Response",
+  "Threat Intelligence & Digital Forensics",
+  "Network & Email Security",
+  "Cloud & SaaS Security",
 ];
 
-const allCategories = ['All', ...skillsData.map(data => data.category)];
+// These map closely to big-tech job ladder/specialization pillars (columns)
+const faangPillars = [
+  { key: "detection", label: "Detection Engineering" },
+  { key: "incident_response", label: "Incident Response" },
+  { key: "cloud_security", label: "Cloud Security" },
+  { key: "email_network_security", label: "Email/Network Security" },
+  { key: "threat_intel", label: "Threat Intel / Forensics" },
+];
 
-// Helper: Map each skill to its category for coloring
-const skillToCategory: Record<string, string> = {};
-skillsData.forEach(({ category, skills }) => {
-  skills.forEach((skill) => {
-    skillToCategory[skill] = category;
-  });
-});
+// Associate which category touches which pillar(s)
+const categoryToPillars: Record<string, string[]> = {
+  "Security Operations & Incident Response": ["detection", "incident_response"],
+  "Threat Intelligence & Digital Forensics": ["detection", "threat_intel"],
+  "Network & Email Security": ["email_network_security", "incident_response", "detection"],
+  "Cloud & SaaS Security": ["cloud_security", "detection"],
+};
 
+// Skills/tools data, grouped as before
+const skillsData: Record<string, string[]> = {
+  "Security Operations & Incident Response": [
+    "SIEM Tools: Splunk ES, IBM QRadar",
+    "SOAR Platforms: FortiSOAR, Microsoft Sentinel",
+    "EDR/XDR Platforms: CrowdStrike Falcon, SentinelOne XDR, Microsoft Defender for Endpoint",
+    "Incident Response: Triage, containment, RCA, recovery (NIST 800-61)",
+    "Log Analysis: Azure AD Logs, Windows Event Logs, Firewall Logs, Proxy Logs",
+  ],
+  "Threat Intelligence & Digital Forensics": [
+    "Threat Intelligence Platforms: Recorded Future, VirusTotal Intelligence, AlienVault OTX",
+    "Digital Forensics Tools: Falcon Forensics Collector, Belkasoft",
+  ],
+  "Network & Email Security": [
+    "Network Security Tools: Wireshark",
+    "Email Security Solutions: Microsoft Defender for Office 365, Proofpoint",
+  ],
+  "Cloud & SaaS Security": [
+    "AWS Security: AWS CloudTrail, AWS GuardDuty",
+    "Azure Security: Microsoft Sentinel, Azure AD",
+    "SaaS Security Tools: Orca Security, Wiz, AppOmni",
+  ],
+};
+
+// Build the matrix: For each [row, col], show intersecting skills (rest blank)
+const matrixData = categories.map((cat) =>
+  faangPillars.map(pillar => {
+    // If this category is associated with the pillar
+    const isActive = categoryToPillars[cat]?.includes(pillar.key);
+    return isActive ? skillsData[cat] : [];
+  })
+);
+
+const SkillsMatrixLegend = () => (
+  <div className="flex flex-wrap gap-3 justify-center mt-4 pb-2">
+    {categories.map((cat) => (
+      <div key={cat} className="flex items-center space-x-2">
+        <span className={`inline-block h-4 w-4 rounded ${categoryColors[cat].badge} border ${categoryColors[cat].border}`}></span>
+        <span className={`text-xs md:text-sm ${categoryColors[cat].text}`}>{cat}</span>
+      </div>
+    ))}
+  </div>
+);
+
+// Main Matrix Table component
 const Skills = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const filteredSkills = useMemo(() => {
-    if (selectedCategory === 'All') {
-      // Flat map all skills (no duplicates)
-      const uniqueSkills = new Set(skillsData.flatMap(category => category.skills));
-      return Array.from(uniqueSkills);
-    }
-    return skillsData.find(cat => cat.category === selectedCategory)?.skills || [];
-  }, [selectedCategory]);
-
   return (
-    <section id="skills" className="section-padding">
+    <section id="skills" className="section-padding min-h-[560px]">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Technical Skills</h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here's a showcase of my technical skills. Use the color-coded filters to explore different areas of expertise. Each category is visually distinguished for quick scanning.
-        </p>
-
-        {/* Category filter buttons */}
-        <div className="flex justify-center flex-wrap gap-3 mb-10 animate-fade-in">
-          {allCategories.map(category => (
-            <button
-              key={category}
-              className={
-                `rounded-full px-7 py-2 font-semibold transition-all duration-200 text-base shadow-sm border border-transparent outline-none focus-visible:ring-2 focus-visible:ring-primary/60
-                ${selectedCategory === category
-                  ? categoryColors[category]?.button || categoryColors.All.button
-                  : 'bg-background text-foreground border-muted hover:shadow-md ' + (categoryColors[category]?.text || categoryColors.All.text)}`
-              }
-              style={{ minWidth: 160 }}
-              onClick={() => setSelectedCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
+        <div className="max-w-3xl mx-auto text-center mb-7">
+          <h2 className="text-3xl font-extrabold tracking-tight mb-2">
+            FAANG/Big-Tech Alignment Matrix
+          </h2>
+          <p className="text-muted-foreground mb-2">
+            Every technical skill and tool mapped to the domains that matter to Big Tech/Silicon Valley roles.
+          </p>
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            Each matrix cell shows the exact skill/tool sets I&apos;ve applied to these core industry pillars. <span className="font-medium text-primary">Hover or tap</span> for clarity.
+          </p>
         </div>
-
-        {/* Skills grid */}
-        <div
-          key={selectedCategory}
-          className="
-            grid
-            xs:grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            xl:grid-cols-5
-            gap-x-8 gap-y-6
-            max-w-5xl
-            mx-auto
-            pb-2
-          ">
-          {filteredSkills.map((skill, index) => {
-            // Choose color class for the badge
-            const cat =
-              selectedCategory === 'All'
-                ? skillToCategory[skill] || "All"
-                : selectedCategory;
-
-            const badgeColor = categoryColors[cat]?.badge || categoryColors.All.badge;
-            const badgeText = categoryColors[cat]?.text || categoryColors.All.text;
-            return (
-              <div
-                className="w-full flex"
-                key={skill}
-                style={{
-                  animationDelay: `${index * 25}ms`,
-                  animationFillMode: "backwards",
-                }}
-              >
-                <Badge
-                  variant="secondary"
-                  className={`
-                    w-full !rounded-xl flex items-center px-6 py-4 
-                    text-base font-semibold whitespace-normal leading-snug
-                    transition-all duration-300 cursor-default animate-fade-in
-                    shadow-md border-0 ${badgeColor} ${badgeText}
-                  `}
-                  style={{
-                    minHeight: 56,
-                    // For smooth fade/group animation
-                    animationDelay: `${index * 25}ms`,
-                    animationFillMode: "backwards",
-                  }}
-                  tabIndex={0}
-                  aria-label={skill}
-                >
-                  {skill}
-                </Badge>
-              </div>
-            );
-          })}
+        <div className="overflow-x-auto animate-fade-in mx-auto max-w-full rounded-2xl bg-card/60 shadow-2xl backdrop-blur border border-border/30 py-4 px-1">
+          <table className="min-w-[680px] w-full border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th className="w-[210px] text-base md:text-lg px-3 py-3 bg-background/75 sticky left-0 z-10 rounded-tl-2xl border-b border-border/60 font-semibold text-primary backdrop-blur select-none">
+                  Category
+                </th>
+                {faangPillars.map((pillar) => (
+                  <th
+                    key={pillar.key}
+                    className="text-xs md:text-sm px-4 py-2 border-b border-border/60 font-semibold text-foreground bg-background/60 backdrop-blur"
+                  >
+                    {pillar.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {categories.map((cat, rowIdx) => (
+                <tr key={cat} className="align-top group">
+                  {/* Category label cell */}
+                  <td
+                    className={`
+                      sticky left-0 z-[1] px-3 py-4 align-middle
+                      font-bold text-sm md:text-base backdrop-blur
+                      bg-background/90 whitespace-nowrap min-w-[180px]
+                      rounded-l-2xl border-r border-border
+                      ${categoryColors[cat].text}
+                    `}
+                    style={{ backgroundClip: "padding-box" }}
+                  >
+                    <div className="flex items-center">
+                      <span className={`w-2 h-2 mr-2 rounded-full ${categoryColors[cat].badge}`}></span>
+                      <span>{cat}</span>
+                    </div>
+                  </td>
+                  {/* Skill/tool cells */}
+                  {faangPillars.map((pillar, colIdx) => {
+                    const isActive = matrixData[rowIdx][colIdx].length > 0;
+                    return (
+                      <td
+                        key={pillar.key}
+                        className={
+                          `relative group/table-cell px-1 md:px-2 py-4
+                          text-xs md:text-sm transition-[background] duration-150 ease-in
+                          ${isActive
+                            ? `${categoryColors[cat].badge} ${categoryColors[cat].border} border border-solid rounded-xl shadow-md`
+                            : "bg-card/20 border-none text-muted-foreground"
+                          }
+                          min-w-[155px]`
+                        }
+                        tabIndex={isActive ? 0 : -1}
+                      >
+                        <div className="flex flex-col gap-2 justify-center items-start min-h-[64px] transition-opacity duration-300 select-text">
+                          {isActive ? (
+                            // All skills for this "row"/category, in this pillar cell
+                            skillsData[cat].map(skill => (
+                              <Badge
+                                key={skill}
+                                variant="secondary"
+                                className={`
+                                  w-fit lg:max-w-[190px] break-words text-left text-xs md:text-sm px-3 py-2 !rounded-lg font-medium shadow
+                                  ${categoryColors[cat].badge} ${categoryColors[cat].text}
+                                `}
+                                tabIndex={0}
+                                aria-label={skill}
+                              >
+                                {skill}
+                              </Badge>
+                            ))
+                          ) : (
+                            <span className="opacity-40 text-[10px] px-2 text-muted-foreground">—</span>
+                          )}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+        {/* Legend */}
+        <SkillsMatrixLegend />
       </div>
     </section>
   );
