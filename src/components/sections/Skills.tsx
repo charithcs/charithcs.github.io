@@ -55,17 +55,15 @@ const mainCategories = [
     ],
   },
   {
-    title: "Network & Email Security",
+    title: " Email Security",
     tools: [
-      {
-        label: "Network Security Tools",
-        items: ["Wireshark"],
-      },
+    
       {
         label: "Email Security Solutions",
         items: [
           "Microsoft Defender for Office 365",
           "Proofpoint",
+          "Abnormal AI"
         ],
       },
     ],
