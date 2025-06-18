@@ -16,27 +16,37 @@ const CyberBackground = () => {
     canvas.width = width;
     canvas.height = height;
 
-    const fontSize = 12;
+    const fontSize = 14;
     const columns = Math.floor(width / fontSize);
     const drops: number[] = Array(columns).fill(1);
-    const chars = "01";
+    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
 
     function drawCyberBackground() {
-      // Very subtle background overlay
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      // Clear with semi-transparent black for trail effect
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, width, height);
 
       ctx.font = `${fontSize}px monospace`;
-      ctx.fillStyle = "rgba(0, 255, 102, 0.15)";
-
+      
       for (let i = 0; i < columns; i++) {
         const char = chars[Math.floor(Math.random() * chars.length)];
+        
+        // Make some characters brighter (head of the trail)
+        if (drops[i] * fontSize < height * 0.1) {
+          ctx.fillStyle = "rgba(0, 255, 102, 0.9)"; // Bright green for head
+        } else if (drops[i] * fontSize < height * 0.3) {
+          ctx.fillStyle = "rgba(0, 255, 102, 0.6)"; // Medium green
+        } else {
+          ctx.fillStyle = "rgba(0, 255, 102, 0.3)"; // Dim green
+        }
+        
         ctx.fillText(char, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > height && Math.random() > 0.985) {
+        // Reset drop randomly
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
           drops[i] = 0;
         }
-        drops[i] += 0.5;
+        drops[i]++;
       }
     }
 
@@ -45,8 +55,8 @@ const CyberBackground = () => {
       animationFrameId = requestAnimationFrame(animate);
     }
     
-    // Start animation with a slight delay
-    setTimeout(() => animate(), 100);
+    // Start animation immediately
+    animate();
 
     function handleResize() {
       width = window.innerWidth;
@@ -66,7 +76,7 @@ const CyberBackground = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
-      style={{ opacity: 0.4 }}
+      style={{ opacity: 0.8 }}
       aria-hidden="true"
       tabIndex={-1}
     />
