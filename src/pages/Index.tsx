@@ -1,3 +1,4 @@
+
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -7,12 +8,12 @@ import Skills from "@/components/sections/Skills";
 import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import { Toaster } from "@/components/ui/sonner";
-import MatrixBackground from "@/components/MatrixBackground";
+import CyberBackground from "@/components/CyberBackground";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen">
-      <MatrixBackground />
+      <CyberBackground />
       <Header />
       <main>
         <Hero />
