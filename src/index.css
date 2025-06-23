@@ -14,8 +14,8 @@
     --popover: 24 24 28;
     --popover-foreground: 255 255 255;
 
-    --primary: 255 255 255;
-    --primary-foreground: 34 34 34;
+    --primary: 0 255 102;
+    --primary-foreground: 0 0 0;
     --secondary: 60 60 64;
     --secondary-foreground: 255 255 255;
 
@@ -30,7 +30,7 @@
 
     --border: 60 60 65;
     --input: 60 60 65;
-    --ring: 120 120 128;
+    --ring: 0 255 102;
 
     --radius: 0.75rem;
 
@@ -38,6 +38,10 @@
     --gradient-end: 72 72 79;
     --elegant-gradient: linear-gradient(135deg, #17171a 0%, #232428 100%);
     --hero-gradient: linear-gradient(135deg, #111112 0%, #232325 90%, #d1d1d180 100%);
+    
+    /* Cybersecurity highlight color */
+    --cyber-green: 0 255 102;
+    --cyber-green-dim: 0 200 80;
   }
 
   .dark {
@@ -47,8 +51,8 @@
     --card-foreground: 255 255 255;
     --popover: 22 23 27;
     --popover-foreground: 255 255 255;
-    --primary: 255 255 255;
-    --primary-foreground: 14 14 14;
+    --primary: 0 255 102;
+    --primary-foreground: 0 0 0;
     --secondary: 64 65 70;
     --secondary-foreground: 230 230 230;
     --muted: 33 33 37;
@@ -59,7 +63,7 @@
     --destructive-foreground: 255 255 255;
     --border: 80 80 85;
     --input: 70 70 77;
-    --ring: 180 180 188;
+    --ring: 0 255 102;
     --gradient-start: 0 0 0;
     --gradient-end: 50 50 55;
     --elegant-gradient: linear-gradient(135deg, #111113 0%, #232326 100%);
@@ -90,6 +94,17 @@
     display: none; /* Remove any background overlays */
   }
 
+  /* Text selection highlighting with cybersecurity green */
+  ::selection {
+    background-color: rgba(0, 255, 102, 0.3);
+    color: #fff;
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(0, 255, 102, 0.3);
+    color: #fff;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold;
     color: #fff;
@@ -101,7 +116,7 @@
     @apply py-20 md:py-24;
   }
 
-  /* HERO SECTION: black-grey gradient, white text, reduced glow effects */
+  /* HERO SECTION: black-grey gradient, white text, cyber green accents */
   .hero-bg-gradient {
     background: linear-gradient(135deg, #111112 0%, #232325 90%, #232325 100%);
     min-height: 100vh;
@@ -116,14 +131,14 @@
   }
   .hero-title:hover,
   .hero-title:focus {
-    text-shadow: 0 2px 12px rgba(255,255,255,0.3), 0 0 0.2em rgba(255,255,255,0.15);
+    text-shadow: 0 2px 12px rgba(0, 255, 102, 0.3), 0 0 0.2em rgba(0, 255, 102, 0.15);
     filter: brightness(1.02);
     transform: scale(1.005);
     outline: none;
   }
   .hero-section:hover .hero-title,
   .hero-section:focus-within .hero-title {
-    text-shadow: 0 2px 10px rgba(255,255,255,0.25), 0 0 0.25em rgba(238,238,238,0.1);
+    text-shadow: 0 2px 10px rgba(0, 255, 102, 0.25), 0 0 0.25em rgba(0, 255, 102, 0.1);
     filter: brightness(1.03);
   }
   .hero-section:hover .hero-subtitle,
@@ -152,7 +167,7 @@
     color: #fff !important;
   }
 
-  /* BUTTONS */
+  /* BUTTONS with cyber green theme */
   .btn-unified {
     color: #fff !important;
     background: linear-gradient(135deg, #232325 70%, #44444a 100%);
@@ -164,8 +179,8 @@
   .btn-unified:focus {
     background: linear-gradient(133deg, #313135 80%, #393940 100%);
     color: #fff !important;
-    border-color: #52525e;
-    box-shadow: 0 4px 20px #23232588;
+    border-color: rgba(0, 255, 102, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 255, 102, 0.2);
     transform: scale(1.02);
   }
 
@@ -181,12 +196,12 @@
   .btn-glass:focus {
     background: linear-gradient(120deg, #414147cc 90%, #23232599 100%);
     color: #fff !important;
-    border-color: #fff2;
-    box-shadow: 0 4px 18px #38384224;
+    border-color: rgba(0, 255, 102, 0.4);
+    box-shadow: 0 4px 18px rgba(0, 255, 102, 0.15);
     transform: scale(1.014);
   }
 
-  /* CARDS: unify glass look for all cards */
+  /* CARDS: unify glass look with cyber green accents */
   .unified-card {
     background: linear-gradient(120deg, #28282c 87%, #232325 100%);
     border: 1.5px solid #36363b88;
@@ -195,8 +210,8 @@
     transition: box-shadow .22s, border-color .17s, transform .18s, background .19s;
   }
   .unified-card:hover {
-    border-color: #fff2;
-    box-shadow: 0 8px 32px #44444a1e;
+    border-color: rgba(0, 255, 102, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 255, 102, 0.1);
     background: linear-gradient(135deg, #2f2f32 85%, #323236 100%);
     transform: translateY(-2px) scale(1.012);
   }
@@ -217,18 +232,19 @@
     box-shadow: 0 6px 24px #0005, inset 0 1px 0 #29292a15;
   }
 
-  /* Misc: chromeless skeletons, inputs, etc */
+  /* Misc: chromeless inputs with cyber green focus */
   input,
   textarea {
     background: #1a1a1d;
     color: #fff !important;
     border: 1.5px solid #222225b8;
     outline: none;
-    transition: border .2s;
+    transition: border .2s, box-shadow .2s;
   }
   input:focus,
   textarea:focus {
-    border-color: #fff9;
+    border-color: rgba(0, 255, 102, 0.6);
+    box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.1);
   }
 
   /* Scrollbars: subtle on dark */
@@ -239,6 +255,39 @@
   ::-webkit-scrollbar-thumb {
     background: #2f2f33;
     border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 102, 0.3);
+  }
+
+  /* Enhanced link styling with cyber green */
+  a {
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: rgb(0, 255, 102);
+  }
+
+  /* Code and pre blocks with cyber theme */
+  code {
+    background: rgba(0, 255, 102, 0.1);
+    color: rgb(0, 255, 102);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Badge styling with cyber theme */
+  .cyber-badge {
+    background: rgba(0, 255, 102, 0.2);
+    color: rgb(0, 255, 102);
+    border: 1px solid rgba(0, 255, 102, 0.3);
+  }
+
+  /* Accent text for highlighting important information */
+  .text-cyber-accent {
+    color: rgb(0, 255, 102);
   }
 
   /* Hide default subtitle glow, tidy for minimal look */
@@ -275,10 +324,33 @@
 }
 
 @keyframes subtle-glow {
-  0%, 100% { box-shadow: 0 0 8px hsl(var(--primary) / 0.09); }
-  50% { box-shadow: 0 0 16px hsl(var(--primary) / 0.14); }
+  0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 102, 0.09); }
+  50% { box-shadow: 0 0 16px rgba(0, 255, 102, 0.14); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Cyber-themed pulse animation */
+@keyframes cyber-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), 0 0 30px rgba(0, 255, 102, 0.3);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 2s ease-in-out infinite;
 }
