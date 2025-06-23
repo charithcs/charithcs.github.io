@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,6 +78,13 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
   }
 
   body {
@@ -88,6 +94,9 @@
     background: linear-gradient(135deg, #000 0%, #232325 100%);
     color: #fff;
     position: relative;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body::before {
@@ -110,10 +119,11 @@
     color: #fff;
     text-shadow: none;
     letter-spacing: -0.01em;
+    line-height: 1.2;
   }
 
   .section-padding {
-    @apply py-20 md:py-24;
+    @apply py-16 md:py-20 lg:py-24;
   }
 
   /* HERO SECTION: black-grey gradient, white text, cyber green accents */
@@ -294,27 +304,71 @@
   .animate-subtle-glow {
     animation: none !important;
   }
+
+  /* Performance optimizations */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Focus styles for accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid rgba(0, 255, 102, 0.6);
+    outline-offset: 2px;
+  }
 }
 
-/* Responsive adjustments remain the same */
+/* Responsive adjustments */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  /* Container improvements */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
 
-.read-the-docs {
-  color: #888;
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
 }
 
 /* Custom animations */
@@ -353,4 +407,36 @@
 
 .animate-cyber-pulse {
   animation: cyber-pulse 2s ease-in-out infinite;
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header-glass,
+  .cyber-background,
+  button {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .unified-card {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: black !important;
+  }
 }
