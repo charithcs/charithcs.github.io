@@ -1,80 +1,119 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { title: "About", href: "#about" },
-  { title: "Experience", href: "#experience" },
-  { title: "Projects", href: "#projects" },
-  { title: "Blog", href: "#blog" },
-];
+import { NAVIGATION_LINKS, CONTACT_INFO } from "@/config/constants";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
-    <header className="header-glass fixed top-0 left-0 right-0 z-50 text-white">
-      <div className="container mx-auto flex h-20 items-center justify-between px-6">
+    <header 
+      className={`header-glass fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300 ${
+        isScrolled ? 'backdrop-blur-md bg-black/80' : 'backdrop-blur-sm bg-black/60'
+      }`}
+    >
+      <div className="container mx-auto flex h-16 md:h-20 items-center justify-between px-4 md:px-6">
         <a 
-          href="https://drive.google.com/file/d/1kQGyNZ3_qA3VV5vH78xic-B-EV0VliQQ/view?usp=sharing" 
+          href={CONTACT_INFO.resume}
           target="_blank" 
           rel="noopener noreferrer" 
           className="text-lg font-bold"
+          aria-label="View Resume"
         >
           <Button 
             variant="default" 
-            className="btn-unified shadow-md"
+            className="btn-unified shadow-md text-sm md:text-base px-3 md:px-4 py-2"
           >
             View Resume
           </Button>
         </a>
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.title} 
-              href={link.href} 
-              className="text-sm font-semibold text-white hover:text-primary hover:scale-105 relative group transition-all duration-300"
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {NAVIGATION_LINKS.map((link) => (
+            <button
+              key={link.title}
+              onClick={() => handleNavClick(link.href)}
+              className="text-sm font-semibold text-white hover:text-primary hover:scale-105 relative group transition-all duration-300 cursor-pointer"
             >
               {link.title}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </button>
           ))}
-          <a href="#connect">
-            <Button className="btn-unified shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
+          <button onClick={() => handleNavClick('#connect')}>
+            <Button className="btn-unified shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm px-4 py-2">
               Let's Connect
             </Button>
-          </a>
+          </button>
         </nav>
+
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="hover:bg-muted text-white"
+            className="hover:bg-muted text-white p-2"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </Button>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden header-glass">
-          <nav className="flex flex-col items-center gap-6 py-6">
-            {navLinks.map((link) => (
-              <a 
-                key={link.title} 
-                href={link.href} 
-                className="text-base font-semibold text-white hover:text-primary transition-colors duration-300" 
-                onClick={() => setIsMenuOpen(false)}
+        <div className="md:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-md z-40">
+          <nav className="flex flex-col items-center gap-6 py-8 px-6">
+            {NAVIGATION_LINKS.map((link) => (
+              <button
+                key={link.title}
+                onClick={() => handleNavClick(link.href)}
+                className="text-lg font-semibold text-white hover:text-primary transition-colors duration-300 py-2"
               >
                 {link.title}
-              </a>
+              </button>
             ))}
-            <a href="#connect" onClick={() => setIsMenuOpen(false)}>
-              <Button className="btn-unified">
+            <button onClick={() => handleNavClick('#connect')} className="mt-4">
+              <Button className="btn-unified text-lg px-6 py-3">
                 Let's Connect
               </Button>
-            </a>
+            </button>
           </nav>
         </div>
       )}
