@@ -12,7 +12,6 @@ const experienceData = [
     company: "Skillmine Technology",
     deployment: "Deployed at Autodesk",
     date: "May 2023 - Present",
-    duration: "1.5+ years",
     location: "Bengaluru, India",
     type: "Full-time",
     level: "Mid-level",
@@ -21,7 +20,8 @@ const experienceData = [
       metrics: [
         { label: "Threat Detection Improvement", value: "40%", description: "Reduction in remediation time through SOAR automation" },
         { label: "False Positive Reduction", value: "20%", description: "Decrease via advanced log correlation techniques" },
-        { label: "Weekly Alert Processing", value: "100+", description: "Alerts processed across 5,000+ endpoints" },
+        { label: "Data Protection", value: "100%", description: "Success rate in preventing data exfiltration attempts" },
+        
         { label: "Security Coverage", value: "5,000+", description: "Endpoints monitored across enterprise environments" }
       ]
     },
@@ -45,9 +45,7 @@ const experienceData = [
   {
     role: "Information Security Consultant", 
     company: "Tech Mahindra",
-    deployment: null,
-    date: "Sep 2021 - Apr 2023",
-    duration: "1.7 years", 
+    date: "Sep 2021 - Apr 2023", 
     location: "Hyderabad, India",
     type: "Full-time",
     level: "Junior-to-Mid",
@@ -56,7 +54,7 @@ const experienceData = [
       metrics: [
         { label: "Email Threat Reduction", value: "20%", description: "Reduction in email-borne security threats" },
         { label: "Security Monitoring", value: "24/7", description: "Continuous enterprise security monitoring coverage" },
-        { label: "Data Protection", value: "100%", description: "Success rate in preventing data exfiltration attempts" },
+        { label: "Weekly Alert Processing", value: "100+", description: "Alerts processed across network" },
         { label: "Incident Response", value: "<30min", description: "Average response time to critical security alerts" }
       ]
     },
@@ -158,7 +156,7 @@ const Experience = () => {
                           <Calendar className="h-4 w-4 text-primary" />
                           <div>
                             <div className="font-medium">{item.date}</div>
-                            <div className="text-sm text-white/60">({item.duration})</div>
+                           
                           </div>
                         </div>
                         <div className="flex items-center gap-2 text-white/80">
@@ -169,7 +167,7 @@ const Experience = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                     </div>
 
                     <Separator className="my-8 bg-white/10" />
 

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,7 +13,7 @@ const Contact = () => {
     <section id="connect" className="section-padding unified-section-bg">
       <div className="container mx-auto text-center px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-none tracking-tight">
-          Let's Connect
+          Initiate Contact Protocol
         </h2>
         <p className="text-white/80 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
           Interested in cybersecurity collaboration, have a question, or want to discuss a project? 
@@ -73,27 +72,27 @@ const Contact = () => {
                   name="name" 
                   placeholder="Your Name" 
                   required 
-                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white placeholder:text-white/70"
                 />
                 <Input 
                   type="email" 
                   name="email" 
                   placeholder="Your Email" 
                   required 
-                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 text-white placeholder:text-white/70"
                 />
                 <Textarea 
                   name="message" 
                   placeholder="Your Message" 
                   required 
-                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 min-h-[120px] text-white"
+                  className="bg-background/60 border-border focus:border-primary transition-all duration-300 min-h-[120px] text-white placeholder:text-white/70"
                 />
                 <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
                 <Button 
                   type="submit" 
-                  className="w-full btn-glass shadow-md hover:shadow-xl py-6 font-semibold"
+                  className="w-full btn-glass shadow-md hover:shadow-xl py-6 font-semibold text-white"
                 >
-                  Send Message
+                  Transmit Message
                 </Button>
               </form>
             </CardContent>
