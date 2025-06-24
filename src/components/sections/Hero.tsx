@@ -31,29 +31,17 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="hero-bg-gradient hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="unified-section-bg relative min-h-screen flex items-center justify-center section-padding"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-green-400 rounded-full animate-pulse opacity-40 delay-1000"></div>
-        <div className="absolute bottom-32 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse opacity-50 delay-2000"></div>
-        <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-orange-400 rounded-full animate-pulse opacity-60 delay-3000"></div>
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/4 left-1/4 w-16 h-16 border border-green-400/20 rotate-45 animate-float opacity-30"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-12 h-12 border border-blue-400/20 rotate-12 animate-float opacity-20 delay-1000"></div>
-      </div>
-
-      <div className="container mx-auto relative z-10 px-6 text-center max-w-5xl">
-        {/* Main Title - Centered */}
-        <div className="mb-12">
-          <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent">
+      <div className="container mx-auto relative z-10 px-6 text-center max-w-6xl">
+        {/* Centered Main Title */}
+        <div className="mb-16 flex flex-col items-center justify-center">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-8 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent text-center">
             CHARITH.S
           </h1>
           
           {/* Typewriter Effect for Roles */}
-          <div className="h-16 flex items-center justify-center mb-8">
+          <div className="h-16 flex items-center justify-center mb-12">
             <TypeAnimation
               sequence={[
                 "Incident Response Specialist",
@@ -69,14 +57,14 @@ const Hero = () => {
               ]}
               wrapper="h2"
               speed={50}
-              className="text-xl md:text-2xl lg:text-3xl font-semibold text-blue-300 min-h-[3rem]"
+              className="text-xl md:text-2xl lg:text-3xl font-semibold text-blue-300 min-h-[3rem] text-center"
               repeat={Infinity}
             />
           </div>
         </div>
 
-        {/* Professional Metrics Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 max-w-4xl mx-auto">
+        {/* Smaller Professional Metrics Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-3xl mx-auto">
           {metrics.map((metric, index) => {
             const Icon = metric.icon;
             const isActive = index === currentMetricIndex;
@@ -85,21 +73,21 @@ const Hero = () => {
               <div
                 key={index}
                 className={`
-                  relative p-6 md:p-8 rounded-xl border transition-all duration-500 transform
+                  unified-card relative p-4 md:p-5 rounded-lg transition-all duration-500 transform
                   ${isActive 
                     ? 'border-green-400/50 bg-gradient-to-br from-green-400/10 to-blue-400/10 scale-105 shadow-lg shadow-green-400/20' 
-                    : 'border-white/20 bg-black/30 hover:border-white/40'
+                    : 'hover:border-white/40'
                   }
-                  backdrop-blur-sm hover:scale-102 group cursor-pointer
+                  hover:scale-102 group cursor-pointer
                 `}
               >
-                <div className="flex flex-col items-center space-y-4">
-                  <Icon className={`w-8 h-8 md:w-10 md:h-10 ${isActive ? metric.color : 'text-white/70'} transition-colors duration-300`} />
+                <div className="flex flex-col items-center space-y-3">
+                  <Icon className={`w-6 h-6 md:w-7 md:h-7 ${isActive ? metric.color : 'text-white/70'} transition-colors duration-300`} />
                   <div className="text-center">
-                    <div className={`text-2xl md:text-3xl font-bold ${isActive ? 'text-white' : 'text-white/90'} transition-colors duration-300`}>
+                    <div className={`text-lg md:text-xl font-bold ${isActive ? 'text-white' : 'text-white/90'} transition-colors duration-300`}>
                       {metric.value}
                     </div>
-                    <div className={`text-sm md:text-base ${isActive ? 'text-white/90' : 'text-white/60'} transition-colors duration-300`}>
+                    <div className={`text-xs md:text-sm ${isActive ? 'text-white/90' : 'text-white/60'} transition-colors duration-300`}>
                       {metric.label}
                     </div>
                   </div>
@@ -107,7 +95,7 @@ const Hero = () => {
                 
                 {/* Active indicator */}
                 {isActive && (
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400/20 to-blue-400/20 animate-pulse"></div>
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-green-400/20 to-blue-400/20 animate-pulse"></div>
                 )}
               </div>
             );
@@ -115,8 +103,8 @@ const Hero = () => {
         </div>
 
         {/* Value Proposition */}
-        <div className="mb-16 max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+        <div className="mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed text-center">
             Securing enterprises through proactive threat hunting & rapid incident response
           </p>
         </div>
@@ -126,7 +114,7 @@ const Hero = () => {
           <Button
             onClick={() => scrollToSection('#skills')}
             size="lg"
-            className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-0"
+            className="btn-unified group font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <Shield className="mr-3 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
             🛡️ Explore My Security Arsenal
@@ -137,7 +125,7 @@ const Hero = () => {
             onClick={() => scrollToSection('#experience')}
             variant="outline"
             size="lg"
-            className="group bg-black/30 border-2 border-blue-400/50 text-white hover:bg-blue-400/10 hover:border-blue-400 font-semibold px-8 py-4 rounded-xl backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
+            className="btn-glass group font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105"
           >
             <Eye className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
             🔍 Investigate My Work
