@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Calendar, MapPin, TrendingUp, Target, Shield } from "lucide-react";
 import CollapsibleAchievements from "./CollapsibleAchievements";
 import TechHoverCard from "./TechHoverCard";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const experienceData = [
   {
