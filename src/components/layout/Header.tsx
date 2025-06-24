@@ -75,11 +75,11 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
-          <button onClick={() => handleNavClick('#connect')}>
+          <span onClick={() => handleNavClick('#connect')}>
             <Button className="btn-unified shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm px-4 py-2">
               Let's Connect
             </Button>
-          </button>
+          </span>
         </nav>
 
         {/* Mobile Menu Button */}

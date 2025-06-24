@@ -128,13 +128,14 @@
 
   /* HERO SECTION: Enhanced with professional metrics and animations */
   .hero-bg-gradient {
-    background: linear-gradient(135deg, #0a0b0f 0%, #1a1b23 50%, #232325 100%);
+    /* background: linear-gradient(135deg, #0a0b0f 0%, #1a1b23 50%, #232325 100%);
     min-height: 100vh;
-    position: relative;
+    position: relative; */
+    /* Removed for unified design */
   }
 
   .hero-bg-gradient::before {
-    content: '';
+    /* content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -144,7 +145,8 @@
       radial-gradient(circle at 20% 80%, rgba(0, 255, 102, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
-    pointer-events: none;
+    pointer-events: none; */
+    /* Removed for unified design */
   }
 
   .hero-title {
