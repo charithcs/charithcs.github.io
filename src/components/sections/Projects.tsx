@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MicIcon as icons } from "lucide-react";
+import { Database, Shield, Globe, Search } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,17 +14,17 @@ import { cn } from "@/lib/utils";
 import { projectsData } from "@/data/projects";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
-// Use valid lucide-react icon names only (capitalize!)
-const iconLookup: Record<string, keyof typeof icons> = {
-  "ELK Stack": "Database",
-  "Logstash": "Database",
-  "Kibana": "Database",
-  "Security Onion": "Shield",
-  "AlienVault OTX": "Shield",
-  "VirusTotal": "Shield",
-  "AbuseIPDB": "Shield",
-  "Tor": "Globe",
-  "OSINT": "Search",
+// Map tech tags to actual Lucide icon components
+const iconLookup: Record<string, React.ComponentType<any>> = {
+  "ELK Stack": Database,
+  "Logstash": Database,
+  "Kibana": Database,
+  "Security Onion": Shield,
+  "AlienVault OTX": Shield,
+  "VirusTotal": Shield,
+  "AbuseIPDB": Shield,
+  "Tor": Globe,
+  "OSINT": Search,
 };
 
 const Projects = () => {
@@ -73,14 +74,13 @@ const Projects = () => {
                 </ul>
                 <div className="flex flex-wrap gap-2 md:gap-3 mt-auto">
                   {project.tech.map(tag => {
-                    const iconName = iconLookup[tag];
-                    const Icon = iconName ? icons[iconName] : undefined;
+                    const IconComponent = iconLookup[tag];
                     return (
                       <Badge 
                         key={tag} 
                         className="bg-white/10 border border-white/20 flex items-center gap-2 text-white shadow-xl px-2 md:px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-white/20 uppercase"
                       >
-                        {Icon && <Icon className="w-3 h-3 md:w-4 md:h-4" />}
+                        {IconComponent && <IconComponent className="w-3 h-3 md:w-4 md:h-4" />}
                         <span className="text-xs">{tag}</span>
                       </Badge>
                     );
@@ -108,14 +108,13 @@ const Projects = () => {
               </DialogHeader>
               <div className="flex flex-wrap gap-2 md:gap-3 mt-6">
                 {selectedProject.tech.map(tag => {
-                  const iconName = iconLookup[tag];
-                  const Icon = iconName ? icons[iconName] : undefined;
+                  const IconComponent = iconLookup[tag];
                   return (
                     <Badge 
                       key={tag} 
                       className="bg-white/10 border border-white/20 flex items-center gap-2 text-white shadow-xl px-2 md:px-3 py-1 text-xs font-bold rounded-full transition-all duration-300 hover:bg-white/20 uppercase"
                     >
-                      {Icon && <Icon className="w-3 h-3 md:w-4 md:h-4" />}
+                      {IconComponent && <IconComponent className="w-3 h-3 md:w-4 md:h-4" />}
                       <span className="text-xs">{tag}</span>
                     </Badge>
                   );

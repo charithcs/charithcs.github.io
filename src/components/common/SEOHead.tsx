@@ -1,3 +1,4 @@
+
 import { Helmet } from 'react-helmet-async';
 import { SITE_CONFIG } from '@/config/constants';
 
@@ -12,7 +13,7 @@ interface SEOHeadProps {
 const SEOHead = ({
   title = SITE_CONFIG.title,
   description = SITE_CONFIG.description,
-  keywords = SITE_CONFIG.keywords,
+  keywords = [...SITE_CONFIG.keywords], // Convert readonly array to mutable array
   ogImage = SITE_CONFIG.ogImage,
   canonicalUrl = SITE_CONFIG.url
 }: SEOHeadProps) => {
