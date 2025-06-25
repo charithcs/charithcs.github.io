@@ -52,8 +52,7 @@ const Projects = () => {
               key={index} 
               onClick={() => setSelectedProject(project)}
               className={cn(
-                "unified-card flex flex-col group border border-white/20 shadow-md transition-all duration-500 cursor-pointer",
-                !selectedProject && "hover:scale-[1.012]",
+                "unified-card flex flex-col group border border-white/20 shadow-md transition-all duration-300 cursor-pointer hover:border-green-400/50 hover:shadow-lg hover:shadow-green-400/10",
                 isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               )}
               style={{ transitionDelay: `${(index + 1) * 300}ms` }}
