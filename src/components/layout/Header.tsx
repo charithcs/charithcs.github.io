@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -98,13 +99,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-black/95 backdrop-blur-md z-40">
-          <nav className="flex flex-col items-center gap-6 py-8 px-6">
+        <div className="md:hidden fixed inset-0 top-16 bg-black/98 backdrop-blur-xl z-40 border-t border-white/10">
+          <nav className="flex flex-col items-center gap-6 py-8 px-6 bg-gradient-to-b from-black/95 to-black/90">
             {NAVIGATION_LINKS.map((link) => (
               <button
                 key={link.title}
                 onClick={() => handleNavClick(link.href)}
-                className="text-lg font-semibold text-white hover:text-primary transition-colors duration-300 py-2"
+                className="text-lg font-semibold text-white hover:text-primary transition-colors duration-300 py-2 w-full text-center border-b border-white/10 hover:border-primary/30"
               >
                 {link.title}
               </button>
