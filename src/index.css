@@ -68,6 +68,12 @@
     }
   }
 
+  @media (max-width: 640px) {
+    html {
+      font-size: 13px;
+    }
+  }
+
   body {
     @apply text-foreground bg-background;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -99,7 +105,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-20 lg:py-24;
+    @apply py-12 md:py-16 lg:py-20 xl:py-24;
   }
 
   .header-glass {
@@ -121,7 +127,7 @@
     background: linear-gradient(135deg, #232325 70%, #44444a 100%);
     border: 1.5px solid #36363a;
     box-shadow: 0 2px 14px #23232522;
-    transition: background 0.23s, color 0.17s, border 0.19s, box-shadow 0.21s, transform .13s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .btn-unified:hover,
   .btn-unified:focus {
@@ -138,7 +144,7 @@
     border: 1.5px solid #44444a71;
     backdrop-filter: blur(3px);
     box-shadow: 0 3px 16px #11111208;
-    transition: background 0.15s, border 0.14s, color .17s, transform .13s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .btn-glass:hover,
   .btn-glass:focus {
@@ -154,7 +160,7 @@
     border: 1.5px solid #36363b88;
     color: #fff;
     box-shadow: 0 4px 16px #23232521;
-    transition: box-shadow .22s, border-color .17s, transform .18s, background .19s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .unified-card:hover {
     border-color: rgba(0, 255, 102, 0.3);
@@ -181,7 +187,7 @@
     color: #fff !important;
     border: 1.5px solid #222225b8;
     outline: none;
-    transition: border .2s, box-shadow .2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   input:focus,
   textarea:focus {
@@ -196,6 +202,7 @@
   ::-webkit-scrollbar-thumb {
     background: #2f2f33;
     border-radius: 4px;
+    transition: background 0.3s ease;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 255, 102, 0.3);
@@ -328,6 +335,18 @@
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img, 
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -339,6 +358,7 @@
   }
 }
 
+/* Print styles */
 @media print {
   .header-glass,
   button {

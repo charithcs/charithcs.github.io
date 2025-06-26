@@ -1,8 +1,7 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Database, Shield, Globe, Search, Eye } from "lucide-react";
+import { Database, Shield, Eye } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -14,18 +13,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { projectsData } from "@/data/projects";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-
-const iconLookup: Record<string, React.ComponentType<any>> = {
-  "ELK Stack": Database,
-  "Logstash": Database,
-  "Kibana": Database,
-  "Security Onion": Shield,
-  "AlienVault OTX": Shield,
-  "VirusTotal": Shield,
-  "AbuseIPDB": Shield,
-  "Tor": Globe,
-  "OSINT": Search,
-};
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<(typeof projectsData)[0] | null>(null);
@@ -43,13 +30,13 @@ const Projects = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-blue-500/5 pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-6 relative">
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white tracking-tight transition-all duration-700 ${
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-white tracking-tight transition-all duration-700 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             Featured <span className="text-cyber-accent">Projects</span>
           </h2>
-          <p className={`text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
+          <p className={`text-base md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             Explore my cybersecurity and threat intelligence projects showcasing advanced SIEM solutions, 
@@ -57,7 +44,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto">
           {projectsData.map((project, index) => (
             <Card 
               key={index} 
@@ -74,9 +61,9 @@ const Projects = () => {
               <div className="absolute inset-[1px] bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl" />
               
               <div className="relative z-10 h-full flex flex-col">
-                <CardHeader className="pb-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <CardTitle className="text-2xl md:text-3xl text-white leading-tight font-bold group-hover:text-green-400 transition-colors duration-300">
+                <CardHeader className="pb-4 md:pb-6">
+                  <div className="flex items-start justify-between gap-3 md:gap-4">
+                    <CardTitle className="text-xl md:text-2xl lg:text-3xl text-white leading-tight font-bold group-hover:text-green-400 transition-colors duration-300">
                       {project.title}
                     </CardTitle>
                     <Button
@@ -85,16 +72,16 @@ const Projects = () => {
                       onClick={() => setSelectedProject(project)}
                       className="shrink-0 text-white/60 hover:text-green-400 hover:bg-green-400/10 transition-all duration-300"
                     >
-                      <Eye className="w-5 h-5" />
+                      <Eye className="w-4 h-4 md:w-5 md:h-5" />
                     </Button>
                   </div>
                 </CardHeader>
 
-                <CardContent className="flex-grow flex flex-col pt-0 space-y-6">
-                  <div className="space-y-4 flex-grow">
+                <CardContent className="flex-grow flex flex-col pt-0 space-y-4 md:space-y-6">
+                  <div className="space-y-3 md:space-y-4 flex-grow">
                     {project.bullets.slice(0, 2).map((bullet, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-green-400 mt-2 shrink-0" />
+                        <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 mt-2 shrink-0" />
                         <p className="text-white/90 leading-relaxed text-sm md:text-base">
                           {bullet}
                         </p>
@@ -103,14 +90,14 @@ const Projects = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-white/80 text-sm font-semibold uppercase tracking-wider">
+                    <h4 className="text-white/80 text-xs md:text-sm font-semibold uppercase tracking-wider">
                       Technologies Used
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {project.tech.map(tech => (
                         <span
                           key={tech}
-                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
+                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-2 md:px-3 lg:px-4 py-1 md:py-1.5 lg:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
                           style={{
                             letterSpacing: ".04em",
                             fontFamily: "Rajdhani, sans-serif",
@@ -124,10 +111,10 @@ const Projects = () => {
 
                   <Button
                     onClick={() => setSelectedProject(project)}
-                    className="btn-unified mt-4 w-full group-hover:bg-green-500/20 group-hover:border-green-400/50 
-                             transition-all duration-300 backdrop-blur-sm"
+                    className="btn-unified mt-3 md:mt-4 w-full group-hover:bg-green-500/20 group-hover:border-green-400/50 
+                             transition-all duration-300 backdrop-blur-sm text-sm md:text-base"
                   >
-                    <Eye className="w-4 h-4 mr-2" />
+                    <Eye className="w-3 h-3 md:w-4 md:h-4 mr-2" />
                     View Full Details
                   </Button>
                 </CardContent>
@@ -144,7 +131,7 @@ const Projects = () => {
           {selectedProject && (
             <div className="space-y-6">
               <DialogHeader className="space-y-4">
-                <DialogTitle className="text-2xl md:text-3xl text-white font-bold leading-tight">
+                <DialogTitle className="text-xl md:text-2xl lg:text-3xl text-white font-bold leading-tight">
                   {selectedProject.title}
                 </DialogTitle>
                 <div className="h-px bg-gradient-to-r from-transparent via-green-400/50 to-transparent" />
@@ -153,14 +140,14 @@ const Projects = () => {
               <DialogDescription asChild>
                 <div className="space-y-6">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-white/90 flex items-center gap-2">
-                      <Database className="w-5 h-5 text-green-400" />
+                    <h3 className="text-base md:text-lg font-semibold text-white/90 flex items-center gap-2">
+                      <Database className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
                       Project Overview
                     </h3>
-                    <ul className="space-y-4">
+                    <ul className="space-y-3 md:space-y-4">
                       {selectedProject.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start gap-4">
-                          <div className="w-2 h-2 rounded-full bg-green-400 mt-2 shrink-0" />
+                        <li key={idx} className="flex items-start gap-3 md:gap-4">
+                          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 mt-2 shrink-0" />
                           <p className="text-white/80 leading-relaxed text-sm md:text-base">
                             {bullet}
                           </p>
@@ -170,15 +157,15 @@ const Projects = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-white/90 flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-green-400" />
+                    <h3 className="text-base md:text-lg font-semibold text-white/90 flex items-center gap-2">
+                      <Shield className="w-4 h-4 md:w-5 md:h-5 text-green-400" />
                       Technology Stack
                     </h3>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {selectedProject.tech.map(tech => (
                         <span
                           key={tech}
-                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
+                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-2 md:px-3 lg:px-4 py-1 md:py-1.5 lg:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
                           style={{
                             letterSpacing: ".04em",
                             fontFamily: "Rajdhani, sans-serif",
