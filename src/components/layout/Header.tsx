@@ -3,12 +3,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { NAVIGATION_LINKS, CONTACT_INFO } from "@/config/constants";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,9 +1,9 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Calendar, MapPin, TrendingUp, Target, Shield } from "lucide-react";
 import CollapsibleAchievements from "./CollapsibleAchievements";
-import TechHoverCard from "./TechHoverCard";
 
 // Simple custom hook for intersection observer
 import { useRef, useEffect, useState } from "react";
@@ -254,7 +254,7 @@ const Experience = () => {
 
                     <Separator className="my-6 md:my-8 bg-white/10" />
 
-                    {/* Technology Stack with Hover Cards */}
+                    {/* Technology Stack */}
                     <div className="mb-6">
                       <h4 className="text-base md:text-lg font-semibold text-white mb-4 flex items-center gap-2">
                         <Shield className="h-5 w-5 text-primary" />
@@ -262,17 +262,16 @@ const Experience = () => {
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {item.technologies.map(tech => (
-                          <TechHoverCard key={tech} tech={tech}>
-                            <span
-                              className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
-                              style={{
-                                letterSpacing: ".04em",
-                                fontFamily: "Rajdhani, sans-serif",
-                              }}
-                            >
-                              {tech}
-                            </span>
-                          </TechHoverCard>
+                          <span
+                            key={tech}
+                            className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
+                            style={{
+                              letterSpacing: ".04em",
+                              fontFamily: "Rajdhani, sans-serif",
+                            }}
+                          >
+                            {tech}
+                          </span>
                         ))}
                       </div>
                     </div>
