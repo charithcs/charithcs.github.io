@@ -107,20 +107,18 @@ const Projects = () => {
                       Technologies Used
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.map(tag => {
-                        const IconComponent = iconLookup[tag];
-                        return (
-                          <Badge 
-                            key={tag} 
-                            variant="cyber"
-                            className="px-2 py-1 text-xs font-medium rounded-md transition-all duration-300 
-                                     flex items-center gap-1.5 backdrop-blur-sm"
-                          >
-                            {IconComponent && <IconComponent className="w-3 h-3" />}
-                            <span>{tag}</span>
-                          </Badge>
-                        );
-                      })}
+                      {project.tech.map(tech => (
+                        <span
+                          key={tech}
+                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
+                          style={{
+                            letterSpacing: ".04em",
+                            fontFamily: "Rajdhani, sans-serif",
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
@@ -176,21 +174,19 @@ const Projects = () => {
                       <Shield className="w-5 h-5 text-green-400" />
                       Technology Stack
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {selectedProject.tech.map(tag => {
-                        const IconComponent = iconLookup[tag];
-                        return (
-                          <Badge 
-                            key={tag} 
-                            variant="cyber"
-                            className="px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 
-                                     flex items-center justify-center gap-2 backdrop-blur-sm"
-                          >
-                            {IconComponent && <IconComponent className="w-4 h-4" />}
-                            <span>{tag}</span>
-                          </Badge>
-                        );
-                      })}
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tech.map(tech => (
+                        <span
+                          key={tech}
+                          className="tech-tag inline-block border border-white bg-white text-black rounded-full px-3 md:px-4 py-1.5 md:py-2 text-xs font-semibold uppercase tracking-wide transition-all shadow hover:bg-gray-100 hover:scale-105 cursor-pointer"
+                          style={{
+                            letterSpacing: ".04em",
+                            fontFamily: "Rajdhani, sans-serif",
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
