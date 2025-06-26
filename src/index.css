@@ -1,44 +1,30 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Universal Apple-inspired black-to-grey gradient & high-contrast theme */
 @layer base {
   :root {
     --background: 10 10 10;
     --foreground: 255 255 255;
-
     --card: 34 34 36;
     --card-foreground: 255 255 255;
     --popover: 24 24 28;
     --popover-foreground: 255 255 255;
-
     --primary: 0 255 102;
     --primary-foreground: 0 0 0;
     --secondary: 60 60 64;
     --secondary-foreground: 255 255 255;
-
     --muted: 40 40 45;
     --muted-foreground: 180 180 188;
-
     --accent: 55 56 60;
     --accent-foreground: 255 255 255;
-
     --destructive: 220 38 38;
     --destructive-foreground: 255 255 255;
-
     --border: 60 60 65;
     --input: 60 60 65;
     --ring: 0 255 102;
-
     --radius: 0.75rem;
-
-    --gradient-start: 0 0 0;
-    --gradient-end: 72 72 79;
-    --elegant-gradient: linear-gradient(135deg, #17171a 0%, #232428 100%);
-    --hero-gradient: linear-gradient(135deg, #111112 0%, #232325 90%, #d1d1d180 100%);
-    
-    /* Cybersecurity highlight color */
     --cyber-green: 0 255 102;
     --cyber-green-dim: 0 200 80;
   }
@@ -63,14 +49,9 @@
     --border: 80 80 85;
     --input: 70 70 77;
     --ring: 0 255 102;
-    --gradient-start: 0 0 0;
-    --gradient-end: 50 50 55;
-    --elegant-gradient: linear-gradient(135deg, #111113 0%, #232326 100%);
-    --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #232325 90%, #212124 100%);
   }
 }
 
-/* Global body and background improvements */
 @layer base {
   * {
     @apply border-border;
@@ -99,11 +80,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body::before {
-    display: none; /* Remove any background overlays */
-  }
-
-  /* Text selection highlighting with cybersecurity green */
   ::selection {
     background-color: rgba(0, 255, 102, 0.3);
     color: #fff;
@@ -126,61 +102,6 @@
     @apply py-16 md:py-20 lg:py-24;
   }
 
-  /* HERO SECTION: Enhanced with professional metrics and animations */
-  .hero-bg-gradient {
-    /* background: linear-gradient(135deg, #0a0b0f 0%, #1a1b23 50%, #232325 100%);
-    min-height: 100vh;
-    position: relative; */
-    /* Removed for unified design */
-  }
-
-  .hero-bg-gradient::before {
-    /* content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(0, 255, 102, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
-    pointer-events: none; */
-    /* Removed for unified design */
-  }
-
-  .hero-title {
-    color: #fff;
-    text-shadow: 0 2px 8px rgba(0,0,0,.15);
-    transition: 
-      text-shadow 0.18s cubic-bezier(0.4,0,0.2,1), 
-      filter 0.18s cubic-bezier(0.4,0,0.2,1),
-      transform 0.18s cubic-bezier(0.4,0,0.2,1);
-  }
-  .hero-title:hover,
-  .hero-title:focus {
-    text-shadow: 0 2px 12px rgba(0, 255, 102, 0.3), 0 0 0.2em rgba(0, 255, 102, 0.15);
-    filter: brightness(1.02);
-    transform: scale(1.005);
-    outline: none;
-  }
-  .hero-section:hover .hero-title,
-  .hero-section:focus-within .hero-title {
-    text-shadow: 0 2px 10px rgba(0, 255, 102, 0.25), 0 0 0.25em rgba(0, 255, 102, 0.1);
-    filter: brightness(1.03);
-  }
-  .hero-section:hover .hero-subtitle,
-  .hero-section:focus-within .hero-subtitle {
-    filter: brightness(1.02);
-  }
-  .hero-subtitle {
-    color: #fff;
-    text-shadow: none;
-    font-weight: 600;
-    filter: none;
-  }
-
-  /* NAVIGATION BAR */
   .header-glass {
     background: linear-gradient(100deg, #161617cc 95%, #232325e3 100%);
     backdrop-filter: blur(18px);
@@ -195,7 +116,6 @@
     color: #fff !important;
   }
 
-  /* BUTTONS with cyber green theme */
   .btn-unified {
     color: #fff !important;
     background: linear-gradient(135deg, #232325 70%, #44444a 100%);
@@ -229,7 +149,6 @@
     transform: scale(1.014);
   }
 
-  /* CARDS: unify glass look with cyber green accents */
   .unified-card {
     background: linear-gradient(120deg, #28282c 87%, #232325 100%);
     border: 1.5px solid #36363b88;
@@ -244,15 +163,11 @@
     transform: translateY(-2px) scale(1.012);
   }
 
-  /* Section backgrounds: glass black/grey, ensure readable contrast */
   .unified-section-bg {
     background: linear-gradient(135deg, #151516 60%, #242427 100%);
     @apply glass-effect;
   }
-  .section-alt {
-    background: linear-gradient(135deg, #141416 0%, #222225 100%);
-    backdrop-filter: blur(2px);
-  }
+  
   .glass-effect {
     background: linear-gradient(120deg, #1b1b1fbb 0%, #26262aaa 100%);
     backdrop-filter: blur(17px);
@@ -260,7 +175,6 @@
     box-shadow: 0 6px 24px #0005, inset 0 1px 0 #29292a15;
   }
 
-  /* Misc: chromeless inputs with cyber green focus */
   input,
   textarea {
     background: #1a1a1d;
@@ -275,7 +189,6 @@
     box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.1);
   }
 
-  /* Scrollbars: subtle on dark */
   ::-webkit-scrollbar {
     width: 8px;
     background: #161617;
@@ -288,7 +201,6 @@
     background: rgba(0, 255, 102, 0.3);
   }
 
-  /* Enhanced link styling with cyber green */
   a {
     transition: color 0.2s ease;
   }
@@ -297,7 +209,6 @@
     color: rgb(0, 255, 102);
   }
 
-  /* Code and pre blocks with cyber theme */
   code {
     background: rgba(0, 255, 102, 0.1);
     color: rgb(0, 255, 102);
@@ -306,30 +217,15 @@
     font-family: 'Courier New', monospace;
   }
 
-  /* Badge styling with cyber theme */
-  .cyber-badge {
-    background: rgba(0, 255, 102, 0.2);
-    color: rgb(0, 255, 102);
-    border: 1px solid rgba(0, 255, 102, 0.3);
-  }
-
-  /* Accent text for highlighting important information */
   .text-cyber-accent {
     color: rgb(0, 255, 102);
   }
 
-  /* Hide default subtitle glow, tidy for minimal look */
-  .animate-subtle-glow {
-    animation: none !important;
-  }
-
-  /* Performance optimizations */
   img {
     max-width: 100%;
     height: auto;
   }
 
-  /* Focus styles for accessibility */
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
@@ -339,13 +235,11 @@
   }
 }
 
-/* Responsive adjustments */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Container improvements */
   .container {
     width: 100%;
     margin-left: auto;
@@ -388,7 +282,6 @@
     }
   }
 
-  /* Enhanced hover scale utilities */
   .hover\:scale-102:hover {
     transform: scale(1.02);
   }
@@ -400,18 +293,6 @@
   .hover\:scale-110:hover {
     transform: scale(1.1);
   }
-}
-
-/* Custom animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-8px) rotate(1deg); }
-  66% { transform: translateY(-4px) rotate(-1deg); }
-}
-
-@keyframes subtle-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(0, 255, 102, 0.09); }
-  50% { box-shadow: 0 0 16px rgba(0, 255, 102, 0.14); }
 }
 
 @keyframes fade-in {
@@ -435,10 +316,6 @@
   }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
 .animate-fade-in {
   animation: fade-in 0.6s ease-out;
 }
@@ -447,25 +324,10 @@
   animation: slide-in-up 0.8s ease-out;
 }
 
-/* Cyber-themed pulse animation */
-@keyframes cyber-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 5px rgba(0, 255, 102, 0.3);
-  }
-  50% { 
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.6), 0 0 30px rgba(0, 255, 102, 0.3);
-  }
-}
-
-.animate-cyber-pulse {
-  animation: cyber-pulse 2s ease-in-out infinite;
-}
-
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-/* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -477,10 +339,8 @@
   }
 }
 
-/* Print styles */
 @media print {
   .header-glass,
-  .cyber-background,
   button {
     display: none !important;
   }

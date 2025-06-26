@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import { projectsData } from "@/data/projects";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
-// Map tech tags to actual Lucide icon components
 const iconLookup: Record<string, React.ComponentType<any>> = {
   "ELK Stack": Database,
   "Logstash": Database,
@@ -41,7 +40,6 @@ const Projects = () => {
       ref={elementRef}
       className="section-padding unified-section-bg relative overflow-hidden"
     >
-      {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-blue-500/5 pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-6 relative">
@@ -72,7 +70,6 @@ const Projects = () => {
               )}
               style={{ transitionDelay: `${(index + 1) * 200}ms` }}
             >
-              {/* Gradient border effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
               <div className="absolute inset-[1px] bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl" />
               
@@ -94,7 +91,6 @@ const Projects = () => {
                 </CardHeader>
 
                 <CardContent className="flex-grow flex flex-col pt-0 space-y-6">
-                  {/* Project highlights */}
                   <div className="space-y-4 flex-grow">
                     {project.bullets.slice(0, 2).map((bullet, idx) => (
                       <div key={idx} className="flex items-start gap-3">
@@ -106,7 +102,6 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  {/* Tech stack */}
                   <div className="space-y-3">
                     <h4 className="text-white/80 text-sm font-semibold uppercase tracking-wider">
                       Technologies Used
@@ -117,10 +112,9 @@ const Projects = () => {
                         return (
                           <Badge 
                             key={tag} 
-                            className="bg-black/80 border border-green-400/40 
-                                     text-green-400 hover:text-green-300 hover:border-green-400/70 hover:bg-black/90
-                                     px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 
-                                     flex items-center gap-2 backdrop-blur-sm"
+                            variant="cyber"
+                            className="px-2 py-1 text-xs font-medium rounded-md transition-all duration-300 
+                                     flex items-center gap-1.5 backdrop-blur-sm"
                           >
                             {IconComponent && <IconComponent className="w-3 h-3" />}
                             <span>{tag}</span>
@@ -130,7 +124,6 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  {/* View details button */}
                   <Button
                     onClick={() => setSelectedProject(project)}
                     className="btn-unified mt-4 w-full group-hover:bg-green-500/20 group-hover:border-green-400/50 
@@ -146,7 +139,6 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Enhanced Dialog */}
       <Dialog open={!!selectedProject} onOpenChange={(isOpen) => { if (!isOpen) setSelectedProject(null); }}>
         <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto border-0 
                                  bg-gradient-to-br from-black/95 via-gray-900/90 to-black/95 
@@ -162,7 +154,6 @@ const Projects = () => {
 
               <DialogDescription asChild>
                 <div className="space-y-6">
-                  {/* Project details */}
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-white/90 flex items-center gap-2">
                       <Database className="w-5 h-5 text-green-400" />
@@ -180,7 +171,6 @@ const Projects = () => {
                     </ul>
                   </div>
 
-                  {/* Technologies section */}
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-white/90 flex items-center gap-2">
                       <Shield className="w-5 h-5 text-green-400" />
@@ -192,9 +182,8 @@ const Projects = () => {
                         return (
                           <Badge 
                             key={tag} 
-                            className="bg-black/80 border border-green-400/40 
-                                     text-green-400 hover:text-green-300 hover:border-green-400/70 hover:bg-black/90
-                                     px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 
+                            variant="cyber"
+                            className="px-3 py-2 text-sm font-medium rounded-md transition-all duration-300 
                                      flex items-center justify-center gap-2 backdrop-blur-sm"
                           >
                             {IconComponent && <IconComponent className="w-4 h-4" />}

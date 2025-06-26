@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, Eye, Target, ArrowRight } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
@@ -30,15 +31,13 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="unified-section-bg min-h-screen flex items-center justify-center pt-16 px-2 sm:px-4" // <-- Added pt-12 for top padding
+      className="unified-section-bg min-h-screen flex items-center justify-center pt-16 px-4"
     >
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
-        {/* Main Title Section */}
-        <h1 className="text-6xl sm:text-6xl md:text-7xl font-extrabold mb-9 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-9 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent">
           CHARITH.S
         </h1>
-        {/* Space after name */}
-        {/* Typewriter Effect for Roles */}
+
         <div className="h-10 sm:h-14 flex items-center justify-center mb-8 w-full">
           <TypeAnimation
             sequence={[
@@ -57,8 +56,7 @@ const Hero = () => {
             repeat={Infinity}
           />
         </div>
-        {/* Space after roles */}
-        {/* Professional Metrics Grid */}
+
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12 w-full">
           {metrics.map((metric, index) => {
             const Icon = metric.icon;
@@ -86,7 +84,6 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-                {/* Active indicator */}
                 {isActive && (
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400/20 to-blue-400/20 animate-pulse pointer-events-none"></div>
                 )}
@@ -94,15 +91,16 @@ const Hero = () => {
             );
           })}
         </div>
-        {/* Space after metrics */}
-        {/* Value Proposition */}
-        <div className="mb-10 w-full flex justify-center">
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed text-center whitespace-nowrap overflow-x-auto max-w-full">
-            Securing enterprises through Rapid Incident Response & Robust Cyber Defense.
+
+        <div className="mb-10 w-full flex justify-center px-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed text-center max-w-4xl">
+            Securing enterprises through{" "}
+            <span className="text-green-400 font-semibold">Rapid Incident Response</span>
+            {" "}&{" "}
+            <span className="text-blue-400 font-semibold">Robust Cyber Defense</span>.
           </p>
         </div>
-        {/* Space after tagline */}
-        {/* CTA Buttons */}
+
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 justify-center items-center w-full px-2">
           <Button
             onClick={() => scrollToSection('#skills')}
