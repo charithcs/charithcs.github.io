@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Database, Shield, Globe, Search, ExternalLink, Eye } from "lucide-react";
+import { Database, Shield, Globe, Search, Eye } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -104,14 +104,6 @@ const Projects = () => {
                         </p>
                       </div>
                     ))}
-                    {project.bullets.length > 2 && (
-                      <div className="flex items-center gap-2 pt-2">
-                        <ExternalLink className="w-4 h-4 text-green-400" />
-                        <span className="text-green-400 text-sm font-medium">
-                          Click to explore more details...
-                        </span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Tech stack */}
@@ -125,8 +117,8 @@ const Projects = () => {
                         return (
                           <Badge 
                             key={tag} 
-                            className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-400/30 
-                                     text-white/90 hover:text-white hover:border-green-400/60 hover:from-green-500/30 hover:to-blue-500/30
+                            className="bg-black/80 border border-green-400/40 
+                                     text-green-400 hover:text-green-300 hover:border-green-400/70 hover:bg-black/90
                                      px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 
                                      flex items-center gap-2 backdrop-blur-sm"
                           >
@@ -200,8 +192,8 @@ const Projects = () => {
                         return (
                           <Badge 
                             key={tag} 
-                            className="bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-400/30 
-                                     text-white/90 hover:text-white hover:border-green-400/60 hover:from-green-500/30 hover:to-blue-500/30
+                            className="bg-black/80 border border-green-400/40 
+                                     text-green-400 hover:text-green-300 hover:border-green-400/70 hover:bg-black/90
                                      px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 
                                      flex items-center justify-center gap-2 backdrop-blur-sm"
                           >
