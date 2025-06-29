@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { SITE_CONFIG } from '@/config/constants';
+import { SITE_CONFIG, SECURITY_CONFIG } from '@/config/constants';
 
 interface SEOHeadProps {
   title?: string;
@@ -20,10 +20,21 @@ const SEOHead = ({
 }: SEOHeadProps) => {
   const fullTitle = title === SITE_CONFIG.title ? title : `${title} | ${SITE_CONFIG.name}`;
 
+  // Build CSP content from configuration
+  const buildCSPContent = () => {
+    const directives = Object.entries(SECURITY_CONFIG.cspDirectives)
+      .map(([key, values]) => {
+        const directiveName = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+        return `${directiveName} ${values.join(' ')}`;
+      })
+      .join('; ');
+    return directives;
+  };
+
   return (
     <Helmet>
       {/* Enhanced Security Headers */}
-      <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.rss2json.com https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self';" />
+      <meta httpEquiv="Content-Security-Policy" content={buildCSPContent()} />
       <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
       <meta httpEquiv="X-Frame-Options" content="DENY" />
       <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
