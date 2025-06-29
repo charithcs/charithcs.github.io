@@ -159,12 +159,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Security: Prevent clickjacking -->
-    <script>
-      if (window.top !== window.self) {
-        window.top.location = window.self.location;
-      }
-    </script>
   </body>
 </html>
