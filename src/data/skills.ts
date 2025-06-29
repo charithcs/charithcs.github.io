@@ -13,15 +13,15 @@ export const skillsData: SkillCategory[] = [
     title: "Security Operations & Incident Response",
     tools: [
       {
-        label: "SIEM Tools",
-        items: ["Splunk ES", "IBM QRadar"],
+        label: "SIEM Platforms",
+        items: ["Splunk ES", "IBM QRadar", "Microsoft Sentinel"],
       },
       {
-        label: "SOAR Platforms",
-        items: ["FortiSOAR", "Microsoft Sentinel"],
+        label: "SOAR Automation",
+        items: ["FortiSOAR", "Phantom", "Demisto"],
       },
       {
-        label: "EDR/XDR Platforms",
+        label: "EDR/XDR Solutions",
         items: [
           "CrowdStrike Falcon",
           "SentinelOne XDR",
@@ -29,7 +29,7 @@ export const skillsData: SkillCategory[] = [
         ],
       },
       {
-        label: "Log Analysis",
+        label: "Log Analysis & Monitoring",
         items: [
           "Azure AD Logs",
           "Windows Event Logs",
@@ -43,58 +43,84 @@ export const skillsData: SkillCategory[] = [
     title: "Threat Intelligence & Digital Forensics",
     tools: [
       {
-        label: "Threat Intelligence Platforms",
+        label: "Threat Intelligence",
         items: [
           "Recorded Future",
-          "Virus Total Intelligence",
-          "Alien Valut OTX",
+          "VirusTotal Intelligence",
+          "AlienVault OTX",
+          "MISP",
         ],
       },
       {
-        label: "Digital Forensics Tools",
+        label: "Digital Forensics",
         items: [
-          "Falcon Forensics Collector",
-          "Belkasoft",
+          "CrowdStrike Falcon Forensics",
+          "Belkasoft Evidence Center",
           "Autopsy",
+          "Volatility",
+        ],
+      },
+      {
+        label: "Malware Analysis",
+        items: [
+          "IDA Pro",
+          "Ghidra",
+          "Wireshark",
+          "YARA Rules",
         ],
       },
     ],
   },
   {
-    title: " Email Security",
+    title: "Email & Web Security",
     tools: [
       {
-        label: "Email Security Solutions",
+        label: "Email Security",
         items: [
           "Microsoft Defender for Office 365",
           "Proofpoint",
-          "Abnormal AI"
+          "Abnormal Security",
+          "Mimecast",
+        ],
+      },
+      {
+        label: "Web Security",
+        items: [
+          "Zscaler",
+          "Cloudflare",
+          "Palo Alto Prisma",
+          "Symantec Web Security",
         ],
       },
     ],
   },
   {
-    title: "Cloud & SaaS Security",
+    title: "Cloud & Infrastructure Security",
     tools: [
       {
         label: "AWS Security",
         items: [
           "AWS CloudTrail",
           "AWS GuardDuty",
+          "AWS Security Hub",
+          "AWS Config",
         ],
       },
       {
         label: "Azure Security",
         items: [
           "Microsoft Sentinel",
+          "Azure Security Center",
           "Azure AD",
+          "Azure Monitor",
         ],
       },
       {
-        label: "SaaS Security Tools",
+        label: "Cloud Security Platforms",
         items: [
           "Orca Security",
           "Wiz",
+          "Prisma Cloud",
           "AppOmni",
         ],
       },

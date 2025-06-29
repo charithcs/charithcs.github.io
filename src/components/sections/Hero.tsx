@@ -8,9 +8,9 @@ const Hero = () => {
 
   const metrics = [
     { icon: Eye, value: "4+", label: "Years Experience", color: "text-purple-400" },
-    { icon: Zap, value: "100+", label: "Incidents Resolved", color: "text-blue-400" },
-    { icon: Shield, value: "2,847", label: "Threats Mitigated", color: "text-green-400" },    
-    { icon: Target, value: "99.8%", label: "Uptime Achieved", color: "text-orange-400" }
+    { icon: Zap, value: "150+", label: "Incidents Resolved", color: "text-blue-400" },
+    { icon: Shield, value: "3,200+", label: "Threats Mitigated", color: "text-green-400" },    
+    { icon: Target, value: "99.9%", label: "Uptime Achieved", color: "text-orange-400" }
   ];
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Hero = () => {
     >
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent">
-          CHARITH.S
+          CHARITH S
         </h1>
 
         <div className="h-8 sm:h-10 md:h-12 flex items-center justify-center mb-6 md:mb-8 w-full">
@@ -94,9 +94,9 @@ const Hero = () => {
         <div className="mb-8 md:mb-10 w-full flex justify-center px-2">
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed text-center max-w-4xl">
             Securing enterprises through{" "}
-            <span className="text-green-400 font-semibold">Rapid Incident Response</span>
+            <span className="text-green-400 font-semibold">Advanced Threat Detection</span>
             {" "}&{" "}
-            <span className="text-blue-400 font-semibold">Robust Cyber Defense</span>.
+            <span className="text-blue-400 font-semibold">Rapid Incident Response</span>.
           </p>
         </div>
 
