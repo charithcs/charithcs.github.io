@@ -43,6 +43,11 @@ const SEOHead = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="UTF-8" />
       
+      {/* Performance Hints */}
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;500;700&display=swap" as="style" />
+      <link rel="preconnect" href="https://api.rss2json.com" />
+      <link rel="dns-prefetch" href="https://formspree.io" />
+      
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
       
@@ -78,15 +83,6 @@ const SEOHead = ({
       <meta name="apple-mobile-web-app-title" content={SITE_CONFIG.name} />
       <meta name="application-name" content={`${SITE_CONFIG.name} Portfolio`} />
       <meta name="format-detection" content="telephone=no" />
-      
-      {/* Preconnect to external domains for performance */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://api.rss2json.com" crossOrigin="anonymous" />
-      
-      {/* DNS Prefetch for external resources */}
-      <link rel="dns-prefetch" href="https://medium.com" />
-      <link rel="dns-prefetch" href="https://formspree.io" />
       
       {/* Enhanced Structured Data */}
       <script type="application/ld+json">

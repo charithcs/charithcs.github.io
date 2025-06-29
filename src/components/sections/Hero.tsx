@@ -8,8 +8,8 @@ const Hero = () => {
 
   const metrics = [
     { icon: Eye, value: "4+", label: "Years Experience", color: "text-purple-400" },
-    { icon: Zap, value: "150+", label: "Incidents Resolved", color: "text-blue-400" },
-    { icon: Shield, value: "3,200+", label: "Threats Mitigated", color: "text-green-400" },    
+    { icon: Zap, value: "200+", label: "Incidents Resolved", color: "text-blue-400" },
+    { icon: Shield, value: "5,000+", label: "Threats Mitigated", color: "text-green-400" },    
     { icon: Target, value: "99.9%", label: "Uptime Achieved", color: "text-orange-400" }
   ];
 

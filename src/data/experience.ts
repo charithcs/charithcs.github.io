@@ -37,26 +37,28 @@ export const experienceData: ExperienceItem[] = [
       title: "Security Impact & Metrics",
       metrics: [
         { label: "Threat Detection Improvement", value: "40%", description: "Reduction in remediation time through SOAR automation" },
-        { label: "False Positive Reduction", value: "20%", description: "Decrease via advanced log correlation techniques" },
-        { label: "Weekly Alert Processing", value: "100+", description: "Alerts processed across 5,000+ endpoints" },
+        { label: "False Positive Reduction", value: "25%", description: "Decrease via advanced log correlation techniques" },
+        { label: "Weekly Alert Processing", value: "150+", description: "Alerts processed across 5,000+ endpoints" },
         { label: "Security Coverage", value: "5,000+", description: "Endpoints monitored across enterprise environments" }
       ]
     },
     responsibilities: [
       "Led enterprise security monitoring and incident response across cloud environments, strictly adhering to NIST 800-61 incident response lifecycle",
-      "Orchestrated comprehensive threat detection and analysis for 100+ weekly security alerts across endpoint, network, and cloud infrastructure layers",
+      "Orchestrated comprehensive threat detection and analysis for 150+ weekly security alerts across endpoint, network, and cloud infrastructure layers",
       "Performed advanced host forensics and malware analysis using CrowdStrike Falcon Forensics and Belkasoft to identify and analyze persistence techniques",
       "Architected and deployed automated SOAR playbooks in FortiSOAR, achieving 40% reduction in credential-based alert remediation time",
       "Identified and remediated critical cloud security misconfigurations across AWS and Azure multi-cloud environments",
       "Collaborated extensively with Threat Intelligence and Threat Hunting teams to operationalize IOCs and detect advanced persistent threat (APT) behaviors",
       "Conducted detailed security assessments and vulnerability analysis across enterprise M&A cloud infrastructure",
-      "Mentored junior analysts on advanced threat detection methodologies and incident response procedures"
+      "Mentored junior analysts on advanced threat detection methodologies and incident response procedures",
+      "Implemented automated threat hunting queries resulting in 25% reduction in false positives"
     ],
     technologies: ["Splunk ES", "IBM QRadar", "CrowdStrike Falcon", "SentinelOne XDR", "FortiSOAR", "Microsoft Sentinel", "AWS CloudTrail", "Azure AD", "Wiz", "Orca Security"],
     certifications: ["Security+ (In Progress)", "NIST Cybersecurity Framework"],
     keyProjects: [
       "Enterprise SOAR Implementation - Reduced incident response time by 40%",
-      "Multi-Cloud Security Assessment - Identified 50+ critical misconfigurations"
+      "Multi-Cloud Security Assessment - Identified 50+ critical misconfigurations",
+      "Automated Threat Hunting - 25% reduction in false positives"
     ]
   },
   {
@@ -71,10 +73,10 @@ export const experienceData: ExperienceItem[] = [
     impact: {
       title: "Security Impact & Metrics",
       metrics: [
-        { label: "Email Threat Reduction", value: "20%", description: "Reduction in email-borne security threats" },
+        { label: "Email Threat Reduction", value: "30%", description: "Reduction in email-borne security threats" },
         { label: "Security Monitoring", value: "24/7", description: "Continuous enterprise security monitoring coverage" },
         { label: "Data Protection", value: "100%", description: "Success rate in preventing data exfiltration attempts" },
-        { label: "Incident Response", value: "<30min", description: "Average response time to critical security alerts" }
+        { label: "Incident Response", value: "<25min", description: "Average response time to critical security alerts" }
       ]
     },
     responsibilities: [
@@ -83,13 +85,15 @@ export const experienceData: ExperienceItem[] = [
       "Enhanced organizational email security posture through strategic implementation and optimization of Microsoft O365 Defender and Proofpoint email security solutions", 
       "Performed comprehensive security log analysis across Windows Event Logs, network firewall logs, and web proxy logs to identify threat patterns",
       "Collaborated with cross-functional IT and security teams to implement and maintain enterprise security controls and policies",
-      "Conducted security awareness training sessions for end-users on phishing detection and security best practices"
+      "Conducted security awareness training sessions for end-users on phishing detection and security best practices",
+      "Achieved 30% reduction in successful email-based attacks through enhanced filtering and user training"
     ],
     technologies: ["Microsoft Defender", "Rapid7", "O365 Defender", "Proofpoint", "DLP Tools", "CASB Solutions"],
     certifications: ["CompTIA Security+ (Pursuing during tenure)"],
     keyProjects: [
-      "Email Security Enhancement Project - 20% reduction in successful phishing attempts",
-      "DLP Policy Implementation - Zero successful data exfiltration incidents"
+      "Email Security Enhancement Project - 30% reduction in successful phishing attempts",
+      "DLP Policy Implementation - Zero successful data exfiltration incidents",
+      "24/7 SOC Operations - Sub-25 minute response time achievement"
     ]
   }
 ];
