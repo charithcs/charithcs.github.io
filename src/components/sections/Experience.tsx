@@ -81,7 +81,7 @@ const experienceData = [
     type: "Full-time",
     level: "Junior-to-Mid",
     impact: {
-      title: "Security Impact",
+      title: "Security Impact & Metrics",
       metrics: [
         { label: "Email Threat Reduction", value: "20%", description: "Reduction in email-borne security threats" },
         { label: "Security Monitoring", value: "24/7", description: "Continuous enterprise security monitoring coverage" },
