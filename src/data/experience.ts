@@ -50,7 +50,7 @@ export const experienceData: ExperienceItem[] = [
       "Identified and remediated critical cloud security misconfigurations across AWS and Azure multi-cloud environments",
       "Collaborated extensively with Threat Intelligence and Threat Hunting teams to operationalize IOCs and detect advanced persistent threat (APT) behaviors",
       "Conducted detailed security assessments and vulnerability analysis across enterprise M&A cloud infrastructure",
-      "Mentored junior analysts on advanced threat detection methodologies and incident response procedures",
+      
       "Implemented automated threat hunting queries resulting in 25% reduction in false positives"
     ],
     technologies: ["Splunk ES", "IBM QRadar", "CrowdStrike Falcon", "SentinelOne XDR", "FortiSOAR", "Microsoft Sentinel", "AWS CloudTrail", "Azure AD", "Wiz", "Orca Security"],
