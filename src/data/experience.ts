@@ -60,7 +60,7 @@ export const experienceData: ExperienceItem[] = [
   {
     role: "Information Security Consultant", 
     company: "Tech Mahindra",
-    deployment: undefined,
+    deployment: "",
     date: "Sep 2021 - Apr 2023",
     duration: "1.7 years", 
     location: "Hyderabad, India",
