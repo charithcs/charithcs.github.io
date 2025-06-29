@@ -1,14 +1,10 @@
 import { useEffect } from 'react';
-import { preventClickjacking } from '@/utils/security';
 
 /**
  * Custom hook for implementing security measures
  */
 export const useSecurity = () => {
   useEffect(() => {
-    // Prevent clickjacking attacks
-    preventClickjacking();
-    
     // Disable right-click context menu in production
     if (process.env.NODE_ENV === 'production') {
       const handleContextMenu = (e: MouseEvent) => {
