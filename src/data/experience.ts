@@ -54,8 +54,7 @@ export const experienceData: ExperienceItem[] = [
       "Implemented automated threat hunting queries resulting in 25% reduction in false positives"
     ],
     technologies: ["Splunk ES", "IBM QRadar", "CrowdStrike Falcon", "SentinelOne XDR", "FortiSOAR", "Microsoft Sentinel", "AWS CloudTrail", "Azure AD", "Wiz", "Orca Security"],
-    certifications: ["Certified Cyber Criminologist (In Progress)", "Amazon Certified Cloud Practitioner", "ISC2 CC"],
-    
+    certifications: ["Certified Cyber Criminologist (In Progress)", "Amazon Certified Cloud Practitioner", "ISC2 CC"]
   },
   {
     role: "Information Security Consultant", 
@@ -85,8 +84,6 @@ export const experienceData: ExperienceItem[] = [
       "Achieved 30% reduction in successful email-based attacks through enhanced filtering and user training"
     ],
     technologies: ["Microsoft Defender", "Rapid7", "O365 Defender", "Proofpoint", "DLP Tools", "CASB Solutions"],
-    certifications: ["Google Cyber Security", "Microsoft Certified: Azure Fundamentals [AZ-900]"],
-    
-    ]
+    certifications: ["Google Cyber Security", "Microsoft Certified: Azure Fundamentals [AZ-900]"]
   }
 ];
