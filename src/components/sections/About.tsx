@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Target, TrendingUp, Award, Users, Globe, Clock, CheckCircle } from "lucide-react";
+import { Shield, Target, TrendingUp, Award, Zap, Eye } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const About = () => {
@@ -9,49 +9,40 @@ const About = () => {
     triggerOnce: true
   });
 
-  const highlights = [
+  const keyStats = [
     {
       icon: Shield,
-      title: "Enterprise Security Expert",
-      description: "4+ years protecting Fortune 500 companies with advanced threat detection and incident response across 5,000+ endpoints.",
-      metrics: "5,000+ Endpoints Secured"
+      number: "5,000+",
+      label: "Endpoints Secured",
+      color: "text-green-400"
+    },
+    {
+      icon: Zap,
+      number: "40%",
+      label: "Faster Response",
+      color: "text-blue-400"
     },
     {
       icon: Target,
-      title: "Incident Response Leader",
-      description: "Led critical security incidents with 40% faster resolution times through automated SOAR playbooks and advanced forensics.",
-      metrics: "40% Faster Response"
-    },
-    {
-      icon: TrendingUp,
-      title: "Threat Hunter & Analyst",
-      description: "Reduced false positives by 20% through advanced log correlation and threat intelligence integration across multi-cloud environments.",
-      metrics: "20% False Positive Reduction"
+      number: "4+",
+      label: "Years Experience",
+      color: "text-purple-400"
     }
   ];
 
-  const certifications = [
-    "CompTIA Security+ (In Progress)",
-    "NIST Cybersecurity Framework",
-    "Cloud Security Specialist"
-  ];
-
-  const specializations = [
+  const expertise = [
     "Blue Team Operations",
-    "SOC Analysis & Monitoring", 
-    "Cloud Security (AWS/Azure)",
-    "SIEM/SOAR Implementation",
+    "SOC Analysis", 
+    "Cloud Security",
+    "SIEM/SOAR",
     "Digital Forensics",
-    "Threat Intelligence",
-    "Incident Response",
-    "Vulnerability Assessment"
+    "Threat Intelligence"
   ];
 
   const achievements = [
-    { icon: Award, text: "Successfully prevented multiple data exfiltration attempts" },
-    { icon: Users, text: "Mentored junior analysts on advanced threat detection" },
-    { icon: Globe, text: "Secured multi-cloud enterprise M&A infrastructure" },
-    { icon: Clock, text: "Maintained 24/7 security monitoring coverage" }
+    { icon: Award, text: "Fortune 500 Enterprise Security" },
+    { icon: Eye, text: "Advanced Threat Detection" },
+    { icon: Shield, text: "Zero Data Breaches" }
   ];
 
   return (
@@ -60,153 +51,132 @@ const About = () => {
       ref={elementRef}
       className="section-padding unified-section-bg relative overflow-hidden"
     >
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-blue-500/5 pointer-events-none" />
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-green-400/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-400/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      </div>
       
       <div className="container mx-auto px-4 md:px-6 relative">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white tracking-tight transition-all duration-700 ${
+        {/* Compact Header */}
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white tracking-tight transition-all duration-700 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             About <span className="text-cyber-accent">Charith</span>
           </h2>
-          <div className={`w-20 h-1 bg-gradient-to-r from-green-400 to-blue-400 mx-auto mb-6 transition-all duration-700 delay-200 ${
+          <div className={`w-16 h-0.5 bg-gradient-to-r from-green-400 to-blue-400 mx-auto mb-4 transition-all duration-700 delay-200 ${
             isIntersecting ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
           }`} />
-          <p className={`text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${
-            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            Cybersecurity professional dedicated to protecting enterprise digital infrastructures through 
-            <span className="text-green-400 font-semibold"> proactive threat hunting</span> and 
-            <span className="text-blue-400 font-semibold"> rapid incident response</span>.
-          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
+        {/* Main Content - Glass Cards Layout */}
+        <div className="max-w-6xl mx-auto">
           
-          {/* Professional Summary Card */}
-          <div className={`lg:col-span-2 transition-all duration-700 delay-400 ${
+          {/* Hero Statement Card */}
+          <div className={`mb-8 transition-all duration-700 delay-300 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <Card className="unified-card h-full border-0 bg-gradient-to-br from-gray-900/60 via-gray-800/40 to-gray-900/60 backdrop-blur-xl">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-2xl md:text-3xl text-white flex items-center gap-3">
-                  <Shield className="h-8 w-8 text-green-400" />
-                  Professional Summary
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                  As a <strong className="text-green-400">Cybersecurity Analyst</strong> with over 4 years of hands-on experience, 
-                  I specialize in safeguarding enterprise environments through advanced threat detection, incident response, 
-                  and security operations center (SOC) management.
+            <Card className="border-0 bg-gradient-to-r from-black/40 via-gray-900/30 to-black/40 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <CardContent className="p-6 md:p-8 text-center">
+                <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-4xl mx-auto">
+                  <span className="text-green-400 font-semibold">Cybersecurity Analyst</span> with 4+ years protecting 
+                  <span className="text-blue-400 font-semibold"> Fortune 500 enterprises</span> through advanced threat detection, 
+                  incident response, and SOC operations across <span className="text-purple-400 font-semibold">5,000+ endpoints</span>.
                 </p>
-                
-                <p className="text-white/90 leading-relaxed text-base md:text-lg">
-                  Currently deployed at <strong className="text-blue-400">Autodesk</strong> through Skillmine Technology, 
-                  I lead security monitoring across 5,000+ endpoints, architect SOAR automation solutions, and conduct 
-                  advanced digital forensics investigations using cutting-edge tools like CrowdStrike Falcon and Belkasoft.
-                </p>
+              </CardContent>
+            </Card>
+          </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
-                  {achievements.map((achievement, index) => (
-                    <div key={index} className="flex flex-col items-center text-center p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                      <achievement.icon className="h-6 w-6 text-green-400 mb-2" />
-                      <span className="text-xs text-white/80 leading-tight">{achievement.text}</span>
+          {/* Stats Grid */}
+          <div className={`grid grid-cols-3 gap-4 md:gap-6 mb-8 transition-all duration-700 delay-400 ${
+            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            {keyStats.map((stat, index) => (
+              <Card 
+                key={index} 
+                className="group border-0 bg-gradient-to-br from-white/5 via-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105"
+              >
+                <CardContent className="p-4 md:p-6 text-center">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon className={`h-6 w-6 md:h-7 md:w-7 ${stat.color}`} />
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                  <div className={`text-2xl md:text-3xl font-bold ${stat.color} mb-1`}>
+                    {stat.number}
+                  </div>
+                  <div className="text-white/80 text-sm md:text-base font-medium">
+                    {stat.label}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
-          {/* Quick Stats & Certifications */}
-          <div className={`space-y-6 transition-all duration-700 delay-500 ${
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+            
+            {/* Expertise Card */}
+            <div className={`transition-all duration-700 delay-500 ${
+              isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <Card className="h-full border-0 bg-gradient-to-br from-green-500/10 via-black/20 to-green-500/5 backdrop-blur-xl border border-green-400/20">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-green-400/20 flex items-center justify-center">
+                      <Target className="h-5 w-5 text-green-400" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Core Expertise</h3>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {expertise.map((skill, index) => (
+                      <Badge 
+                        key={index} 
+                        variant="outline" 
+                        className="bg-white/5 text-white/90 border-white/20 hover:bg-green-400/10 hover:border-green-400/30 transition-all text-xs justify-center py-2"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Achievements Card */}
+            <div className={`transition-all duration-700 delay-600 ${
+              isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}>
+              <Card className="h-full border-0 bg-gradient-to-br from-blue-500/10 via-black/20 to-blue-500/5 backdrop-blur-xl border border-blue-400/20">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center">
+                      <TrendingUp className="h-5 w-5 text-blue-400" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">Key Achievements</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {achievements.map((achievement, index) => (
+                      <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <achievement.icon className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                        <span className="text-white/90 text-sm font-medium">{achievement.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className={`text-center mt-8 transition-all duration-700 delay-700 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            
-            {/* Certifications Card */}
-            <Card className="unified-card border-0 bg-gradient-to-br from-green-500/10 via-transparent to-green-500/5 backdrop-blur-xl">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg text-white flex items-center gap-2">
-                  <Award className="h-5 w-5 text-green-400" />
-                  Certifications
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0" />
-                    <span className="text-white/90 text-sm">{cert}</span>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            {/* Specializations Card */}
-            <Card className="unified-card border-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-500/5 backdrop-blur-xl">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg text-white flex items-center gap-2">
-                  <Target className="h-5 w-5 text-blue-400" />
-                  Core Specializations
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {specializations.map((spec, index) => (
-                    <Badge 
-                      key={index} 
-                      variant="outline" 
-                      className="bg-white/5 text-white/90 border-white/20 hover:bg-white/10 hover:border-white/30 transition-all text-xs"
-                    >
-                      {spec}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Key Highlights Grid */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {highlights.map((highlight, index) => (
-            <Card 
-              key={index} 
-              className={`unified-card group border-0 bg-gradient-to-br from-gray-900/60 via-gray-800/40 to-gray-900/60 backdrop-blur-xl hover:scale-105 transition-all duration-700 ${
-                isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${600 + (index * 150)}ms` }}
-            >
-              <CardHeader className="text-center pb-4">
-                <div className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-green-400/20 to-blue-400/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <highlight.icon className="h-8 w-8 text-green-400" />
-                </div>
-                <CardTitle className="text-xl text-white group-hover:text-green-400 transition-colors duration-300">
-                  {highlight.title}
-                </CardTitle>
-                <div className="text-2xl font-bold text-green-400 mt-2">
-                  {highlight.metrics}
-                </div>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-white/80 leading-relaxed text-sm">
-                  {highlight.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-1000 ${
-          isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-400/30">
-            <Shield className="h-5 w-5 text-green-400" />
-            <span className="text-white font-medium">Ready to secure your enterprise infrastructure</span>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-xl border border-white/10">
+              <Shield className="h-4 w-4 text-green-400" />
+              <span className="text-white/90 font-medium text-sm">Securing Enterprise Infrastructure Since 2021</span>
+            </div>
           </div>
         </div>
       </div>
