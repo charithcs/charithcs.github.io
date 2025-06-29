@@ -13,13 +13,10 @@ export const skillsData: SkillCategory[] = [
     title: "Security Operations & Incident Response",
     tools: [
       {
-        label: "SIEM Platforms",
-        items: ["Splunk ES", "IBM QRadar", "Microsoft Sentinel"],
+        label: "SIEM & SOAR Platforms",
+        items: ["Splunk ES", "IBM QRadar", "Microsoft Sentinel", "FortiSOAR"],
       },
-      {
-        label: "SOAR Automation",
-        items: ["FortiSOAR", "Phantom", "Demisto"],
-      },
+      
       {
         label: "EDR/XDR Solutions",
         items: [
@@ -48,7 +45,7 @@ export const skillsData: SkillCategory[] = [
           "Recorded Future",
           "VirusTotal Intelligence",
           "AlienVault OTX",
-          "MISP",
+          
         ],
       },
       {
@@ -60,15 +57,7 @@ export const skillsData: SkillCategory[] = [
           "Volatility",
         ],
       },
-      {
-        label: "Malware Analysis",
-        items: [
-          "IDA Pro",
-          "Ghidra",
-          "Wireshark",
-          "YARA Rules",
-        ],
-      },
+      
     ],
   },
   {
@@ -80,18 +69,10 @@ export const skillsData: SkillCategory[] = [
           "Microsoft Defender for Office 365",
           "Proofpoint",
           "Abnormal Security",
-          "Mimecast",
+          
         ],
       },
-      {
-        label: "Web Security",
-        items: [
-          "Zscaler",
-          "Cloudflare",
-          "Palo Alto Prisma",
-          "Symantec Web Security",
-        ],
-      },
+      
     ],
   },
   {
@@ -112,7 +93,7 @@ export const skillsData: SkillCategory[] = [
           "Microsoft Sentinel",
           "Azure Security Center",
           "Azure AD",
-          "Azure Monitor",
+      
         ],
       },
       {
