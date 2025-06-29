@@ -38,7 +38,7 @@ export const experienceData: ExperienceItem[] = [
       metrics: [
         { label: "Threat Detection Improvement", value: "40%", description: "Reduction in remediation time through SOAR automation" },
         { label: "False Positive Reduction", value: "25%", description: "Decrease via advanced log correlation techniques" },
-        { label: "Weekly Alert Processing", value: "150+", description: "Alerts processed across 5,000+ endpoints" },
+        { label: "Weekly Alert Processing", value: "150+", description: "Alerts processed across Enterprise Network" },
         { label: "Security Coverage", value: "5,000+", description: "Endpoints monitored across enterprise environments" }
       ]
     },
