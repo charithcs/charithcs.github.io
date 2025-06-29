@@ -1,4 +1,4 @@
-
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -81,7 +81,7 @@ const experienceData = [
     type: "Full-time",
     level: "Junior-to-Mid",
     impact: {
-      title: "Security Achievements & Results",
+      title: "Security Impact",
       metrics: [
         { label: "Email Threat Reduction", value: "20%", description: "Reduction in email-borne security threats" },
         { label: "Security Monitoring", value: "24/7", description: "Continuous enterprise security monitoring coverage" },
