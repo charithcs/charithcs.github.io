@@ -11,15 +11,15 @@ const GITHUB = "https://github.com/Securedsoul99";
 const Contact = () => {
   return (
     <section id="connect" className="section-padding unified-section-bg">
-      <div className="container mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-none tracking-tight">
+      <div className="container mx-auto text-center px-4 md:px-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white drop-shadow-none tracking-tight">
           Initiate Contact Protocol
         </h2>
-        <p className="text-white/80 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
+        <p className="text-white/80 max-w-3xl mx-auto mb-12 text-base md:text-lg leading-relaxed">
           Interested in cybersecurity collaboration, have a question, or want to discuss a project? 
           Reach out—I'm always happy to connect and explore new opportunities!
         </p>
-        <div className="flex justify-center gap-6 mb-16 flex-wrap">
+        <div className="flex justify-center gap-4 md:gap-6 mb-12 md:mb-16 flex-wrap">
           <a
             href={`mailto:${EMAIL}`}
             target="_blank"
@@ -28,9 +28,9 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="btn-unified shadow-md hover:shadow-lg"
+              className="btn-unified shadow-md hover:shadow-lg text-sm md:text-base"
             >
-              <Mail className="mr-2 h-5 w-5" /> Email
+              <Mail className="mr-2 h-4 w-4 md:h-5 md:w-5" /> Email
             </Button>
           </a>
           <a
@@ -41,9 +41,9 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="btn-unified shadow-md hover:shadow-lg"
+              className="btn-unified shadow-md hover:shadow-lg text-sm md:text-base"
             >
-              <Linkedin className="mr-2 h-5 w-5" /> LinkedIn
+              <Linkedin className="mr-2 h-4 w-4 md:h-5 md:w-5" /> LinkedIn
             </Button>
           </a>
           <a
@@ -54,17 +54,17 @@ const Contact = () => {
           >
             <Button 
               variant="outline" 
-              className="btn-unified shadow-md hover:shadow-lg"
+              className="btn-unified shadow-md hover:shadow-lg text-sm md:text-base"
             >
-              <Github className="mr-2 h-5 w-5" /> GitHub
+              <Github className="mr-2 h-4 w-4 md:h-5 md:w-5" /> GitHub
             </Button>
           </a>
         </div>
         <div className="max-w-2xl mx-auto">
           <Card className="unified-card border border-border/50 shadow-lg">
-            <CardContent className="p-8">
+            <CardContent className="p-6 md:p-8">
               <form
-                className="text-left space-y-6"
+                className="text-left space-y-4 md:space-y-6"
                 action="https://formspree.io/f/xrbkqvpz"
                 method="POST"
               >
@@ -90,7 +90,7 @@ const Contact = () => {
                 <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
                 <Button 
                   type="submit" 
-                  className="w-full btn-glass shadow-md hover:shadow-xl py-6 font-semibold text-white"
+                  className="w-full btn-glass shadow-md hover:shadow-xl py-4 md:py-6 font-semibold text-white"
                 >
                   Transmit Message
                 </Button>

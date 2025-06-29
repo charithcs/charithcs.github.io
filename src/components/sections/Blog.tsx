@@ -57,11 +57,11 @@ const Blog = () => {
 
   return (
     <section id="blog" className="section-padding unified-section-bg">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white drop-shadow-none">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-white drop-shadow-none">
           From my Blog
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {isLoading ? (
             renderSkeletons()
           ) : isError ? (
@@ -70,7 +70,7 @@ const Blog = () => {
             posts?.slice(0, 3).map((post, index) => (
               <Card key={index} className="flex flex-col unified-card transition-all duration-300 hover:shadow-primary/20 hover:border-primary/30 hover:scale-105">
                 <CardHeader>
-                  <CardTitle className="text-white">{post.title}</CardTitle>
+                  <CardTitle className="text-white text-lg md:text-xl">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-sm text-white/70 mb-4">
