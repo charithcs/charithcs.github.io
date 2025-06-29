@@ -34,7 +34,7 @@ const Hero = () => {
     >
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight bg-gradient-to-r from-white via-blue-100 to-green-100 bg-clip-text text-transparent">
-          CHARITH S
+          CHARITH.S
         </h1>
 
         <div className="h-8 sm:h-10 md:h-12 flex items-center justify-center mb-6 md:mb-8 w-full">
