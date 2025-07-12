@@ -9,7 +9,7 @@ export interface ExperienceItem {
   company: string;
   deployment?: string;
   date: string;
-  duration: string;
+ 
   location: string;
   type: string;
   level: string;
