@@ -118,7 +118,7 @@ const Hero = () => {
             className="btn-glass group font-semibold px-6 sm:px-7 py-3 sm:py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-sm sm:text-base"
           >
             <Eye className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform duration-300" />
-            <span className="hidden sm:inline">🔍 Investigate My Work</span>
+            <span className="hidden sm:inline"> Investigate My Work</span>
             <span className="sm:hidden">🔍 My Work</span>
             <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
