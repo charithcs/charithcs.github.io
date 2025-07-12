@@ -107,7 +107,7 @@ const Hero = () => {
             className="btn-unified group font-semibold px-6 sm:px-7 py-3 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-sm sm:text-base"
           >
             <Shield className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:rotate-12 transition-transform duration-300" />
-            <span className="hidden sm:inline">🛡️ Explore My Security Arsenal</span>
+            <span className="hidden sm:inline"> Explore My Security Arsenal</span>
             <span className="sm:hidden">🛡️ Security Arsenal</span>
             <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
