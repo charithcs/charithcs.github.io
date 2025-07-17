@@ -6,7 +6,7 @@ import { Mail, Linkedin, Github } from "lucide-react";
 import { useState } from "react";
 
 const EMAIL = "charithsighakollu@gmail.com";
-const LINKEDIN = "https://www.linkedin.com/in/charith-sighakollu/";
+const LINKEDIN = "https://www.linkedin.com/in/s-charith/";
 const GITHUB = "https://github.com/Securedsoul99";
 
 const Contact = () => {
