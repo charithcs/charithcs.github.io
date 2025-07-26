@@ -38,8 +38,9 @@ const Projects = () => {
           <p className={`text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
             isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            Explore my cybersecurity and threat intelligence projects showcasing advanced SIEM solutions, 
-            dark web monitoring, and comprehensive security implementations.
+            Explore a portfolio of enterprise grade cybersecurity and threat-intel solutions.
+            AI Enabled malware analysis tools, and  threat detection systems.
+          These projects are designed to streamline SOC operations, enhance incident response, and deliver actionable intelligence at scale.
           </p>
         </div>
 
