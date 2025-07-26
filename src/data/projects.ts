@@ -7,7 +7,9 @@ export interface ProjectData {
 export const projectsData: ProjectData[] = [
   {
     title: "AI-Powered Email Threat Investigator",
-    bullets: [
+    A lightweight, AI-augmented tool for offline investigation of suspicious emails — designed for SOC teams, threat analysts, and incident responders.
+  ✅ Key Highlights:  
+  bullets: [
       "Developed an AI-driven tool for analyzing suspicious `.eml` and `.msg` emails, used in SOC triage and forensic investigations.",
       "Performed deep inspection of email headers with SPF, DKIM, and DMARC validation to detect spoofing and domain impersonation attacks.",
       "Integrated VirusTotal, AbuseIPDB, and urlscan.io APIs for real-time analysis of sender IPs, embedded URLs, and attachments via SHA256 hashing.",
