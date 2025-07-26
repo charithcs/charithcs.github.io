@@ -33,25 +33,19 @@ export const projectsData: ProjectData[] = [
 
 
   {
-    title: "Proactive Dark Web Threat Intelligence & Monitoring Platform",
+    title: "AI-Powered Malware Static Analysis Tool ",
+    description : "A custom-built, command-line malware analysis framework designed for security professionals to perform fast and effective static analysis on .exe and .apk files",
     bullets: [
-      "Built an automated threat intelligence system to cross-reference public Tor exit node lists with live threat feeds, identifying patterns in malicious activity including DDoS command & control infrastructure and botnet communications.",
-      "Conducted advanced OSINT investigations across darknet forums and marketplaces, uncovering leaked credentials, zero-day exploits, and emerging adversary tools through ethical exploration of .onion services.",
-      "Integrated dark web intelligence feeds into the ELK Stack to enable real-time trend analysis, anomaly detection, and automated alerting on suspicious activities related to organizational assets.",
-      "Developed custom Python scripts for automated data collection and analysis of threat actor communications, resulting in early warning capabilities for targeted attacks against the organization.",
-      "Created comprehensive threat intelligence reports with actionable IOCs and TTPs, contributing to proactive defense strategies and threat hunting operations."
+      "Developed a CLI-based static malware analysis tool purpose-built for cybersecurity analysts to triage suspicious .exe and .apk files in air-gapped or forensic lab environments.",
+      "Extracts actionable Indicators of Compromise (IOCs) such as hardcoded IPs, URLs, domains, registry keys, and suspicious Windows APIs—empowering threat hunting and malware triage without dynamic execution.",
+      "Implements multi-hash fingerprinting (MD5, SHA1, SHA256) to support hash-based reputation checks and enrich IOC correlation across threat intelligence platforms.",
+      "Integrates AI-powered natural language threat summaries using OpenAI API (optional module), translating raw analysis into human readble reports for rapid decision-making.",
+      "Supports string extraction and artifact detection, enhancing analyst visibility into embedded payload behaviors and obfuscation techniques."
     ],
     tech: [
-      "ELK Stack",
-      "Tor Network",
       "Python",
-      "OSINT Tools",
-      "Logstash",
-      "Kibana",
-      "Scrapy",
-      "BeautifulSoup",
-      "Selenium",
-      "MISP Platform"
+      "OpenAI API",
+      "PEfile",
     ],
   },
 ];
