@@ -28,7 +28,7 @@ export const projectsData: ProjectData[] = [
      
     ],
   },
-];
+
 
   {
     title: "Proactive Dark Web Threat Intelligence & Monitoring Platform",
