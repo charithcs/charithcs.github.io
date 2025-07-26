@@ -6,27 +6,30 @@ export interface ProjectData {
 
 export const projectsData: ProjectData[] = [
   {
-    title: "Enterprise SIEM for Advanced Threat Detection & Hunting",
+    title: "AI-Powered Email Threat Investigator",
     bullets: [
-      "Engineered and deployed a scalable SIEM solution leveraging the ELK Stack and Security Onion, simulating enterprise-grade security monitoring across endpoints, network infrastructure, and authentication systems.",
-      "Orchestrated comprehensive log ingestion and normalization from Windows and Linux environments via Logstash, enabling unified threat visibility and real-time security analytics across the enterprise.",
-      "Developed interactive Kibana dashboards with advanced visualizations for user behavior analytics, network traffic anomaly detection, and threat source identification to support rapid incident response.",
-      "Integrated threat intelligence feeds from AlienVault OTX, VirusTotal, and AbuseIPDB to enhance threat hunting capabilities and enable proactive detection of known malicious indicators and emerging threats.",
-      "Implemented automated alerting mechanisms with custom correlation rules to reduce false positives by 30% and improve mean time to detection (MTTD) for critical security events."
+      "Developed an AI-driven tool for analyzing suspicious `.eml` and `.msg` emails, used in SOC triage and forensic investigations.",
+      "Performed deep inspection of email headers with SPF, DKIM, and DMARC validation to detect spoofing and domain impersonation attacks.",
+      "Integrated VirusTotal, AbuseIPDB, and urlscan.io APIs for real-time analysis of sender IPs, embedded URLs, and attachments via SHA256 hashing.",
+      "Implemented an NLP-based phishing detection engine to assess urgency, manipulation, and social engineering tone — reducing manual triage time by 80%.",
+      "Generated comprehensive PDF/JSON reports with IOC highlights and threat verdicts for IR escalation and compliance documentation.",
+      "Architected the project for secure offline operation with a modular Python codebase and GUI (Tkinter) for analyst-friendly interaction."
     ],
     tech: [
-      "ELK Stack",
-      "Security Onion",
-      "Logstash",
-      "Kibana",
-      "Elasticsearch",
-      "AlienVault OTX",
+      "Python 3.11",
+      "Tkinter (GUI)",
       "VirusTotal API",
+      "urlscan.io API",
       "AbuseIPDB",
-      "Suricata IDS",
-      "Zeek Network Monitor"
+      "NLP (LLMs)",
+      "SPF/DKIM/DMARC",
+      "Email Parser",
+      "PDFKit"
+     
     ],
   },
+];
+
   {
     title: "Proactive Dark Web Threat Intelligence & Monitoring Platform",
     bullets: [
