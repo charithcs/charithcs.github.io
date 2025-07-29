@@ -4,7 +4,7 @@ A professional, responsive developer portfolio built using **Vite**, **React**, 
 This project is designed to highlight a candidate’s technical expertise, project experience, and career summary — optimized for FAANG recruiters and cybersecurity hiring teams.
 
 🔗 **Live Demo:**  
-[![View Live](https://img.shields.io/badge/Live%20Site-Online-success?style=flat&logo=github)](https://Securedsoul99.github.io/Portfolio-website-black-white/)
+[![View Live](https://img.shields.io/badge/Live%20Site-Online-success?style=flat&logo=github)]([https://charithcs.github.io/]
 
 ---
 
